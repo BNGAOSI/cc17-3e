@@ -11,3 +11,9 @@
 - Added user stories
 
 - Included image screenshot in user story
+
+### 2023/11/06
+
+- Changes made to user stories
+
+- Started Progress on user stories 
