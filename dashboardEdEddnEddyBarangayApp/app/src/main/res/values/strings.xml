@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- home strings -->
+
+    <string name="app_name">Page 1</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="_12_30_string">12:30</string>
+    <string name="welcome__user__string">Welcome, User!</string>
+    <string name="appointment_string">Appointment</string>
+    <string name="report_suggestion_string">Report/Suggestion</string>
+    <string name="locate_brgy__hall_string">Locate Brgy. Hall</string>
+    <string name="announcements_string">Announcements</string>
+    <string name="what_documents_do_you_need">What Documents do you need?</string>
+    <string name="todo">TODO</string>
+    <string name="todo2">TODO2</string>
+    <string name="todo3">TODO3</string>
+    <string name="proceed">Proceed</string>
+
+</resources>

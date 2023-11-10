@@ -17,3 +17,13 @@
 - Changes made to user stories
 
 - Started Progress on user stories 
+
+### 2023/11/08
+
+- Changes made to user stories
+
+- Started progress on Dashboard
+
+- Started progress on Announcement Screen
+
+- Started progress on Querries Screen
