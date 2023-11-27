@@ -1,9 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.FulldashboardEdEddnEddy" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/red_200</item>
-        <item name="colorPrimaryVariant">@color/red_500</item>
-    </style>
-
-    <style name="Theme.FulldashboardEdEddnEddy" parent="Base.Theme.FulldashboardEdEddnEddy" />
-</resources>
