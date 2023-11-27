@@ -27,3 +27,11 @@
 - Started progress on Announcement Screen
 
 - Started progress on Querries Screen
+
+### 2023/11/28
+
+- Authenticaiton feature implemented and fully functional
+
+- Implemented RecyclerView at appointment screen
+
+- Added Report dashboard and other internal screens
