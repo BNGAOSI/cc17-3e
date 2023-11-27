@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,10 +12,55 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Loginpage"
+        android:theme="@style/Theme.FulldashboardEdEddnEddy"
         tools:targetApi="31">
         <activity
+            android:name=".signup2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AskQueryDONE"
+            android:exported="false" />
+        <activity
+            android:name=".AskQuery"
+            android:exported="false" />
+        <activity
+            android:name=".SuggestNext"
+            android:exported="false" />
+        <activity
+            android:name=".Suggest"
+            android:exported="false" />
+        <activity
+            android:name=".ReportDONE"
+            android:exported="false" />
+        <activity
+            android:name=".ReportFillOut"
+            android:exported="false" />
+        <activity
+            android:name=".ReportNext"
+            android:exported="false" />
+        <activity
+            android:name=".profileAct"
+            android:exported="false" />
+        <activity
+            android:name=".settingsAct"
+            android:exported="false" />
+        <activity
+            android:name=".announcementsAct"
+            android:exported="false" />
+        <activity
+            android:name=".locateAct"
+            android:exported="false" />
+        <activity
+            android:name=".reportAct"
+            android:exported="false" />
+        <activity
+            android:name=".appointmentAct"
+            android:exported="false" />
+        <activity
+            android:name=".Loginpage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

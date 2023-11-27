@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name = "app_theme">#4d1211</color>
-    <color name = "button_color">#ff0202</color>
-    <color name = "button_color_light">#ede9e9</color>
-    <color name = "edit_text_background">#ffffff</color>
+    <color name="redButton">#FF0D0D</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="activityBackgroundColor">#ffffff</color>
+    <color name="edit_text_background">#6969</color>
+    <color name="button_color">#FF0D0D</color>
+    <color name="red_200">#FFD81717</color>
+    <color name="red_500">#770000</color>
 </resources>
