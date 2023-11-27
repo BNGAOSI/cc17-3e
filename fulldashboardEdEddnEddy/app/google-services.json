@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "107104492368",
+    "project_id": "barangaybuddy",
+    "storage_bucket": "barangaybuddy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107104492368:android:6e403d682b4de36fefaa55",
+        "android_client_info": {
+          "package_name": "com.example.fulldashboardededdneddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmsU9WUP9of3E-VYYQzVPlEIW82r7tmNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
