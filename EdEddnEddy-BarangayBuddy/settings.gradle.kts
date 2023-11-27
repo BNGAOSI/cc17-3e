@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "fulldashboardEdEddnEddy"
+rootProject.name = "EdEddnEddy-BarangayBuddy"
 include(":app")
  
