@@ -8,4 +8,5 @@
     <color name="button_color">#FF0D0D</color>
     <color name="red_200">#FFD81717</color>
     <color name="red_500">#770000</color>
+    <color name="divider_grey">#888888</color>
 </resources>

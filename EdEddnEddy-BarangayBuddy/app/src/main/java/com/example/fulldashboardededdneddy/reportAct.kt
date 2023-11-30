@@ -3,8 +3,8 @@ package com.example.fulldashboardededdneddy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.ImageButton
+import com.example.fulldashboardededdneddy.reportactvities.ReportActivity
 
 class reportAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class reportAct : AppCompatActivity() {
 
         val Click = findViewById<ImageButton>(R.id.reportButton1)
         Click.setOnClickListener {
-            val Intent = Intent(this, ReportNext::class.java)
+            val Intent = Intent(this, ReportActivity::class.java)
             startActivity(Intent)
         }
 
