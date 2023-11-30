@@ -35,3 +35,9 @@
 - Implemented RecyclerView at appointment screen
 
 - Added Report dashboard and other internal screens
+
+### 2023/11/30
+
+- Report activity is now able to send reports to our database in realtime
+
+- Also added a Report History activity
