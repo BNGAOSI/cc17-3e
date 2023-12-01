@@ -44,14 +44,17 @@ class  InsertionActivity : AppCompatActivity() {
 
         if (resName.isEmpty()){
             etResName.error = "Please enter your Name"
+            return
         }
 
         if (resCurLoc.isEmpty()){
             etResCurLoc.error = "Please enter Current Location"
+            return
         }
 
         if (resReport.isEmpty()){
             etResRep.error = "Please enter your Report"
+            return
         }
 
         val resId = dbDatabaseReference.push().key!!
