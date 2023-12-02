@@ -41,3 +41,7 @@
 - Report activity is now able to send reports to our database in realtime
 
 - Also added a Report History activity
+
+### 2023/12/2
+
+- Urgent feature fully functional and can utilize realtime database
