@@ -45,3 +45,7 @@
 ### 2023/12/2
 
 - Urgent feature fully functional and can utilize realtime database
+
+### 2023/12/3
+
+- Announcement screen is now able to fetch data from our Firestore
