@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Suggest">
+    tools:context=".Urgent">
 
     <ImageButton
-        android:id="@+id/goback1"
+        android:id="@+id/btnUrgBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
-        android:text="What would you like to suggest?"
+        android:text="What is your urgent message?"
         android:textSize="24sp"
         android:textColorHint="@color/hintColor"
         android:textColor="@color/black"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etSugName"
+        android:id="@+id/etUrgName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
@@ -42,15 +42,15 @@
         android:layout_marginHorizontal="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goback1" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUrgBack" />
 
     <EditText
-        android:id="@+id/etSuggest"
+        android:id="@+id/etUrgField"
         android:layout_width="340dp"
         android:layout_height="339dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="I would like for the officials to fix our cloged kanal here in botiwtiw tapat ng school."
+        android:hint="We've come to deliver an urgent message and it needs to be dealt with as soon as possible"
         android:inputType="textMultiLine"
         android:textColor="@color/black"
         android:textColorHint="@color/hintColor"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <ImageButton
-        android:id="@+id/btnSaveData"
+        android:id="@+id/btnSaveDataUrg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
@@ -67,6 +67,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSuggest"
+        app:layout_constraintTop_toBottomOf="@+id/etUrgField"
         app:layout_constraintVertical_bias="0.463" />
 </androidx.constraintlayout.widget.ConstraintLayout>

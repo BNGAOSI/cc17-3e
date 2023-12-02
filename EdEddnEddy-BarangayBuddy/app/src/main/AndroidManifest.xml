@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FulldashboardEdEddnEddy"
         tools:targetApi="31">
         <activity
+            android:name=".Urgent"
+            android:exported="false" />
+        <activity
             android:name=".ReportDetailsActivity"
             android:exported="false" />
         <activity

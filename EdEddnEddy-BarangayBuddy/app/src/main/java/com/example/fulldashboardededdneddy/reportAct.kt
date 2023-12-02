@@ -35,5 +35,11 @@ class reportAct : AppCompatActivity() {
             startActivity(Intent)
         }
 
+        val Urgentbtn = findViewById<ImageButton>(R.id.urgentButton)
+        Urgentbtn.setOnClickListener {
+            val intent = Intent(this, Urgent::class.java)
+            startActivity(intent)
+        }
+
     }
 }
