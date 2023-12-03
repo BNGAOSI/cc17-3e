@@ -24,4 +24,5 @@
     <string name="doc2">Barangay Clearance</string>
     <string name="doc3">Barangay ID Card</string>
     <string name="doc4">Barangay Certificate</string>
+    <string name="my_map_api_key">AIzaSyCvEa4iVs40ifFl3o1mrXr4UNkQ-cSX2jU</string>
 </resources>

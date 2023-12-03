@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val locateButton = findViewById<ImageButton>(R.id.locate_button)
         locateButton.setOnClickListener {
-            val Intent = Intent(this, locateAct::class.java)
+            val Intent = Intent(this, MapActivity::class.java)
             startActivity(Intent)
         }
 

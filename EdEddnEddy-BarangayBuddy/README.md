@@ -49,3 +49,5 @@
 ### 2023/12/3
 
 - Announcement screen is now able to fetch data from our Firestore
+
+- Barangay Hall Location feature fully functional
