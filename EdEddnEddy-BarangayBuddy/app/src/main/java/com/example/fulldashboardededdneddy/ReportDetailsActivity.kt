@@ -11,6 +11,7 @@ class ReportDetailsActivity : AppCompatActivity() {
     private lateinit var tvResName: TextView
     private lateinit var tvCurLoc: TextView
     private lateinit var tvReport: TextView
+    private lateinit var tvReplies: TextView
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
 
@@ -29,6 +30,7 @@ class ReportDetailsActivity : AppCompatActivity() {
         tvResName = findViewById(R.id.tvResName)
         tvCurLoc = findViewById(R.id.tvCurLoc)
         tvReport = findViewById(R.id.tvReport)
+        tvReplies = findViewById(R.id.tvReplies)
 
         /*
         btnUpdate = findViewById(R.id.btnUpdate)
@@ -41,5 +43,6 @@ class ReportDetailsActivity : AppCompatActivity() {
         tvResName.text = intent.getStringExtra("resName")
         tvCurLoc.text = intent.getStringExtra("resCurLoc")
         tvReport.text = intent.getStringExtra("resReport")
+        tvReplies.text = intent.getStringExtra("replies")
     }
 }

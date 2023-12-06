@@ -55,3 +55,7 @@
 ### 2023/12/4
 
 - Fixed some other issues e.g background colors
+
+### 2023/12/6
+
+- Added Query Replies feature but still not functional

@@ -31,7 +31,7 @@ class reportAct : AppCompatActivity() {
 
         val click2 = findViewById<ImageButton>(R.id.askButton)
         click2.setOnClickListener {
-            val Intent = Intent(this, AskQuery::class.java)
+            val Intent = Intent(this, QueryActivity::class.java)
             startActivity(Intent)
         }
 
