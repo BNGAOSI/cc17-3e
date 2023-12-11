@@ -59,3 +59,9 @@
 ### 2023/12/6
 
 - Added Query Replies feature but still not functional
+
+### 2023/12/12
+
+- Added User Manual and Testing guide
+
+- Added Apk 
