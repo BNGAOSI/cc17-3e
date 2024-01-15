@@ -22,10 +22,9 @@ class appointmentAct : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
 
-        /* val dashboardButton = findViewById<ImageButton>(R.id.backButton)
+         /*val dashboardButton = findViewById<ImageButton>(R.id.appback)
         dashboardButton.setOnClickListener {
-            val Intent = Intent(this, MainActivity::class.java)
-            startActivity(Intent)
-        } */
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent) */
+        }
     }
-}

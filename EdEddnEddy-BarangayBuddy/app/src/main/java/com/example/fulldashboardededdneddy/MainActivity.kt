@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         val announcementButton = findViewById<ImageButton>(R.id.announcement_button)
         announcementButton.setOnClickListener {
-            val Intent = Intent(this, announcementsAct::class.java)
+            val Intent = Intent(this, announcementsRefinedScreen::class.java)
             startActivity(Intent)
         }
 
