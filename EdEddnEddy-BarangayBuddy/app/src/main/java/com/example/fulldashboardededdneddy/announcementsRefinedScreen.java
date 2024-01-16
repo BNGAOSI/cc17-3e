@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.fulldashboardededdneddy.adapter.AnnouncementAdapter;
+import com.example.fulldashboardededdneddy.adapter.AnnouncementAdapterSecond;
 import com.example.fulldashboardededdneddy.data.AnnouncementDataClass;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,7 +44,7 @@ public class announcementsRefinedScreen extends AppCompatActivity {
 
         datalist = new ArrayList<>();
 
-        AnnouncementAdapter adapter = new AnnouncementAdapter(announcementsRefinedScreen.this, datalist);
+        AnnouncementAdapterSecond adapter = new AnnouncementAdapterSecond(announcementsRefinedScreen.this, datalist);
         recyclerView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("announcements");

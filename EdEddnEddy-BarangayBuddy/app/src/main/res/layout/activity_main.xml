@@ -26,7 +26,7 @@
         android:layout_width="327sp"
         android:layout_height="58sp"
         android:layout_marginTop="70dp"
-        android:background="@drawable/appointment_button"
+        android:background="@drawable/securedocumentsbtn"
         android:text="@string/button_string1"
         android:textAllCaps="false"
         android:textColor="#ffffff"

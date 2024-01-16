@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         val appointmentButton = findViewById<ImageButton>(R.id.appointment_button)
         appointmentButton.setOnClickListener {
-            val Intent = Intent(this,appointmentAct::class.java)
+            val Intent = Intent(this,Appointmentv2::class.java)
             startActivity(Intent)
         }
 

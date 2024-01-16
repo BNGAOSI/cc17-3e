@@ -21,8 +21,8 @@
         android:textColor="@color/black"/>
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/announcement_detailImage"
         android:padding="8dp"
         android:layout_gravity="center"

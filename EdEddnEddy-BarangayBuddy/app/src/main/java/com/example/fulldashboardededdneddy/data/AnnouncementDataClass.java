@@ -1,5 +1,7 @@
 package com.example.fulldashboardededdneddy.data;
 
+import java.sql.Timestamp;
+
 public class AnnouncementDataClass {
 
     private String title;
@@ -20,11 +22,6 @@ public class AnnouncementDataClass {
         this.timestamp = timestamp;
     }
 
-    public AnnouncementDataClass(String title, String description, String imageUrl) {
-        this.title = title;
-        this.description = description;
-        this.imageUrl = imageUrl;
-    }
 
     public String getTitle() {
         return title;
@@ -59,4 +56,6 @@ public class AnnouncementDataClass {
     public AnnouncementDataClass(){
 
     }
+
 }
+

@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -18,22 +17,23 @@ import com.example.fulldashboardededdneddy.AnnouncementDetailActivity;
 import com.example.fulldashboardededdneddy.R;
 import com.example.fulldashboardededdneddy.data.AnnouncementDataClass;
 
-import org.w3c.dom.Text;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-public class AnnouncementAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder> {
 
     private Context context;
 
-    public AnnouncementAdapter(Context context, List<AnnouncementDataClass> dataList) {
+    public AnnouncementAdapterSecond(Context context, List<AnnouncementDataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
     private List<AnnouncementDataClass> dataList;
 
-    public AnnouncementAdapter() {
+    public AnnouncementAdapterSecond() {
     }
 
     @NonNull
@@ -49,6 +49,11 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.recTitle.setText(dataList.get(position).getTitle());
         holder.recDesc.setText(dataList.get(position).getDescription());
 
+        // Retrieve timestamp and set the formatted date in recDate TextView
+        long timestamp = dataList.get(position).getTimestamp();
+        String formattedDate = MyViewHolder.getTimeDate(timestamp);
+        holder.recDate.setText(formattedDate);
+
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +61,7 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getImageUrl());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDescription());
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("Date", formattedDate);
 
                 context.startActivity(intent);
             }
@@ -84,4 +90,15 @@ class MyViewHolder extends RecyclerView.ViewHolder{
         recDate = itemView.findViewById(R.id.announcement_recDate);
 
     }
+
+    public static String getTimeDate(long timestamp){
+        try{
+            Date netDate = (new Date(timestamp));
+            SimpleDateFormat sfd = new SimpleDateFormat("EEE, MMM d, ''yy", Locale.getDefault());
+            return sfd.format(netDate);
+        } catch (Exception e){
+            return "date";
+        }
+    }
+
 }

@@ -65,3 +65,11 @@
 - Added User Manual and Testing guide
 
 - Added Apk 
+
+### 2024/01/16
+
+- Modified Appointment feature into Secure Documents feature
+
+- Added App Logo and fixed App Name
+
+- Announcement Feature refined with improved image visuals
