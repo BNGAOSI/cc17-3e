@@ -73,3 +73,7 @@
 - Added App Logo and fixed App Name
 
 - Announcement Feature refined with improved image visuals
+
+### 2024/01/18
+
+- Added Barangay Clearance fill up at Secure Documents Feature
