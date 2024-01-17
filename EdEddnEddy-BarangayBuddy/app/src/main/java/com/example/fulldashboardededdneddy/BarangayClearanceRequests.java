@@ -2,18 +2,19 @@ package com.example.fulldashboardededdneddy;
 
 public class BarangayClearanceRequests {
 
-    String firstName, lastName, age, dateOfBirth, presentAddress, purpose;
+    String firstName, lastName, age, dateOfBirth, presentAddress, purpose, gender;
 
     public BarangayClearanceRequests() {
     }
 
-    public BarangayClearanceRequests(String firstName, String lastName, String age, String dateOfBirth, String presentAddress, String purpose) {
+    public BarangayClearanceRequests(String firstName, String lastName, String age, String dateOfBirth, String presentAddress, String purpose, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.presentAddress = presentAddress;
         this.purpose = purpose;
+        this.gender = gender;
     }
 
     public String getFirstName() {
@@ -62,5 +63,13 @@ public class BarangayClearanceRequests {
 
     public void setPurpose(String purpose) {
         this.purpose = purpose;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

@@ -21,15 +21,15 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="24dp"
         android:text="What would you like to suggest?"
-        android:textSize="24sp"
-        android:textColorHint="@color/hintColor"
         android:textColor="@color/black"
+        android:textColorHint="@color/hintColor"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etDatePicker" />
 
     <EditText
         android:id="@+id/etSugName"
@@ -44,10 +44,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/goback1" />
 
+
+    <EditText
+        android:id="@+id/etDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:hint="Date (dd/MM/YYYY)"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hintColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSugName" />
+
     <EditText
         android:id="@+id/etSuggest"
         android:layout_width="340dp"
         android:layout_height="339dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="I would like for the officials to fix our cloged kanal here in botiwtiw tapat ng school."
@@ -55,6 +69,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/hintColor"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 

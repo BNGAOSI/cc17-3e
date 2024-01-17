@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".BarangayClearanceForm">
+    tools:context=".BusinessClearanceMain">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,11 +13,11 @@
 
 
         <TextView
-            android:id="@+id/textViewbarangayClearancetitle"
+            android:id="@+id/textViewBusinessClearancetitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:text="BARANGAY CLEARANCE"
+            android:text="Business Clearance"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -27,108 +27,106 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Owner*"
+            android:textColor="#555555"
+            android:layout_marginRight="160dp"
+            app:layout_constraintBottom_toTopOf="@+id/fullNameBusinessClearance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <EditText
-            android:id="@+id/firstName"
+            android:id="@+id/fullNameBusinessClearance"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/edt_background"
-            android:hint="First Name"
+            android:hint="Full Name"
             android:paddingLeft="20dp"
             android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewbarangayClearancetitle"
+            app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle"
             android:elevation="8dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Business or Establishment*"
+            android:textColor="#555555"
+            android:layout_marginRight="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/businessNameOrEstablishment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
         <EditText
-            android:id="@+id/lastName"
+            android:id="@+id/businessNameOrEstablishment"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/edt_background"
-            android:hint="Last Name"
+            android:hint=""
             android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstName" />
+            app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance" />
 
-        <EditText
-            android:id="@+id/age"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint="Age"
-            android:textColor="@color/black"
-            android:paddingLeft="20dp"
-            android:textColorHint="@color/hintColor"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date Issued*"
+            android:textColor="#555555"
+            android:layout_marginRight="185dp"
+            app:layout_constraintBottom_toTopOf="@+id/dateIssued"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lastName" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/birthDate"
+            android:id="@+id/dateIssued"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:textColor="@color/black"
             android:background="@drawable/edt_background"
-            android:hint="Date of Birth (dd/mm/yyyy)"
+            android:hint="(dd/mm/yyyy)"
             android:paddingLeft="20dp"
             android:focusable="false"
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/age" />
+            app:layout_constraintTop_toBottomOf="@+id/businessNameOrEstablishment" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business Address*"
+            android:textColor="#555555"
+            android:layout_marginRight="145dp"
+            app:layout_constraintBottom_toTopOf="@+id/businessLocation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/textView_gender"
+            android:id="@+id/businessLocation"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/edt_background"
-            android:hint="Gender Male/Female"
+            android:hint="Business Location "
             android:textColor="@color/black"
             android:paddingLeft="20dp"
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthDate" />
+            app:layout_constraintTop_toBottomOf="@+id/dateIssued" />
 
-
-
-        <EditText
-            android:id="@+id/presentAddress"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint="Present Address"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_gender"/>
-
-
-        <EditText
-            android:id="@+id/purpose"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint="Purpose"
-            android:textColor="@color/black"
-            android:paddingLeft="20dp"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/presentAddress" />
 
         <Button
             android:id="@+id/submit_btn"
@@ -141,7 +139,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/purpose" />
+            app:layout_constraintTop_toBottomOf="@+id/businessLocation" />
 
         <ProgressBar
             android:id="@+id/progressBar"

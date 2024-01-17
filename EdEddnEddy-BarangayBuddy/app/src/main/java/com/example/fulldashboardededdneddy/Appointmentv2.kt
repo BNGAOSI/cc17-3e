@@ -13,8 +13,14 @@ class Appointmentv2 : AppCompatActivity() {
 
         val barangayClearancbutton = findViewById<Button>(R.id.barangayClearancebtn)
         barangayClearancbutton.setOnClickListener {
-            val Intent = Intent(this, BarangayClearanceForm::class.java)
-            startActivity(Intent)
+            val intent = Intent(this, BarangayClearanceForm::class.java)
+            startActivity(intent)
+        }
+
+        val businessclearancemainbutton = findViewById<Button>(R.id.businessclearancebtn)
+        businessclearancemainbutton.setOnClickListener {
+            val intent = Intent(this, BusinessClearanceMain::class.java)
+            startActivity(intent)
         }
     }
 }

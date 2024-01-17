@@ -14,16 +14,18 @@
         android:layout_marginTop="116dp"
         android:text="Barangay Clearance"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/residencybtn"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:text="Residency"
+        android:textSize="20sp"
         android:layout_marginTop="14dp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,26 +33,28 @@
         app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/businessclearancebtn"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:textSize="20sp"
         android:text="Business Clearance"
         android:textColor="@color/white"
         android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/residencybtn" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/indigencybtn"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:text="Indigency"
+        android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
 
     <TextView
         android:id="@+id/chooseDocs"
