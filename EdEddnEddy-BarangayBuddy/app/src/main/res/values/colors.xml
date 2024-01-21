@@ -6,6 +6,7 @@
     <color name="activityBackgroundColor">#ffffff</color>
     <color name="edit_text_background">#6969</color>
     <color name="button_color">#FF0D0D</color>
+    <color name="text_field_stroke_color_grey">#666666</color>
     <color name="red_200">#FFD81717</color>
     <color name="red_500">#770000</color>
     <color name="divider_grey">#888888</color>

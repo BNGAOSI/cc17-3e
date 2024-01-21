@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Appointmentv2">
+    tools:context=".SecureDocument">
 
     <Button
         android:id="@+id/barangayClearancebtn"
@@ -15,6 +15,7 @@
         android:text="Barangay Clearance"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:backgroundTint="@color/redButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +29,7 @@
         android:textSize="20sp"
         android:layout_marginTop="14dp"
         android:textColor="@color/white"
+        android:backgroundTint="@color/redButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
@@ -40,6 +42,7 @@
         android:text="Business Clearance"
         android:textColor="@color/white"
         android:layout_marginTop="14dp"
+        android:backgroundTint="@color/redButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/residencybtn" />
@@ -52,6 +55,7 @@
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_marginTop="14dp"
+        android:backgroundTint="@color/redButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />

@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 
-/*class MainActivity : AppCompatActivity() {
+class DashboardFragment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val appointmentButton = findViewById<ImageButton>(R.id.appointment_button)
         appointmentButton.setOnClickListener {
-            val Intent = Intent(this,Appointmentv2::class.java)
+            val Intent = Intent(this,SecureDocument::class.java)
             startActivity(Intent)
         }
 
@@ -48,5 +48,3 @@ import android.widget.ImageButton
 
     }
 }
-
- */

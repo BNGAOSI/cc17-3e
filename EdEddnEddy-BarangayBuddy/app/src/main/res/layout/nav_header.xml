@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="top"
+    android:paddingTop="30dp"
+    android:paddingLeft="20dp"
+    android:background="#21232d"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+
+    android:layout_height="100dp">
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/barangaybuddy_icon"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Barangay Buddy"
+        android:textColor="#a5aaad"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:fontFamily="@font/montserratbold"/>
+
+</RelativeLayout>

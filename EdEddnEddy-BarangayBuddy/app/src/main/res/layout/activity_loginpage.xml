@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgrounddark"
+    android:background="@drawable/loginbackgroundcropped"
     tools:context=".Loginpage">
 
     <TextView
@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="Barangay Buddy"
-        android:textColor="@color/white"
+        android:fontFamily="@font/montserratbold"
+        android:textColor="#950019"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,9 +28,13 @@
         android:layout_height="64dp"
         android:layout_marginTop="92dp"
         android:ems="10"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/text_field_stroke_color_grey"
         android:hint="Email"
+        android:fontFamily="@font/montserratlight"
         android:inputType="text"
+        android:background="@drawable/edt_background"
+        android:paddingLeft="25dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -40,31 +45,46 @@
         android:layout_height="64dp"
         android:ems="10"
         android:hint="Password"
+        android:fontFamily="@font/montserratlight"
         android:inputType="text"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/text_field_stroke_color_grey"
+        android:background="@drawable/edt_background"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="25dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
 
     <Button
         android:id="@+id/loginbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
         android:text="Login"
-        android:textColor="@color/white"
+        android:fontFamily="@font/montserratregular"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:elevation="10dp"
+        android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
 
     <Button
         android:id="@+id/signupbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
         android:text="Register"
-        android:textColor="@color/white"
+        android:fontFamily="@font/montserratregular"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:elevation="10dp"
+        android:background="@drawable/custom_button"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginbutton" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

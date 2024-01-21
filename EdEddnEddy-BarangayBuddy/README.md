@@ -77,3 +77,7 @@
 ### 2024/01/18
 
 - Added Barangay Clearance fill up at Secure Documents Feature
+
+### 2024/01/21
+
+- Converted kotlin files to java (SecureDocument, reportAct, MapActivity, announcementsRefinedScreen)

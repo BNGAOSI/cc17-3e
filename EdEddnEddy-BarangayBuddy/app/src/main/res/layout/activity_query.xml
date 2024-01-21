@@ -23,19 +23,21 @@
 
     <Button
         android:id="@+id/btnInsertQuery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
         android:text="Ask Here"
         android:textColor="@color/white"
         android:layout_marginTop="75dp"
+        android:backgroundTint="@color/redButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/btnFetchQuery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/redButton"
         android:layout_marginTop="75dp"
         android:text="Replies"
         android:textColor="@color/white"

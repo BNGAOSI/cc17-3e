@@ -12,8 +12,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FulldashboardEdEddnEddy"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".navigation_drawer_main"
+            android:exported="false" />
+        <activity
+            android:name=".navigation_view_main"
+            android:exported="false"
+            android:label="@string/title_activity_navigation_view_main"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".BusinessClearanceMain"
             android:exported="false" />
@@ -21,7 +29,7 @@
             android:name=".BarangayClearanceForm"
             android:exported="false" />
         <activity
-            android:name=".Appointmentv2"
+            android:name=".SecureDocument"
             android:exported="false" />
         <activity
             android:name=".announcementsRefinedScreen"

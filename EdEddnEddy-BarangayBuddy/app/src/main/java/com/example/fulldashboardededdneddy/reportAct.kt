@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import com.example.fulldashboardededdneddy.reportactvities.ReportActivity
-
+/* Kotlin Version
 class reportAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,3 +43,5 @@ class reportAct : AppCompatActivity() {
 
     }
 }
+
+ */

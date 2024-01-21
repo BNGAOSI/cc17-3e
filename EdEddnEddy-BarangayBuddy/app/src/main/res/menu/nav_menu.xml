@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/dashboard_icon"
+            android:title="Dashboard"/>
+
+        <item
+            android:id="@+id/nav_secure_document"
+            android:icon="@drawable/secure_documents_icon"
+            android:title="Secure a Document"/>
+
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/report_icon"
+            android:title="File a report"/>
+
+        <item
+            android:id="@+id/nav_suggest"
+            android:icon="@drawable/suggestion_icon"
+            android:title="Send a suggestion"/>
+
+        <item
+            android:id="@+id/nav_announcements"
+            android:icon="@drawable/announcements_icon"
+            android:title="Announcements"/>
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings_icon"
+            android:title="Settings"/>
+
+    </group>
+
+    <item
+        android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout_icon"
+                android:title="Logout"/>
+        </menu>
+
+    </item>
+
+
+</menu>
