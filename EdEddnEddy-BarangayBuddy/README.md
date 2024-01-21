@@ -81,3 +81,7 @@
 ### 2024/01/21
 
 - Converted kotlin files to java (SecureDocument, reportAct, MapActivity, announcementsRefinedScreen)
+
+### 2024/01/22
+
+- Changes made to the overall design to be matched with the Webpage

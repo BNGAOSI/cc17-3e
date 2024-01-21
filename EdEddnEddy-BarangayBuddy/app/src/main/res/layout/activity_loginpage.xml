@@ -25,7 +25,7 @@
     <EditText
         android:id="@+id/editTextText5"
         android:layout_width="309dp"
-        android:layout_height="64dp"
+        android:layout_height="54dp"
         android:layout_marginTop="92dp"
         android:ems="10"
         android:textColorHint="@color/text_field_stroke_color_grey"
@@ -42,7 +42,7 @@
     <EditText
         android:id="@+id/editTextText6"
         android:layout_width="309dp"
-        android:layout_height="64dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:hint="Password"
         android:fontFamily="@font/montserratlight"
@@ -59,7 +59,7 @@
     <Button
         android:id="@+id/loginbutton"
         android:layout_width="260dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:text="Login"
         android:fontFamily="@font/montserratregular"
@@ -74,7 +74,7 @@
     <Button
         android:id="@+id/signupbutton"
         android:layout_width="260dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:text="Register"
         android:fontFamily="@font/montserratregular"
         android:textColor="@color/black"

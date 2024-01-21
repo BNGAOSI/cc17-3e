@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/divider_grey_2"
+    tools:context=".Home">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+
+
+       <TextView
+           android:id="@+id/textView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="DASHBOARD"
+           android:fontFamily="@font/montserratbold"
+           android:textColor="#474747"
+           android:textSize="25sp"
+           android:textStyle="bold"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.268"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias="0.149" />
+
+       <TextView
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:background="@drawable/custom_rounded_button"
+           android:layout_marginTop="70dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/textView"
+           />
+
+       <Button
+           android:id="@+id/appointment_button"
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:textAlignment="textStart"
+           android:background="@drawable/custom_rounded_button"
+           android:backgroundTint="@color/white"
+           android:paddingLeft="30dp"
+           android:textColor="@color/divider_grey"
+           android:layout_marginLeft="15dp"
+           android:fontFamily="@font/montserratregular"
+           android:layout_marginTop="70dp"
+           android:text="Secure a Document"
+           android:textAllCaps="false"
+           android:textSize="20sp"
+           android:textStyle="normal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+       <TextView
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:background="@drawable/custom_rounded_button"
+           android:layout_marginTop="14dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/appointment_button"
+           />
+
+       <Button
+           android:id="@+id/report_button"
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:textAlignment="textStart"
+           android:background="@drawable/custom_rounded_button"
+           android:backgroundTint="@color/white"
+           android:paddingLeft="30dp"
+           android:textColor="@color/divider_grey"
+           android:layout_marginLeft="15dp"
+           android:fontFamily="@font/montserratregular"
+           android:layout_marginTop="14dp"
+           android:text="@string/report"
+           android:textAllCaps="false"
+           android:textSize="20sp"
+           android:textStyle="normal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/appointment_button" />
+
+       <TextView
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:background="@drawable/custom_rounded_button"
+           android:layout_marginTop="14dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/report_button"
+           />
+
+       <Button
+           android:id="@+id/locate_button"
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:textAlignment="textStart"
+           android:background="@drawable/custom_rounded_button"
+           android:backgroundTint="@color/white"
+           android:paddingLeft="30dp"
+           android:textColor="@color/divider_grey"
+           android:layout_marginLeft="15dp"
+           android:fontFamily="@font/montserratregular"
+           android:layout_marginTop="14dp"
+           android:text="@string/locate"
+           android:textAllCaps="false"
+           android:textSize="20sp"
+           android:textStyle="normal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/report_button" />
+
+       <TextView
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:background="@drawable/custom_rounded_button"
+           android:layout_marginTop="14dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/locate_button"
+           />
+
+       <Button
+           android:id="@+id/announcement_button"
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:textAlignment="textStart"
+           android:background="@drawable/custom_rounded_button"
+           android:backgroundTint="@color/white"
+           android:paddingLeft="30dp"
+           android:textColor="@color/divider_grey"
+           android:layout_marginLeft="15dp"
+           android:fontFamily="@font/montserratregular"
+           android:layout_marginTop="14dp"
+           android:text="Announcements"
+           android:textAllCaps="false"
+           android:textSize="20sp"
+           android:textStyle="normal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/locate_button" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

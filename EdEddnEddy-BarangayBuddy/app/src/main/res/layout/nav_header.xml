@@ -4,9 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:gravity="top"
-    android:paddingTop="30dp"
+    android:paddingTop="50dp"
     android:paddingLeft="20dp"
-    android:background="#21232d"
+    android:background="@color/navyblue"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
 
     android:layout_height="100dp">

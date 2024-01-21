@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="redButton">#FF0D0D</color>
+    <color name="redButton">#C80000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="activityBackgroundColor">#ffffff</color>
@@ -11,4 +11,6 @@
     <color name="red_500">#770000</color>
     <color name="divider_grey">#888888</color>
     <color name="hintColor">#959595</color>
+    <color name="navyblue">#1A1F3C</color>
+    <color name="divider_grey_2">#EBEBEB</color>
 </resources>
