@@ -85,3 +85,7 @@
 ### 2024/01/22
 
 - Changes made to the overall design to be matched with the Webpage
+
+### 2024/01/22
+
+- Added Vision and Mission at the applications dashboard

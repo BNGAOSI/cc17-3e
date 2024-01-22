@@ -4,72 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".SecureDocument">
+    android:background="@color/divider_grey_2"
+    tools:context=".SecureDocument">>
 
-    <Button
-        android:id="@+id/barangayClearancebtn"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="116dp"
-        android:text="Barangay Clearance"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:backgroundTint="@color/redButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_rounded_button"
+            android:layout_marginTop="228dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"  />
 
-    <Button
-        android:id="@+id/residencybtn"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="Residency"
-        android:textSize="20sp"
-        android:layout_marginTop="14dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/redButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
+        <Button
+            android:id="@+id/barangayClearancebtn"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="228dp"
+            android:background="@drawable/custom_rounded_button"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserratregular"
+            android:paddingLeft="30dp"
+            android:text="Barangay Clearance"
+            android:textAlignment="textStart"
+            android:textColor="@color/divider_grey"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/businessclearancebtn"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:textSize="20sp"
-        android:text="Business Clearance"
-        android:textColor="@color/white"
-        android:layout_marginTop="14dp"
-        android:backgroundTint="@color/redButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/residencybtn" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_rounded_button"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
 
-    <Button
-        android:id="@+id/indigencybtn"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="Indigency"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:layout_marginTop="14dp"
-        android:backgroundTint="@color/redButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
+        <Button
+            android:id="@+id/residencybtn"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textAlignment="textStart"
+            android:background="@drawable/custom_rounded_button"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserratregular"
+            android:paddingLeft="30dp"
+            android:text="Residency"
+            android:textSize="20sp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/divider_grey"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
 
-    <TextView
-        android:id="@+id/chooseDocs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/black"
-        android:text="Choose your preferred document"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/barangayClearancebtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_rounded_button"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/residencybtn" />
+
+        <Button
+            android:id="@+id/businessclearancebtn"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textAlignment="textStart"
+            android:background="@drawable/custom_rounded_button"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserratregular"
+            android:paddingLeft="30dp"
+            android:textSize="20sp"
+            android:textColor="@color/divider_grey"
+            android:text="Business Clearance"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/residencybtn" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_rounded_button"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
+
+        <Button
+            android:id="@+id/indigencybtn"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textAlignment="textStart"
+            android:background="@drawable/custom_rounded_button"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserratregular"
+            android:paddingLeft="30dp"
+            android:text="Indigency"
+            android:textSize="20sp"
+            android:textColor="@color/divider_grey"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
+
+        <TextView
+            android:id="@+id/chooseDocs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserratbold"
+            android:textColor="@color/black"
+            android:text="Choose your preferred document"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/barangayClearancebtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

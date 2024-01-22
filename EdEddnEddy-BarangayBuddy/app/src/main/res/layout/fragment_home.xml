@@ -7,18 +7,21 @@
     android:background="@color/divider_grey_2"
     tools:context=".Home">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
-       android:layout_height="match_parent">
-
+       android:layout_height="wrap_content">
 
 
        <TextView
            android:id="@+id/textView"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="DASHBOARD"
            android:fontFamily="@font/montserratbold"
+           android:text="DASHBOARD"
            android:textColor="#474747"
            android:textSize="25sp"
            android:textStyle="bold"
@@ -27,7 +30,7 @@
            app:layout_constraintHorizontal_bias="0.268"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintVertical_bias="0.149" />
+           app:layout_constraintVertical_bias="0.060000002" />
 
        <TextView
            android:layout_width="300dp"
@@ -54,6 +57,7 @@
            android:text="Secure a Document"
            android:textAllCaps="false"
            android:textSize="20sp"
+           android:elevation="20dp"
            android:textStyle="normal"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +89,7 @@
            android:textAllCaps="false"
            android:textSize="20sp"
            android:textStyle="normal"
+           android:elevation="20dp"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/appointment_button" />
@@ -115,6 +120,7 @@
            android:textAllCaps="false"
            android:textSize="20sp"
            android:textStyle="normal"
+           android:elevation="20dp"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/report_button" />
@@ -145,11 +151,41 @@
            android:textAllCaps="false"
            android:textSize="20sp"
            android:textStyle="normal"
+           android:elevation="20dp"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/locate_button" />
 
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/announcement_button"
+           app:cardCornerRadius="10dp"
+           android:elevation="20dp"
+           android:layout_marginTop="40dp">
+
+
+       <TextView
+           android:id="@+id/vision"
+           android:layout_width="300dp"
+           android:layout_height="wrap_content"
+           android:text="@string/VisionMission"
+           android:fontFamily="@font/montserratregular"
+           android:padding="20dp"
+           android:elevation="20dp"
+           />
+
+
+
+       </androidx.cardview.widget.CardView>
+
+
    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 
 </FrameLayout>
