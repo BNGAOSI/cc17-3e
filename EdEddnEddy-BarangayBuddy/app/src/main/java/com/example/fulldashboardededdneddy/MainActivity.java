@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (itemId == id.nav_settings){
             replaceFragment(new SettingsFragment());
         }
+
+        if (itemId == id.nav_announcements) {
+            Intent intent = new Intent(this, announcementsRefinedScreen.class);
+            startActivity(intent);
+        }
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

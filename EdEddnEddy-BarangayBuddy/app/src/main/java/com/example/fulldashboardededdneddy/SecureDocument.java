@@ -12,9 +12,11 @@ import kotlin.Metadata;
 import org.jetbrains.annotations.Nullable;
 
 public final class SecureDocument extends AppCompatActivity {
+
+    private Button residencyact;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(layout.activity_appointmentv2);
+        setContentView(layout.activity_appointmentv2);
         Button barangayClearancbutton = (Button)this.findViewById(id.barangayClearancebtn);
         barangayClearancbutton.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
             public final void onClick(View it) {
@@ -27,6 +29,15 @@ public final class SecureDocument extends AppCompatActivity {
             public final void onClick(View it) {
                 Intent intent = new Intent((Context)SecureDocument.this, BusinessClearanceMain.class);
                 SecureDocument.this.startActivity(intent);
+            }
+        }));
+
+
+        Button residencybtn = (Button)this.findViewById(id.residencybtnact);
+        residencybtn.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
+            public final void onClick(View it) {
+                Intent intent = new Intent((Context)SecureDocument.this, residencyform.class);
+                startActivity(intent);
             }
         }));
     }

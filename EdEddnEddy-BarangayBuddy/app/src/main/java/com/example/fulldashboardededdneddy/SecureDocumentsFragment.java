@@ -50,5 +50,14 @@ View view;
                 startActivity(intent);
             }
         });
+
+        Button residencybtn = (Button) context.findViewById(R.id.residencybtn);
+        residencybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, residencyform.class);
+                startActivity(intent);
+            }
+        });
     }
 }

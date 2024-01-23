@@ -4,57 +4,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/activityBackgroundColor"
+    android:background="@color/divider_grey_2"
     tools:context=".reportAct">
 
-    <ImageButton
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="@drawable/custom_rounded_button"
+        android:backgroundTint="@color/redButton"
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19"/>
+
+    <Button
         android:id="@+id/reportButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_report"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:textAlignment="textStart"
+        android:background="@drawable/custom_rounded_button"
+        android:backgroundTint="@color/white"
+        android:paddingLeft="30dp"
+        android:textColor="@color/divider_grey"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/montserratregular"
+        android:textAllCaps="false"
+        android:layout_marginTop="14dp"
+        android:text="Report"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19" />
 
-    <ImageButton
-        android:id="@+id/suggestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="@drawable/custom_rounded_button"
+        android:backgroundTint="@color/redButton"
         android:layout_marginTop="26dp"
-        android:background="@drawable/button_suggest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportButton1"/>
+
+    <Button
+        android:id="@+id/suggestButton"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:textAlignment="textStart"
+        android:background="@drawable/custom_rounded_button"
+        android:backgroundTint="@color/white"
+        android:paddingLeft="30dp"
+        android:textColor="@color/divider_grey"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/montserratregular"
+        android:textAllCaps="false"
+        android:layout_marginTop="26dp"
+        android:text="Suggest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reportButton1" />
 
-    <ImageButton
-        android:id="@+id/askButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="@drawable/custom_rounded_button"
+        android:backgroundTint="@color/redButton"
         android:layout_marginTop="26dp"
-        android:background="@drawable/button_ask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suggestButton"/>
+
+    <Button
+        android:id="@+id/askButton"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:textAlignment="textStart"
+        android:background="@drawable/custom_rounded_button"
+        android:backgroundTint="@color/white"
+        android:paddingLeft="30dp"
+        android:textColor="@color/divider_grey"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/montserratregular"
+        android:textAllCaps="false"
+        android:layout_marginTop="26dp"
+        android:text="Ask/Query"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/suggestButton" />
 
-    <ImageButton
-        android:id="@+id/urgentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="@drawable/custom_rounded_button"
+        android:backgroundTint="@color/redButton"
         android:layout_marginTop="26dp"
-        android:background="@drawable/button_urgent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/askButton"/>
+
+    <Button
+        android:id="@+id/urgentButton"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:textAlignment="textStart"
+        android:backgroundTint="@color/white"
+        android:paddingLeft="30dp"
+        android:textColor="@color/divider_grey"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/montserratregular"
+        android:textAllCaps="false"
+        android:layout_marginTop="26dp"
+        android:text="Urgent Report"
+        android:background="@drawable/custom_rounded_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/askButton" />
 
-    <ImageButton
+    <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/divider_grey_2"
         android:background="@drawable/back_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

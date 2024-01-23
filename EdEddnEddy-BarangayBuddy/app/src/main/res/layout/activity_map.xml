@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/divider_grey_2"
     android:scrollbarSize="8dp"
     tools:context=".MapActivity">
 
@@ -14,9 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Barangay Hall Location"
-        android:textColor="@color/button_color"
-        android:textSize="20sp"
+        android:textColor="@color/navyblue"
+        android:textSize="25sp"
         android:textStyle="bold"
+        android:fontFamily="@font/montserratbold"
         app:layout_constraintBottom_toTopOf="@+id/MapCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

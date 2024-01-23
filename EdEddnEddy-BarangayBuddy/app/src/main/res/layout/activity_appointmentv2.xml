@@ -46,7 +46,7 @@
             app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
 
         <Button
-            android:id="@+id/residencybtn"
+            android:id="@+id/residencybtnact"
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:textAlignment="textStart"
@@ -70,7 +70,7 @@
             android:layout_marginTop="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/residencybtn" />
+            app:layout_constraintTop_toBottomOf="@+id/residencybtnact" />
 
         <Button
             android:id="@+id/businessclearancebtn"
@@ -88,7 +88,7 @@
             android:layout_marginLeft="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/residencybtn" />
+            app:layout_constraintTop_toBottomOf="@+id/residencybtnact" />
 
         <TextView
             android:layout_width="300dp"

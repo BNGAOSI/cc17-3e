@@ -89,3 +89,9 @@
 ### 2024/01/22
 
 - Added Vision and Mission at the applications dashboard
+
+### 2024/01/24
+
+- Finished front end of Residency fill out form but still need fixing of back end
+
+- Announcement activity can now be accessed using the navigation drawer
