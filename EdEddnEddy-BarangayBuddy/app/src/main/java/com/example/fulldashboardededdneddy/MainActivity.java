@@ -27,7 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 import org.jetbrains.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+    
     private DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
 
@@ -74,16 +74,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replaceFragment(new SendReportFragment());
         } else if (itemId == id.nav_suggest){
             replaceFragment(new SuggestionFragment());
-        } else if (itemId == id.nav_announcements){
-            replaceFragment(new AnnouncementsFragment());
         } else if (itemId == id.nav_settings){
             replaceFragment(new SettingsFragment());
         }
 
-        if (itemId == id.nav_announcements) {
-            Intent intent = new Intent(this, announcementsRefinedScreen.class);
-            startActivity(intent);
-        }
+
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -97,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
+
 
     //=====================  Converts Frame layout to Fragment  ==================
     private void replaceFragment(Fragment fragment) {

@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class announcementsRefinedScreen extends AppCompatActivity {
+public class announcementsRefinedScreen extends AppCompatActivity{
 
     private DrawerLayout drawerLayout;
     RecyclerView recyclerView;
@@ -45,7 +45,7 @@ public class announcementsRefinedScreen extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.announcement_recyclerView);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(announcementsRefinedScreen.this,1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(announcementsRefinedScreen.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(announcementsRefinedScreen.this);
@@ -63,12 +63,11 @@ public class announcementsRefinedScreen extends AppCompatActivity {
         dialog.show();
 
 
-
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 datalist.clear();
-                for (DataSnapshot itemSnapshot: snapshot.getChildren()){
+                for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
                     AnnouncementDataClass dataClass = itemSnapshot.getValue(AnnouncementDataClass.class);
                     datalist.add(dataClass);
                 }
@@ -82,41 +81,8 @@ public class announcementsRefinedScreen extends AppCompatActivity {
             }
         });
 
-        //========================    ==========================
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (savedInstanceState == null){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
-                    navigationView.setCheckedItem(R.id.nav_home);
-                }
-                return true;
-            }
-        });
-
-
-
     }
+//============================Toolbar Settings================================
 
 
-
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    //=====================  Converts Frame layout to Fragment  ==================
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container,fragment);
-        fragmentTransaction.commit();
-    }
 }

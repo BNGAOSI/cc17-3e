@@ -95,3 +95,7 @@
 - Finished front end of Residency fill out form but still need fixing of back end
 
 - Announcement activity can now be accessed using the navigation drawer
+
+### 2024/01/27
+
+- Removed Announcement fragment at navigation drawer
