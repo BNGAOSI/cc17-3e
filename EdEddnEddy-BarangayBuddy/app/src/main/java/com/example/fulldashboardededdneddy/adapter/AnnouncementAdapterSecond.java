@@ -17,10 +17,12 @@ import com.example.fulldashboardededdneddy.AnnouncementDetailActivity;
 import com.example.fulldashboardededdneddy.R;
 import com.example.fulldashboardededdneddy.data.AnnouncementDataClass;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder> {
 
@@ -47,7 +49,6 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Glide.with(context).load(dataList.get(position).getImageUrl()).into(holder.recImage);
         holder.recTitle.setText(dataList.get(position).getTitle());
-        holder.recDesc.setText(dataList.get(position).getDescription());
 
         // Retrieve timestamp and set the formatted date in recDate TextView
         long timestamp = dataList.get(position).getTimestamp();
@@ -77,7 +78,7 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
 class MyViewHolder extends RecyclerView.ViewHolder{
 
     ImageView recImage;
-    TextView recTitle, recDesc, recDate;
+    TextView recTitle, recDate;
     LinearLayout recCard;
 
     public MyViewHolder(@NonNull View itemView) {
@@ -85,7 +86,6 @@ class MyViewHolder extends RecyclerView.ViewHolder{
 
         recImage = itemView.findViewById(R.id.announcement_recImage);
         recCard = itemView.findViewById(R.id.announcement_recCard);
-        recDesc = itemView.findViewById(R.id.announcement_recDesc);
         recTitle = itemView.findViewById(R.id.announcement_recTitle);
         recDate = itemView.findViewById(R.id.announcement_recDate);
 
@@ -94,11 +94,12 @@ class MyViewHolder extends RecyclerView.ViewHolder{
     public static String getTimeDate(long timestamp){
         try{
             Date netDate = (new Date(timestamp));
-            SimpleDateFormat sfd = new SimpleDateFormat("EEE, MMM d, ''yy", Locale.getDefault());
+            SimpleDateFormat sfd = new SimpleDateFormat("MMM d', 'yyyy", Locale.getDefault());
             return sfd.format(netDate);
         } catch (Exception e){
             return "date";
         }
     }
 
-}
+    }
+

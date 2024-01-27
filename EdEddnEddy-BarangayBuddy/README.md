@@ -99,3 +99,7 @@
 ### 2024/01/27
 
 - Removed Announcement fragment at navigation drawer
+
+### 2024/01/28
+
+- Added lines of code for storing timestamp everytime a resident requests for a Barangay Clearance.

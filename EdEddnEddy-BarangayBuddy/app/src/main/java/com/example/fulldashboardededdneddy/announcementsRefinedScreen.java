@@ -31,8 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class announcementsRefinedScreen extends AppCompatActivity{
-
-    private DrawerLayout drawerLayout;
     RecyclerView recyclerView;
     List<AnnouncementDataClass> datalist;
     DatabaseReference databaseReference;

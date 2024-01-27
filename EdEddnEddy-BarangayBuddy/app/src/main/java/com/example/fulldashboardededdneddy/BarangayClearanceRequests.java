@@ -1,13 +1,20 @@
 package com.example.fulldashboardededdneddy;
 
+import java.util.Map;
+
 public class BarangayClearanceRequests {
 
+    Map time;
     String firstName, lastName, age, dateOfBirth, presentAddress, purpose, gender;
 
     public BarangayClearanceRequests() {
     }
 
-    public BarangayClearanceRequests(String firstName, String lastName, String age, String dateOfBirth, String presentAddress, String purpose, String gender) {
+    public BarangayClearanceRequests(Map time) {
+        this.time = time;
+    }
+
+    public BarangayClearanceRequests(String firstName, String lastName, String age, String dateOfBirth, String presentAddress, String purpose, String gender, Map time) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -15,6 +22,15 @@ public class BarangayClearanceRequests {
         this.presentAddress = presentAddress;
         this.purpose = purpose;
         this.gender = gender;
+        this.time = time;
+    }
+
+    public Map getTime() {
+        return time;
+    }
+
+    public void setTime(Map time) {
+        this.time = time;
     }
 
     public String getFirstName() {

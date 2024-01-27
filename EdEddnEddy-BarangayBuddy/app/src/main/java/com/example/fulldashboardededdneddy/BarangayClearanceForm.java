@@ -22,13 +22,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 import java.util.Calendar;
+import java.util.Map;
 
 public class BarangayClearanceForm extends AppCompatActivity {
 
     ActivityBarangayclearanceformBinding binding;
     String firstName, lastName, age, dateOfBirth, presentAddress, purpose, gender;
+
+    Map time;
 
     private EditText birthDate;
     private DatePickerDialog picker;
@@ -51,6 +55,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 final Calendar calendar = Calendar.getInstance();
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH);
@@ -68,8 +73,10 @@ public class BarangayClearanceForm extends AppCompatActivity {
         });
 
         binding.submitBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
 
                 firstName = binding.firstName.getText().toString();
                 lastName = binding.lastName.getText().toString();
@@ -83,10 +90,12 @@ public class BarangayClearanceForm extends AppCompatActivity {
                 if(!firstName.isEmpty() && !lastName.isEmpty() && !age.isEmpty() && !dateOfBirth.isEmpty() && !presentAddress.isEmpty() && !purpose.isEmpty() && !gender.isEmpty()){
 
 
-                    BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(firstName,lastName,age,dateOfBirth,presentAddress,purpose,gender);
+                    BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(firstName,lastName,age,dateOfBirth,presentAddress,purpose,gender, ServerValue.TIMESTAMP);
                     db = FirebaseDatabase.getInstance();
                     reference = db.getReference("RequestedDocuments");
+
                     reference.child("Barangay Clearance").child(firstName + " " + lastName).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             binding.firstName.setText("");
@@ -101,6 +110,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
                         }
                     });
                 }
+
             }
 
         });

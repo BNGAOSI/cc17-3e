@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/announcement_recCard"
-    android:background="@color/white">
-    
+    android:background="@color/divider_grey_2">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,28 +17,20 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="200dp">
-            
-            <ImageView
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/announcement_recImage"
-                android:src="@drawable/uploadimg"
-                android:scaleType="centerCrop"/>
+                android:layout_height="150dp">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/gradient"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/announcement_recImage"
+                    android:src="@drawable/uploadimg"
+                    android:scaleType="centerCrop"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"
-                android:padding="10dp"
-                android:id="@+id/announcement_recTitle"
-                android:textSize="20dp"
+            </androidx.cardview.widget.CardView>
 
-                android:textColor="@color/white"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,11 +43,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="Description"
+                    android:text="Title"
                     android:textSize="16dp"
                     android:ems="15"
-                    android:textColor="@color/white"
-                    android:id="@+id/announcement_recDesc"/>
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="@color/black"
+                    android:id="@+id/announcement_recTitle"/>
 
 
                 <TextView
@@ -63,11 +56,10 @@
                     android:layout_height="wrap_content"
                     android:text="Date"
                     android:id="@+id/announcement_recDate"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@color/white"/>
-
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
         </FrameLayout>
