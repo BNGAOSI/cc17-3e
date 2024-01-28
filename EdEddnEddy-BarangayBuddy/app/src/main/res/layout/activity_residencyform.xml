@@ -32,12 +32,12 @@
             android:text="Full Name*"
             android:textColor="#555555"
             android:layout_marginRight="190dp"
-            app:layout_constraintBottom_toTopOf="@+id/fullNameBusinessClearance"
+            app:layout_constraintBottom_toTopOf="@+id/fullName_residency"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/fullNameBusinessClearance"
+            android:id="@+id/fullName_residency"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="36dp"
@@ -57,14 +57,14 @@
             android:text="Age*"
             android:layout_marginLeft="-230dp"
             android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/businessNameOrEstablishment"
+            app:layout_constraintBottom_toTopOf="@+id/age_residency"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 
 
         <EditText
-            android:id="@+id/businessNameOrEstablishment"
+            android:id="@+id/age_residency"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
@@ -75,7 +75,7 @@
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance" />
+            app:layout_constraintTop_toBottomOf="@+id/fullName_residency" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -83,12 +83,12 @@
             android:text="Date of Birth*"
             android:textColor="#555555"
             android:layout_marginRight="185dp"
-            app:layout_constraintBottom_toTopOf="@+id/birthDate"
+            app:layout_constraintBottom_toTopOf="@+id/birthDateResidency"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/birthDate"
+            android:id="@+id/birthDateResidency"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
@@ -100,7 +100,32 @@
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessNameOrEstablishment" />
+            app:layout_constraintTop_toBottomOf="@+id/age_residency" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Civil Status"
+            android:textColor="@color/black"
+            android:layout_marginRight="190dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/civilstatus"/>
+
+
+        <EditText
+            android:id="@+id/civilstatus"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/black"
+            android:background="@drawable/edt_background"
+            android:hint="Single/Married/divorced/widowed"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/hintColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/birthDateResidency" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -110,21 +135,32 @@
             android:layout_marginLeft="-230dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/gender"/>
+            app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"/>
 
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:id="@+id/gender"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            android:hint="Male/Female"
-            android:background="@drawable/edt_background"
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthDate"/>
+            app:layout_constraintTop_toBottomOf="@+id/civilstatus">
+
+            <RadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/black" />
+
+        </RadioGroup>
 
 
         <TextView
@@ -133,12 +169,12 @@
             android:text="Address*"
             android:textColor="#555555"
             android:layout_marginRight="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/businessLocation"
+            app:layout_constraintBottom_toTopOf="@+id/residentialAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/businessLocation"
+            android:id="@+id/residentialAddress"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
@@ -149,14 +185,15 @@
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gender" />
+            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Duration of Residency"
+            android:text="@string/sincewhen"
             android:textColor="#555555"
-            android:layout_marginRight="120dp"
+            android:layout_marginRight="35dp"
+            android:textAlignment="textStart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/duration"/>
@@ -165,19 +202,20 @@
             android:id="@+id/duration"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="52dp"
             android:background="@drawable/edt_background"
-            android:hint="Permanent"
+            android:hint="Since..."
             android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
             android:paddingLeft="20dp"
+            android:focusable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/businessLocation"/>
+            app:layout_constraintTop_toBottomOf="@id/residentialAddress"/>
 
 
         <Button
-            android:id="@+id/submit_btn"
+            android:id="@+id/submit_btn_residency"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"

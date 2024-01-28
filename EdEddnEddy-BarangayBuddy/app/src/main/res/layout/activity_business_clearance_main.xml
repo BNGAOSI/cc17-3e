@@ -43,7 +43,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/edt_background"
-            android:hint="Full Name"
+            android:hint="Last Name, First Name"
             android:paddingLeft="20dp"
             android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
@@ -84,12 +84,12 @@
             android:text="Date Issued*"
             android:textColor="#555555"
             android:layout_marginRight="185dp"
-            app:layout_constraintBottom_toTopOf="@+id/dateIssued"
+            app:layout_constraintBottom_toTopOf="@+id/dateIssuedbtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/dateIssued"
+            android:id="@+id/dateIssuedbtn"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
@@ -125,11 +125,11 @@
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateIssued" />
+            app:layout_constraintTop_toBottomOf="@+id/dateIssuedbtn" />
 
 
         <Button
-            android:id="@+id/submit_btn"
+            android:id="@+id/submit_btn_businessClearance"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"

@@ -103,3 +103,7 @@
 ### 2024/01/28
 
 - Added lines of code for storing timestamp everytime a resident requests for a Barangay Clearance.
+
+- Partially finished back end of Certificate of Residency
+
+- Added Radio buttons for the gender

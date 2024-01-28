@@ -1,5 +1,6 @@
 package com.example.fulldashboardededdneddy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -7,28 +8,127 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.fulldashboardededdneddy.databinding.ActivityBarangayclearanceformBinding;
 import com.example.fulldashboardededdneddy.databinding.ActivityResidencyformBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class residencyform extends AppCompatActivity {
 
     ActivityResidencyformBinding binding;
-    private EditText birthDateresidency;
+    private EditText birthDateResidency;
+    private EditText durationbtn;
 
-    String dateOfBirth;
-
+    String dateOfBirth, fullName, age, civilStatus, gender, address, duration;
     private DatePickerDialog picker;
-
+    FirebaseDatabase db;
+    DatabaseReference reference;
+    RadioGroup genderRadioGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityResidencyformBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_residencyform);
+        setContentView(binding.getRoot());
 
 
+        genderRadioGroup =findViewById(R.id.genderRadioGroup);
+        birthDateResidency = findViewById(R.id.birthDateResidency);
+
+
+        //Setting up DatePicker on EditText
+        birthDateResidency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                //DatePicker Dialog
+                picker = new DatePickerDialog(residencyform.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                birthDateResidency.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                            }
+                        }, year, month, day);
+                picker.show();
+            }
+        });
+
+        durationbtn = findViewById(R.id.duration);
+        durationbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                //DatePicker Dialog
+                picker = new DatePickerDialog(residencyform.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                durationbtn.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                            }
+                        }, year, month, day);
+                picker.show();
+            }
+        });
+
+        binding.submitBtnResidency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int selectedRadioButtonId = genderRadioGroup.getCheckedRadioButtonId();
+                RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
+
+                if (selectedRadioButton != null) {
+                    gender = selectedRadioButton.getText().toString();
+
+                fullName = binding.fullNameResidency.getText().toString();
+                age = binding.ageResidency.getText().toString();
+                civilStatus = binding.civilstatus.getText().toString();
+                address = binding.residentialAddress.getText().toString();
+                dateOfBirth = binding.birthDateResidency.getText().toString();
+                duration = binding.duration.getText().toString();
+
+                if (!fullName.isEmpty() && !age.isEmpty() && !civilStatus.isEmpty() && !gender.isEmpty() && !address.isEmpty() && !dateOfBirth.isEmpty() && !duration.isEmpty()) {
+                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth,civilStatus,gender, address, duration, ServerValue.TIMESTAMP);
+                    db = FirebaseDatabase.getInstance();
+                    reference = db.getReference("RequestedDocuments");
+                    reference.child("Residency").child(fullName).setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            binding.fullNameResidency.setText("");
+                            binding.ageResidency.setText("");
+                            binding.birthDateResidency.setText("");
+                            binding.civilstatus.setText("");
+                            binding.residentialAddress.setText("");
+                            binding.duration.setText("");
+                            Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+
+                        }
+
+                    });
+                }
+
+
+                }
+            }
+        });
     }
 }

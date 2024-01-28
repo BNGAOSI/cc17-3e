@@ -31,13 +31,8 @@ public class BarangayClearanceForm extends AppCompatActivity {
 
     ActivityBarangayclearanceformBinding binding;
     String firstName, lastName, age, dateOfBirth, presentAddress, purpose, gender;
-
-    Map time;
-
     private EditText birthDate;
     private DatePickerDialog picker;
-
-    private ProgressBar progressBar;
     FirebaseDatabase db;
     DatabaseReference reference;
 
@@ -54,7 +49,6 @@ public class BarangayClearanceForm extends AppCompatActivity {
         birthDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 final Calendar calendar = Calendar.getInstance();
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -106,15 +100,10 @@ public class BarangayClearanceForm extends AppCompatActivity {
                             binding.purpose.setText("");
                             binding.textViewGender.setText("");
                             Toast.makeText(BarangayClearanceForm.this,"Request successfully submitted",Toast.LENGTH_SHORT).show();
-
                         }
                     });
                 }
-
             }
-
         });
-
     }
-
 }
