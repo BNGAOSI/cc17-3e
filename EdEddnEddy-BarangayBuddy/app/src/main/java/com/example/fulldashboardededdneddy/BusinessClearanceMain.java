@@ -69,7 +69,7 @@ public class BusinessClearanceMain extends AppCompatActivity {
                     BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, dateIssued, businessAddress, ServerValue.TIMESTAMP);
                     db = FirebaseDatabase.getInstance();
                     reference = db.getReference("RequestedDocuments");
-                    reference.child("Business Clearance").child(fullName).setValue(BusinessClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    reference.child("Business Clearance").child(fullName).push().setValue(BusinessClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             binding.fullNameBusinessClearance.setText("");

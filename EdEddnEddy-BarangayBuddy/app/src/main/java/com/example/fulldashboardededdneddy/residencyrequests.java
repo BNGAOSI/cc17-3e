@@ -9,6 +9,14 @@ public class residencyrequests {
     public residencyrequests() {
     }
 
+    public String getCivilStatus() {
+        return civilStatus;
+    }
+
+    public void setCivilStatus(String civilStatus) {
+        this.civilStatus = civilStatus;
+    }
+
     public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, Map time) {
         this.fullName = fullName;
         this.age = age;
@@ -42,14 +50,6 @@ public class residencyrequests {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getCivilStatus() {
-        return civilStatus;
-    }
-
-    public void setCivilStatus(String civilStatus) {
-        this.civilStatus = civilStatus;
     }
 
     public String getGender() {

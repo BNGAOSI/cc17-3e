@@ -107,3 +107,13 @@
 - Partially finished back end of Certificate of Residency
 
 - Added Radio buttons for the gender
+
+### 2024/01/30
+
+- Finish request of residency certificate
+
+- Add radio group buttons gender for barangay clearance form
+
+- Remove Indigency Request
+
+- Remove Report fragment at navigation drawer

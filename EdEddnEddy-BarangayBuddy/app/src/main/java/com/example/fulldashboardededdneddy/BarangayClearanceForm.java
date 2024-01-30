@@ -30,11 +30,13 @@ import java.util.Map;
 public class BarangayClearanceForm extends AppCompatActivity {
 
     ActivityBarangayclearanceformBinding binding;
-    String firstName, lastName, age, dateOfBirth, presentAddress, purpose, gender;
+    String fullName, age, dateOfBirth, presentAddress, purpose, gender;
     private EditText birthDate;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
+
+    RadioGroup genderRadioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
         binding = ActivityBarangayclearanceformBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDate = findViewById(R.id.birthDate);
 
 
@@ -71,37 +74,39 @@ public class BarangayClearanceForm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                int selectedRadioButtonId = genderRadioGroup.getCheckedRadioButtonId();
+                RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
 
-                firstName = binding.firstName.getText().toString();
-                lastName = binding.lastName.getText().toString();
-                age = binding.age.getText().toString();
-                dateOfBirth = binding.birthDate.getText().toString();
-                presentAddress = binding.presentAddress.getText().toString();
-                purpose = binding.purpose.getText().toString();
-                gender = binding.textViewGender.getText().toString();
+                if (selectedRadioButton != null) {
+                    gender = selectedRadioButton.getText().toString();
+
+                    fullName = binding.fullNameBarangayClearance.getText().toString();
+                    age = binding.age.getText().toString();
+                    dateOfBirth = binding.birthDate.getText().toString();
+                    presentAddress = binding.presentAddress.getText().toString();
+                    purpose = binding.purpose.getText().toString();
 
 
-                if(!firstName.isEmpty() && !lastName.isEmpty() && !age.isEmpty() && !dateOfBirth.isEmpty() && !presentAddress.isEmpty() && !purpose.isEmpty() && !gender.isEmpty()){
+                    if (!fullName.isEmpty() && !age.isEmpty() && !dateOfBirth.isEmpty() && !presentAddress.isEmpty() && !purpose.isEmpty() && !gender.isEmpty()) {
 
 
-                    BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(firstName,lastName,age,dateOfBirth,presentAddress,purpose,gender, ServerValue.TIMESTAMP);
-                    db = FirebaseDatabase.getInstance();
-                    reference = db.getReference("RequestedDocuments");
+                        BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, ServerValue.TIMESTAMP);
+                        db = FirebaseDatabase.getInstance();
+                        reference = db.getReference("RequestedDocuments");
 
-                    reference.child("Barangay Clearance").child(firstName + " " + lastName).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child("Barangay Clearance").child(fullName).push().setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            binding.firstName.setText("");
-                            binding.lastName.setText("");
-                            binding.age.setText("");
-                            binding.birthDate.setText("");
-                            binding.presentAddress.setText("");
-                            binding.purpose.setText("");
-                            binding.textViewGender.setText("");
-                            Toast.makeText(BarangayClearanceForm.this,"Request successfully submitted",Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                binding.fullNameBarangayClearance.setText("");
+                                binding.age.setText("");
+                                binding.birthDate.setText("");
+                                binding.presentAddress.setText("");
+                                binding.purpose.setText("");
+                                Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
                 }
             }
         });

@@ -90,6 +90,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/residencybtnact" />
 
+        <!--
         <TextView
             android:layout_width="300dp"
             android:layout_height="80dp"
@@ -98,6 +99,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
+
 
         <Button
             android:id="@+id/indigencybtn"
@@ -115,7 +117,7 @@
             android:layout_marginLeft="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
+            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" /> -->
 
         <TextView
             android:id="@+id/chooseDocs"

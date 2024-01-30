@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replaceFragment(new Home());
         } else if (itemId == id.nav_secure_document){
             replaceFragment(new SecureDocumentsFragment());
-        } else if (itemId == id.nav_report){
-            replaceFragment(new SendReportFragment());
         } else if (itemId == id.nav_suggest){
             replaceFragment(new SuggestionFragment());
         } else if (itemId == id.nav_settings){

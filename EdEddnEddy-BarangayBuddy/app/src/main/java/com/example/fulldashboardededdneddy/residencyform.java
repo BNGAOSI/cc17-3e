@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.fulldashboardededdneddy.databinding.ActivityBarangayclearanceformBinding;
@@ -20,17 +22,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class residencyform extends AppCompatActivity {
 
     ActivityResidencyformBinding binding;
+    private Spinner civilStatus_spinner;
     private EditText birthDateResidency;
     private EditText durationbtn;
 
-    String dateOfBirth, fullName, age, civilStatus, gender, address, duration;
+    String dateOfBirth, fullName, age, gender, address, duration;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
@@ -41,9 +46,23 @@ public class residencyform extends AppCompatActivity {
         binding = ActivityResidencyformBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         genderRadioGroup =findViewById(R.id.genderRadioGroup);
         birthDateResidency = findViewById(R.id.birthDateResidency);
+
+        List<String> civilStatusList = new ArrayList<>();
+        civilStatusList.add(0,"Choose Civil Status");
+        civilStatusList.add("Single");
+        civilStatusList.add("Married");
+        civilStatusList.add("Divorced");
+        civilStatusList.add("Widowed");
+
+        ArrayAdapter<String> civilStatusAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, civilStatusList);
+        civilStatusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner civilStatus = findViewById(R.id.civilstatus_spinner);
+        civilStatus.setAdapter(civilStatusAdapter);
+
+
 
 
         //Setting up DatePicker on EditText
@@ -100,23 +119,23 @@ public class residencyform extends AppCompatActivity {
 
                 fullName = binding.fullNameResidency.getText().toString();
                 age = binding.ageResidency.getText().toString();
-                civilStatus = binding.civilstatus.getText().toString();
+                String selectedCivilStatus = civilStatus.getSelectedItem().toString();
                 address = binding.residentialAddress.getText().toString();
                 dateOfBirth = binding.birthDateResidency.getText().toString();
                 duration = binding.duration.getText().toString();
 
-                if (!fullName.isEmpty() && !age.isEmpty() && !civilStatus.isEmpty() && !gender.isEmpty() && !address.isEmpty() && !dateOfBirth.isEmpty() && !duration.isEmpty()) {
-                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth,civilStatus,gender, address, duration, ServerValue.TIMESTAMP);
+
+                if (!fullName.isEmpty() && !age.isEmpty() && !selectedCivilStatus.equals("Choose Civil Status") && !gender.isEmpty() && !address.isEmpty() && !dateOfBirth.isEmpty() && !duration.isEmpty()) {
+                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus,gender, address, duration, ServerValue.TIMESTAMP);
                     db = FirebaseDatabase.getInstance();
                     reference = db.getReference("RequestedDocuments");
-                    reference.child("Residency").child(fullName).setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    reference.child("Residency").child(fullName).push().setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             binding.fullNameResidency.setText("");
                             binding.ageResidency.setText("");
                             binding.birthDateResidency.setText("");
-                            binding.civilstatus.setText("");
                             binding.residentialAddress.setText("");
                             binding.duration.setText("");
                             Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();

@@ -5,7 +5,7 @@ import java.util.Map;
 public class BarangayClearanceRequests {
 
     Map time;
-    String firstName, lastName, age, dateOfBirth, presentAddress, purpose, gender;
+    String fullName, age, dateOfBirth, presentAddress, purpose, gender;
 
     public BarangayClearanceRequests() {
     }
@@ -14,15 +14,28 @@ public class BarangayClearanceRequests {
         this.time = time;
     }
 
-    public BarangayClearanceRequests(String firstName, String lastName, String age, String dateOfBirth, String presentAddress, String purpose, String gender, Map time) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public BarangayClearanceRequests(String fullName) {
+        this.fullName = fullName;
+    }
+
+
+
+    public BarangayClearanceRequests(String fullName, String age, String dateOfBirth, String presentAddress, String purpose, String gender, Map time) {
+        this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.presentAddress = presentAddress;
         this.purpose = purpose;
         this.gender = gender;
         this.time = time;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public Map getTime() {
@@ -32,23 +45,6 @@ public class BarangayClearanceRequests {
     public void setTime(Map time) {
         this.time = time;
     }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getAge() {
         return age;
     }

@@ -101,36 +101,47 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/age_residency" />
-        
-        <TextView
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Civil Status"
-            android:textColor="@color/black"
-            android:layout_marginRight="190dp"
+            android:layout_marginBottom="135dp"
+            android:layout_marginLeft="240dp"
+            android:src="@drawable/baseline_calendar_month_24"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/civilstatus"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-        <EditText
-            android:id="@+id/civilstatus"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+        <LinearLayout
+            android:id="@+id/civilStatus_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="55dp"
             android:layout_marginTop="32dp"
-            android:textColor="@color/black"
-            android:background="@drawable/edt_background"
-            android:hint="Single/Married/divorced/widowed"
-            android:paddingLeft="20dp"
-            android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateResidency" />
+            app:layout_constraintTop_toBottomOf="@+id/birthDateResidency">
+
+
+            <Spinner
+                android:id="@+id/civilstatus_spinner"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="55dp"
+                android:background="@drawable/edt_background"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                android:layout_gravity="center" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender"
+            android:text="Gender*"
             android:textColor="#555555"
             android:layout_marginLeft="-230dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -142,9 +153,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:layout_marginRight="180dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/civilstatus">
+            app:layout_constraintTop_toBottomOf="@+id/civilStatus_linearlayout">
 
             <RadioButton
                 android:id="@+id/maleRadioButton"

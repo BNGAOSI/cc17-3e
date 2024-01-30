@@ -16,10 +16,6 @@
             android:icon="@drawable/secure_documents_icon"
             android:title="Secure a Document"/>
 
-        <item
-            android:id="@+id/nav_report"
-            android:icon="@drawable/report_icon"
-            android:title="File a report"/>
 
         <item
             android:id="@+id/nav_suggest"
