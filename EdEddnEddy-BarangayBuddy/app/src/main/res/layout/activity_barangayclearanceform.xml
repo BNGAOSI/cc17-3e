@@ -30,9 +30,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="160dp"
             android:text="Name of Owner*"
             android:textColor="#555555"
-            android:layout_marginRight="160dp"
             app:layout_constraintBottom_toTopOf="@+id/fullName_barangayClearance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -43,23 +43,23 @@
             android:layout_height="50dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/edt_background"
+            android:elevation="8dp"
             android:hint="Last Name, Full Name"
             android:paddingLeft="20dp"
             android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewbarangayClearancetitle"
-            android:elevation="8dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/textViewbarangayClearancetitle" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="230dp"
             android:text="Age*"
             android:textColor="#555555"
-            android:layout_marginRight="230dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/age"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -70,8 +70,8 @@
             android:layout_marginTop="32dp"
             android:background="@drawable/edt_background"
             android:hint="Age"
-            android:textColor="@color/black"
             android:paddingLeft="20dp"
+            android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,9 +80,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="180dp"
             android:text="Date of Birth*"
             android:textColor="#555555"
-            android:layout_marginRight="180dp"
             app:layout_constraintBottom_toTopOf="@+id/birthDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -90,12 +90,12 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:layout_marginLeft="230dp"
+            android:layout_marginBottom="30dp"
             android:src="@drawable/baseline_calendar_month_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -103,11 +103,11 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
-            android:textColor="@color/black"
             android:background="@drawable/edt_background"
+            android:focusable="false"
             android:hint="(dd/mm/yyyy)"
             android:paddingLeft="20dp"
-            android:focusable="false"
+            android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -116,12 +116,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="-230dp"
             android:text="Gender*"
             android:textColor="#555555"
-            android:layout_marginLeft="-230dp"
+            app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <RadioGroup
             android:id="@+id/genderRadioGroup"
@@ -152,9 +152,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="80dp"
             android:text="Present Residential Address*"
             android:textColor="#555555"
-            android:layout_marginRight="80dp"
             app:layout_constraintBottom_toTopOf="@+id/presentAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -171,14 +171,14 @@
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup"/>
+            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="113dp"
             android:text="Purpose of this request*"
             android:textColor="#555555"
-            android:layout_marginRight="113dp"
             app:layout_constraintBottom_toTopOf="@+id/purpose"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -191,8 +191,8 @@
             android:layout_marginTop="32dp"
             android:background="@drawable/edt_background"
             android:hint=""
-            android:textColor="@color/black"
             android:paddingLeft="20dp"
+            android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -215,12 +215,12 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:elevation="10dp"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

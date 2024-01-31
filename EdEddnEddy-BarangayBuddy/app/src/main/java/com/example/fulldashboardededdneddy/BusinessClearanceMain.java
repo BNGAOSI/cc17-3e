@@ -22,7 +22,7 @@ import java.util.Calendar;
 public class BusinessClearanceMain extends AppCompatActivity {
 
     ActivityBusinessClearanceMainBinding binding;
-    String fullName, nameOfBusiness, dateIssued, businessAddress;
+    String fullName, nameOfBusiness, typeOfBusiness, businessAddress;
     private EditText dateIssuedbtn;
     private DatePickerDialog picker;
     FirebaseDatabase db;
@@ -34,47 +34,27 @@ public class BusinessClearanceMain extends AppCompatActivity {
         binding = ActivityBusinessClearanceMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        dateIssuedbtn = findViewById(R.id.dateIssuedbtn);
 
-        //Setting up DatePicker on EditText
-        dateIssuedbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
-                int year = calendar.get(Calendar.YEAR);
-
-                //DatePicker Dialog
-                picker = new DatePickerDialog(BusinessClearanceMain.this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        dateIssuedbtn.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                    }
-                }, year, month, day);
-                picker.show();
-            }
-        });
 
         binding.submitBtnBusinessClearance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fullName = binding.fullNameBusinessClearance.getText().toString();
                 nameOfBusiness = binding.businessNameOrEstablishment.getText().toString();
-                dateIssued = binding.dateIssuedbtn.getText().toString();
+                typeOfBusiness = binding.typeOfBusiness.getText().toString();
                 businessAddress = binding.businessLocation.getText().toString();
 
-                if(!fullName.isEmpty() && !nameOfBusiness.isEmpty() && !dateIssued.isEmpty() && !businessAddress.isEmpty()){
-                    BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, dateIssued, businessAddress, ServerValue.TIMESTAMP);
+                if(!fullName.isEmpty() && !nameOfBusiness.isEmpty() && !typeOfBusiness.isEmpty() && !businessAddress.isEmpty()){
+                    BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness,businessAddress, ServerValue.TIMESTAMP);
                     db = FirebaseDatabase.getInstance();
                     reference = db.getReference("RequestedDocuments");
-                    reference.child("Business Clearance").child(fullName).push().setValue(BusinessClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    String businessClearanceUID = reference.child("Business Clearance").push().getKey();
+                    reference.child("Business Clearance").child(businessClearanceUID).setValue(BusinessClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             binding.fullNameBusinessClearance.setText("");
                             binding.businessNameOrEstablishment.setText("");
-                            binding.dateIssuedbtn.setText("");
+                            binding.typeOfBusiness.setText("");
                             binding.businessLocation.setText("");
                             Toast.makeText(BusinessClearanceMain.this,"Form successfully submitted",Toast.LENGTH_SHORT).show();
                         }

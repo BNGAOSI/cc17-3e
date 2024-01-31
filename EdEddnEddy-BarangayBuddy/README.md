@@ -117,3 +117,11 @@
 - Remove Indigency Request
 
 - Remove Report fragment at navigation drawer
+
+### 2024/01/31
+
+- Fix Announcement arrangement according to date created
+
+- Modify document requests where it now contains UID
+
+- Remove date issued input field at business clearance form

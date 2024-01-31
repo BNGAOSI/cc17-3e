@@ -81,38 +81,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date Issued*"
+            android:text="Type of Business*"
             android:textColor="#555555"
-            android:layout_marginRight="185dp"
-            app:layout_constraintBottom_toTopOf="@+id/dateIssuedbtn"
+            android:layout_marginRight="146dp"
+            app:layout_constraintBottom_toTopOf="@+id/typeOfBusiness"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="145dp"
-            android:src="@drawable/baseline_calendar_month_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
 
         <EditText
-            android:id="@+id/dateIssuedbtn"
+            android:id="@+id/typeOfBusiness"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
-            android:textColor="@color/black"
             android:background="@drawable/edt_background"
-            android:hint="(dd/mm/yyyy)"
-            android:paddingLeft="20dp"
-            android:focusable="false"
+            android:hint=""
+            android:textColor="@color/black"
             android:textColorHint="@color/hintColor"
+            android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/businessNameOrEstablishment" />
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -136,7 +128,7 @@
             android:textColorHint="@color/hintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateIssuedbtn" />
+            app:layout_constraintTop_toBottomOf="@+id/typeOfBusiness" />
 
 
         <Button

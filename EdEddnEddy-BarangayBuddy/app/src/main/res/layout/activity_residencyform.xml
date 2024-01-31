@@ -114,6 +114,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/baseline_arrow_drop_down_24"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/civilStatus_linearlayout"/>
+
+
         <LinearLayout
             android:id="@+id/civilStatus_linearlayout"
             android:layout_width="match_parent"
@@ -136,6 +147,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
                 android:layout_gravity="center" />
+
         </LinearLayout>
 
         <TextView

@@ -19,7 +19,6 @@ public class BarangayClearanceRequests {
     }
 
 
-
     public BarangayClearanceRequests(String fullName, String age, String dateOfBirth, String presentAddress, String purpose, String gender, Map time) {
         this.fullName = fullName;
         this.age = age;
@@ -45,6 +44,7 @@ public class BarangayClearanceRequests {
     public void setTime(Map time) {
         this.time = time;
     }
+
     public String getAge() {
         return age;
     }

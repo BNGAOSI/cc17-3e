@@ -46,6 +46,8 @@ public class residencyform extends AppCompatActivity {
         binding = ActivityResidencyformBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+
         genderRadioGroup =findViewById(R.id.genderRadioGroup);
         birthDateResidency = findViewById(R.id.birthDateResidency);
 
@@ -114,36 +116,40 @@ public class residencyform extends AppCompatActivity {
                 int selectedRadioButtonId = genderRadioGroup.getCheckedRadioButtonId();
                 RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
 
+
+
                 if (selectedRadioButton != null) {
                     gender = selectedRadioButton.getText().toString();
 
-                fullName = binding.fullNameResidency.getText().toString();
-                age = binding.ageResidency.getText().toString();
-                String selectedCivilStatus = civilStatus.getSelectedItem().toString();
-                address = binding.residentialAddress.getText().toString();
-                dateOfBirth = binding.birthDateResidency.getText().toString();
-                duration = binding.duration.getText().toString();
+                    fullName = binding.fullNameResidency.getText().toString();
+                    age = binding.ageResidency.getText().toString();
+                    String selectedCivilStatus = civilStatus.getSelectedItem().toString();
+                    address = binding.residentialAddress.getText().toString();
+                    dateOfBirth = binding.birthDateResidency.getText().toString();
+                    duration = binding.duration.getText().toString();
 
 
-                if (!fullName.isEmpty() && !age.isEmpty() && !selectedCivilStatus.equals("Choose Civil Status") && !gender.isEmpty() && !address.isEmpty() && !dateOfBirth.isEmpty() && !duration.isEmpty()) {
-                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus,gender, address, duration, ServerValue.TIMESTAMP);
-                    db = FirebaseDatabase.getInstance();
-                    reference = db.getReference("RequestedDocuments");
-                    reference.child("Residency").child(fullName).push().setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    if (!fullName.isEmpty() && !age.isEmpty() && !selectedCivilStatus.equals("Choose Civil Status") && !gender.isEmpty() && !address.isEmpty() && !dateOfBirth.isEmpty() && !duration.isEmpty()) {
+                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus,gender, address, duration, ServerValue.TIMESTAMP);
+                        db = FirebaseDatabase.getInstance();
 
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            binding.fullNameResidency.setText("");
-                            binding.ageResidency.setText("");
-                            binding.birthDateResidency.setText("");
-                            binding.residentialAddress.setText("");
-                            binding.duration.setText("");
-                            Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                        reference = db.getReference("RequestedDocuments");
+                        String resiUID = reference.child("Residency").push().getKey();
+                        reference.child("Residency").child(resiUID).setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
-                        }
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                binding.fullNameResidency.setText("");
+                                binding.ageResidency.setText("");
+                                binding.birthDateResidency.setText("");
+                                binding.residentialAddress.setText("");
+                                binding.duration.setText("");
+                                Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
 
-                    });
-                }
+                            }
+
+                        });
+                    }
 
 
                 }

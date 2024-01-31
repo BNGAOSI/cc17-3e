@@ -45,7 +45,7 @@
                     android:padding="10dp"
                     android:text="Title"
                     android:textSize="16dp"
-                    android:ems="15"
+                    android:ems="13"
                     android:fontFamily="@font/montserratbold"
                     android:textColor="@color/black"
                     android:id="@+id/announcement_recTitle"/>

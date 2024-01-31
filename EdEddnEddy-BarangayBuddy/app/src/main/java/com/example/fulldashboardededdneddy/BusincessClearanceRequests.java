@@ -3,18 +3,29 @@ package com.example.fulldashboardededdneddy;
 import java.util.Map;
 
 public class BusincessClearanceRequests {
-    String fullname, nameOfBussiness, dateIssued, businessAddress;
+    String fullname;
+    String nameOfBussiness;
+    String typeOfBusiness;
+    String businessAddress;
     Map time;
 
     public BusincessClearanceRequests() {
     }
 
-    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String dateIssued, String businessAddress, Map time) {
+    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String typeOfBusiness, String businessAddress, Map time) {
         this.fullname = fullname;
         this.nameOfBussiness = nameOfBussiness;
-        this.dateIssued = dateIssued;
+        this.typeOfBusiness = typeOfBusiness;
         this.businessAddress = businessAddress;
         this.time = time;
+    }
+
+    public String getTypeOfBusiness() {
+        return typeOfBusiness;
+    }
+
+    public void setTypeOfBusiness(String typeOfBusiness) {
+        this.typeOfBusiness = typeOfBusiness;
     }
 
     public String getFullname() {
@@ -31,14 +42,6 @@ public class BusincessClearanceRequests {
 
     public void setNameOfBussiness(String nameOfBussiness) {
         this.nameOfBussiness = nameOfBussiness;
-    }
-
-    public String getDateIssued() {
-        return dateIssued;
-    }
-
-    public void setDateIssued(String dateIssued) {
-        this.dateIssued = dateIssued;
     }
 
     public String getBusinessAddress() {

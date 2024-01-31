@@ -67,7 +67,7 @@ public class announcementsRefinedScreen extends AppCompatActivity{
                 datalist.clear();
                 for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
                     AnnouncementDataClass dataClass = itemSnapshot.getValue(AnnouncementDataClass.class);
-                    datalist.add(dataClass);
+                    datalist.add(0, dataClass);
                 }
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();

@@ -93,8 +93,9 @@ public class BarangayClearanceForm extends AppCompatActivity {
                         BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, ServerValue.TIMESTAMP);
                         db = FirebaseDatabase.getInstance();
                         reference = db.getReference("RequestedDocuments");
+                        String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
 
-                        reference.child("Barangay Clearance").child(fullName).push().setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child("Barangay Clearance").child(barangayClearanceUID).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

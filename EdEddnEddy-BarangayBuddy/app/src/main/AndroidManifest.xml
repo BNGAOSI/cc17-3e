@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".validateField"
+            android:exported="false" />
+        <activity
             android:name=".indigencyform"
             android:exported="false" />
         <activity
