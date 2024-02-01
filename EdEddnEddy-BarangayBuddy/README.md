@@ -125,3 +125,7 @@
 - Modify document requests where it now contains UID
 
 - Remove date issued input field at business clearance form
+
+### 2024/02/01
+
+- Modify Announcement screen background

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/announcement_recCard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@color/divider_grey_2">
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="10dp">
-        
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="200dp">
@@ -23,11 +23,11 @@
                 android:layout_height="150dp">
 
                 <ImageView
+                    android:id="@+id/announcement_recImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/announcement_recImage"
-                    android:src="@drawable/uploadimg"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/uploadimg" />
 
             </androidx.cardview.widget.CardView>
 
@@ -35,31 +35,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="bottom">
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
 
 
                 <TextView
+                    android:id="@+id/announcement_recTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Title"
-                    android:textSize="16dp"
                     android:ems="13"
                     android:fontFamily="@font/montserratbold"
+                    android:padding="10dp"
+                    android:text="Title"
                     android:textColor="@color/black"
-                    android:id="@+id/announcement_recTitle"/>
+                    android:textSize="16dp" />
 
 
                 <TextView
+                    android:id="@+id/announcement_recDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Date"
-                    android:id="@+id/announcement_recDate"
-                    android:textSize="12dp"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@color/black"/>
+                    android:text="Date"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
 
             </LinearLayout>
         </FrameLayout>
