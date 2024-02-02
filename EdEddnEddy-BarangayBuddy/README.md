@@ -129,3 +129,9 @@
 ### 2024/02/01
 
 - Modify Announcement screen background
+
+### 2024/02/02
+
+- Add modifications to suggest screen
+
+- Add modifications to report screen

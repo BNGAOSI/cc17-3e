@@ -35,11 +35,12 @@ public class residencyform extends AppCompatActivity {
     private EditText birthDateResidency;
     private EditText durationbtn;
 
-    String dateOfBirth, fullName, age, gender, address, duration;
+    String dateOfBirth, fullName, age, gender, address, duration, status;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
     RadioGroup genderRadioGroup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +48,11 @@ public class residencyform extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-
-        genderRadioGroup =findViewById(R.id.genderRadioGroup);
+        genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDateResidency = findViewById(R.id.birthDateResidency);
 
         List<String> civilStatusList = new ArrayList<>();
-        civilStatusList.add(0,"Choose Civil Status");
+        civilStatusList.add(0, "Choose Civil Status");
         civilStatusList.add("Single");
         civilStatusList.add("Married");
         civilStatusList.add("Divorced");
@@ -63,8 +63,6 @@ public class residencyform extends AppCompatActivity {
 
         Spinner civilStatus = findViewById(R.id.civilstatus_spinner);
         civilStatus.setAdapter(civilStatusAdapter);
-
-
 
 
         //Setting up DatePicker on EditText
@@ -117,7 +115,6 @@ public class residencyform extends AppCompatActivity {
                 RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
 
 
-
                 if (selectedRadioButton != null) {
                     gender = selectedRadioButton.getText().toString();
 
@@ -130,7 +127,7 @@ public class residencyform extends AppCompatActivity {
 
 
                     if (!fullName.isEmpty() && !age.isEmpty() && !selectedCivilStatus.equals("Choose Civil Status") && !gender.isEmpty() && !address.isEmpty() && !dateOfBirth.isEmpty() && !duration.isEmpty()) {
-                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus,gender, address, duration, ServerValue.TIMESTAMP);
+                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, ServerValue.TIMESTAMP);
                         db = FirebaseDatabase.getInstance();
 
                         reference = db.getReference("RequestedDocuments");

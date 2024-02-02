@@ -4,6 +4,20 @@ import java.util.Map;
 
 public class residencyrequests {
     String fullName, age, dateOfBirth, civilStatus, gender, address, duration;
+    String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public residencyrequests(String status) {
+        this.status = status;
+    }
+
     Map time;
 
     public residencyrequests() {
@@ -26,7 +40,10 @@ public class residencyrequests {
         this.address = address;
         this.duration = duration;
         this.time = time;
+
     }
+
+
 
     public String getFullName() {
         return fullName;

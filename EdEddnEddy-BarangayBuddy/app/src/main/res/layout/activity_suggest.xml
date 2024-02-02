@@ -13,50 +13,100 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/white"
         android:background="@drawable/back_button"
+        android:backgroundTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etSugName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edt_background"
+        android:hint="Name (Optional)"
+        android:paddingLeft="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hintColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goback1" />
+
+    <CheckBox
+        android:id="@+id/checkboxHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:text="Health"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSugName" />
+
+    <CheckBox
+        android:id="@+id/checkboxEducation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+
+        android:text="Education"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkboxHealth" />
+
+    <CheckBox
+        android:id="@+id/checkboxSports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="120dp"
+        android:text="Sports"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkboxBarangayImprovements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="BarangayImprovements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkboxSports" />
+
+
+    <CheckBox
+        android:id="@+id/checkboxEtc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:text="Etc."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkboxEducation" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:hint="                                   "
+        android:textSize="13dp"
+        app:layout_constraintStart_toEndOf="@+id/checkboxEtc"
+        app:layout_constraintTop_toBottomOf="@+id/checkboxEducation" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:text="What would you like to suggest?"
         android:textColor="@color/black"
         android:textColorHint="@color/hintColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDatePicker" />
+        app:layout_constraintTop_toBottomOf="@+id/checkboxEtc" />
 
-    <EditText
-        android:id="@+id/etSugName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        android:textColorHint="@color/hintColor"
-        android:textColor="@color/black"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goback1" />
-
-
-    <EditText
-        android:id="@+id/etDatePicker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="35dp"
-        android:hint="Date (dd/MM/YYYY)"
-        android:textColor="@color/black"
-        android:textColorHint="@color/hintColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSugName" />
 
     <EditText
         android:id="@+id/etSuggest"
@@ -65,8 +115,9 @@
         android:layout_marginTop="36dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="I would like for the officials to fix our cloged kanal here in botiwtiw tapat ng school."
+        android:hint="What's your idea?..."
         android:inputType="textMultiLine"
+        android:padding="30dp"
         android:textColor="@color/black"
         android:textColorHint="@color/hintColor"
         app:layout_constraintEnd_toEndOf="parent"

@@ -54,10 +54,6 @@ class Suggest : AppCompatActivity() {
         val sugName = etSugName.text.toString()
         val suggest = etSuggest.text.toString()
 
-        if (sugName.isEmpty()) {
-            etSugName.error = "Please Enter Name"
-            return
-        }
         if (suggest.isEmpty()) {
             etSuggest.error = "Please Enter Suggestion"
             return
