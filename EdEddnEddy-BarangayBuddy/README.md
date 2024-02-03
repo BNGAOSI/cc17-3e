@@ -135,3 +135,7 @@
 - Add modifications to suggest screen
 
 - Add modifications to report screen
+
+### 2024/02/03
+
+- Add checkbox to suggest screen but not been connected to the database

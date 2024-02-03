@@ -16,7 +16,7 @@ class Suggest : AppCompatActivity() {
 
     private lateinit var etSugName: EditText
     private lateinit var etSuggest: EditText
-    private lateinit var btnSaveData: ImageButton
+    private lateinit var btnSaveData: Button
 
     private lateinit var databaseReference: DatabaseReference
 
@@ -31,7 +31,7 @@ class Suggest : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val proceedSuggest1 = findViewById<ImageButton>(R.id.btnSaveData)
+        val proceedSuggest1 = findViewById<Button>(R.id.btnSaveData)
         proceedSuggest1.setOnClickListener {
             val intent = Intent(this, SuggestNext::class.java)
             startActivity(intent)
