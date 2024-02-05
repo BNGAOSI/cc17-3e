@@ -139,3 +139,7 @@
 ### 2024/02/03
 
 - Add checkbox to suggest screen but not been connected to the database
+
+### 2024/02/05
+
+- Add Client UID node for every requested document for status monitoring purpose

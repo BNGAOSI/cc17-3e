@@ -20,6 +20,7 @@ import com.example.fulldashboardededdneddy.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
@@ -35,6 +36,8 @@ public class BarangayClearanceForm extends AppCompatActivity {
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
+    DatabaseReference statusReference;
+    FirebaseAuth auth;
 
     RadioGroup genderRadioGroup;
 
@@ -87,15 +90,19 @@ public class BarangayClearanceForm extends AppCompatActivity {
                     purpose = binding.purpose.getText().toString();
 
 
+
                     if (!fullName.isEmpty() && !age.isEmpty() && !dateOfBirth.isEmpty() && !presentAddress.isEmpty() && !purpose.isEmpty() && !gender.isEmpty()) {
 
 
                         BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, ServerValue.TIMESTAMP);
+                        auth = FirebaseAuth.getInstance();
                         db = FirebaseDatabase.getInstance();
                         reference = db.getReference("RequestedDocuments");
+                        statusReference = db.getReference("Pending Documents");
                         String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
+                        String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                        reference.child("Barangay Clearance").child(barangayClearanceUID).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child("Barangay Clearance").child(barangayClearanceUID).child(uid).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -105,6 +112,12 @@ public class BarangayClearanceForm extends AppCompatActivity {
                                 binding.presentAddress.setText("");
                                 binding.purpose.setText("");
                                 Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        statusReference.child("Pending Barangay Clearance").child(barangayClearanceUID).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
                             }
                         });
                     }
