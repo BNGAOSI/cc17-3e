@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (itemId == id.nav_suggest){
             replaceFragment(new SuggestionFragment());
         } else if (itemId == id.nav_settings){
-            replaceFragment(new SettingsFragment());
+            replaceFragment(new DocumentStatusFragment());
         }
 
 

@@ -149,3 +149,9 @@
 - Change text field's layout
 
 - Fix User's UID on database
+
+### 2024/02/09
+
+- Add a documentType data to the database
+
+- Attempt adding a Status Fragment although not yet finished and needs configuring of the database

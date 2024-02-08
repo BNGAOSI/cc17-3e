@@ -1,5 +1,6 @@
 package com.example.fulldashboardededdneddy.Repository
 
+import androidx.lifecycle.MutableLiveData
 import com.example.fulldashboardededdneddy.model.Documents
 import com.example.fulldashboardededdneddy.model.StatusDocuments
 import com.google.firebase.database.DataSnapshot
@@ -22,10 +23,23 @@ class StatusRepository() {
         }
     }
 
-    fun loadDocuments(DocumentList : MutableList<List<StatusDocuments>>) {
+    fun loadDocuments(DocumentList: MutableLiveData<List<StatusDocuments>>) {
 
-        databaseReference.addValueEventListener(object : ValueEventListener{
+        databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+
+                try {
+
+                    val _statusList: List<StatusDocuments> = snapshot.children.map { dataSnapshot ->
+                        dataSnapshot.getValue(StatusDocuments::class.java)!!
+
+                    }
+
+                    DocumentList.postValue(_statusList)
+
+                } catch (e: Exception) {
+
+                }
 
             }
 

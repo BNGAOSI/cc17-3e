@@ -106,22 +106,20 @@ public class BarangayClearanceForm extends AppCompatActivity {
                         auth = FirebaseAuth.getInstance();
                         db = FirebaseDatabase.getInstance();
                         reference = db.getReference("RequestedDocuments");
-                        statusReference = db.getReference("Pending Documents");
                         documentTypeName = db.getReference("RequestedDocuments");
-
-                        Map<String, Object> documentTypeData = new HashMap<>();
-                        documentTypeData.put("documentType", "Barangay Clearance");
-
 
                         String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
                         String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
+                        DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
 
-                        documentTypeName.child("BarangayClearance").setValue(documentTypeData);
-                        reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        documentTypeRef.setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
+
+                                documentTypeRef.child("documentType").setValue("Barangay Clearance");
+
                                 binding.fullNameBarangayClearance.setText("");
                                 binding.age.setText("");
                                 binding.birthDate.setText("");
@@ -130,13 +128,6 @@ public class BarangayClearanceForm extends AppCompatActivity {
                                 Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
                             }
                         });
-                        statusReference.child("Pending Barangay Clearance").child(barangayClearanceUID).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-
 
                     }
                 }
