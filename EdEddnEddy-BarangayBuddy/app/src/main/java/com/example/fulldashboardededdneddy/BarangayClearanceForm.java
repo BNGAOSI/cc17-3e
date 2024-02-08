@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.fulldashboardededdneddy.databinding.ActivityBarangayclearanceformBinding;
 import com.example.fulldashboardededdneddy.databinding.ActivityMainBinding;
@@ -26,17 +27,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Map;
 
 public class BarangayClearanceForm extends AppCompatActivity {
 
     ActivityBarangayclearanceformBinding binding;
-    String fullName, age, dateOfBirth, presentAddress, purpose, gender;
+    String fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType;
     private EditText birthDate;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
     DatabaseReference statusReference;
+
+    DatabaseReference documentTypeName;
     FirebaseAuth auth;
 
     RadioGroup genderRadioGroup;
@@ -44,6 +48,11 @@ public class BarangayClearanceForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+
+
         binding = ActivityBarangayclearanceformBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -90,19 +99,26 @@ public class BarangayClearanceForm extends AppCompatActivity {
                     purpose = binding.purpose.getText().toString();
 
 
-
                     if (!fullName.isEmpty() && !age.isEmpty() && !dateOfBirth.isEmpty() && !presentAddress.isEmpty() && !purpose.isEmpty() && !gender.isEmpty()) {
 
 
-                        BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, ServerValue.TIMESTAMP);
+                        BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP);
                         auth = FirebaseAuth.getInstance();
                         db = FirebaseDatabase.getInstance();
                         reference = db.getReference("RequestedDocuments");
                         statusReference = db.getReference("Pending Documents");
+                        documentTypeName = db.getReference("RequestedDocuments");
+
+                        Map<String, Object> documentTypeData = new HashMap<>();
+                        documentTypeData.put("documentType", "Barangay Clearance");
+
+
                         String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
                         String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                        reference.child("Barangay Clearance").child(barangayClearanceUID).child(uid).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                        documentTypeName.child("BarangayClearance").setValue(documentTypeData);
+                        reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID).setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -120,9 +136,14 @@ public class BarangayClearanceForm extends AppCompatActivity {
 
                             }
                         });
+
+
                     }
                 }
             }
         });
+    }
+
+    private void setSupportActionBar(Toolbar myToolbar) {
     }
 }

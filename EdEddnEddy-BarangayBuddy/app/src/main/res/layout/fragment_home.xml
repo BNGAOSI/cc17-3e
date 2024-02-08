@@ -105,6 +105,37 @@
            />
 
        <Button
+           android:id="@+id/suggestButton"
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:textAlignment="textStart"
+           android:background="@drawable/custom_rounded_button"
+           android:backgroundTint="@color/white"
+           android:paddingLeft="30dp"
+           android:textColor="@color/divider_grey"
+           android:layout_marginLeft="15dp"
+           android:fontFamily="@font/montserratregular"
+           android:layout_marginTop="14dp"
+           android:text="Suggest"
+           android:textAllCaps="false"
+           android:textSize="20sp"
+           android:textStyle="normal"
+           android:elevation="20dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/report_button" />
+
+       <TextView
+           android:layout_width="300dp"
+           android:layout_height="80dp"
+           android:background="@drawable/custom_rounded_button"
+           android:layout_marginTop="14dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/suggestButton"
+           />
+
+       <Button
            android:id="@+id/locate_button"
            android:layout_width="300dp"
            android:layout_height="80dp"
@@ -123,7 +154,7 @@
            android:elevation="20dp"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/report_button" />
+           app:layout_constraintTop_toBottomOf="@+id/suggestButton" />
 
        <TextView
            android:layout_width="300dp"

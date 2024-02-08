@@ -143,3 +143,9 @@
 ### 2024/02/05
 
 - Add Client UID node for every requested document for status monitoring purpose
+
+### 2024/02/08
+
+- Change text field's layout
+
+- Fix User's UID on database

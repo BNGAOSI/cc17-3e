@@ -38,19 +38,6 @@ public final class reportAct extends AppCompatActivity {
                 reportAct.this.startActivity(Intent);
             }
         }));
-        Button click2 = (Button)this.findViewById(id.askButton);
-        click2.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
-            public final void onClick(View it) {
-                Intent Intent = new Intent((Context)reportAct.this, QueryActivity.class);
-                reportAct.this.startActivity(Intent);
-            }
-        }));
-        Button Urgentbtn = (Button)this.findViewById(id.urgentButton);
-        Urgentbtn.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
-            public final void onClick(View it) {
-                Intent intent = new Intent((Context)reportAct.this, Urgent.class);
-                reportAct.this.startActivity(intent);
-            }
-        }));
+
     }
 }
