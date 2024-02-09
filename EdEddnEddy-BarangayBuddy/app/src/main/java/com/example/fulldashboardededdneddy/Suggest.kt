@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.example.fulldashboardededdneddy.model.SuggestionModel
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ServerValue
 
 class Suggest : AppCompatActivity() {
 
@@ -60,8 +61,9 @@ class Suggest : AppCompatActivity() {
         }
 
         val sugId = databaseReference.push().key!!
+        val timeStamp: Map<String, String> = ServerValue.TIMESTAMP
 
-        val suggestion = SuggestionModel(sugId, sugName, suggest)
+        val suggestion = SuggestionModel(sugId, sugName, suggest, timeStamp)
 
         databaseReference.child(sugId).setValue(suggestion)
             .addOnCompleteListener{

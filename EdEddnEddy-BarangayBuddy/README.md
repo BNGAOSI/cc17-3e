@@ -152,6 +152,10 @@
 
 ### 2024/02/09
 
-- Add a documentType data to the database
+- Add a documentType data to the barangayclearance database
 
 - Attempt adding a Status Fragment although not yet finished and needs configuring of the database
+
+### 2024/02/09
+
+- Add timestamp to suggestion
