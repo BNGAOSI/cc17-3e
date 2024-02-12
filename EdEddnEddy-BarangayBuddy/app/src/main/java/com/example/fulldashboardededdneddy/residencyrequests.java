@@ -3,7 +3,7 @@ package com.example.fulldashboardededdneddy;
 import java.util.Map;
 
 public class residencyrequests {
-    String fullName, age, dateOfBirth, civilStatus, gender, address, duration;
+    String fullName, age, dateOfBirth, civilStatus, gender, address, duration, documentType;
     String status;
 
     public String getStatus() {
@@ -31,7 +31,7 @@ public class residencyrequests {
         this.civilStatus = civilStatus;
     }
 
-    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, Map time) {
+    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, String documentType, Map time) {
         this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
@@ -39,6 +39,7 @@ public class residencyrequests {
         this.gender = gender;
         this.address = address;
         this.duration = duration;
+        this.documentType = documentType;
         this.time = time;
 
     }

@@ -53,11 +53,11 @@
         android:id="@+id/checkboxEducation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
 
         android:text="Education"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/checkboxHealth"
         app:layout_constraintTop_toBottomOf="@+id/checkboxHealth" />
+
 
     <CheckBox
         android:id="@+id/checkboxSports"
@@ -67,8 +67,9 @@
         android:layout_marginEnd="156dp"
         android:text="Sports"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/checkboxHealth"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <CheckBox
         android:id="@+id/checkboxBarangayImprovements"
@@ -77,6 +78,7 @@
         android:layout_marginEnd="44dp"
         android:text="Barangay Improvements"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/checkboxSports"
         app:layout_constraintTop_toBottomOf="@+id/checkboxSports" />
 
 
@@ -84,13 +86,13 @@
         android:id="@+id/checkboxEtc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:text="Etc."
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/checkboxEducation"
         app:layout_constraintTop_toBottomOf="@+id/checkboxEducation" />
 
     <EditText
+        android:id="@+id/etEtcDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"

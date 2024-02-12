@@ -159,3 +159,11 @@
 ### 2024/02/09
 
 - Add timestamp to suggestion
+
+### 2024/02/13
+
+- Add validation for every document submission form
+
+- Add currently logged in user node to every document submission form
+
+- Add checkbox funcionality to the suggestion screen

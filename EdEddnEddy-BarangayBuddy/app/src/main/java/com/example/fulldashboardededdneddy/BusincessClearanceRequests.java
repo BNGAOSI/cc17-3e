@@ -7,17 +7,19 @@ public class BusincessClearanceRequests {
     String nameOfBussiness;
     String typeOfBusiness;
     String businessAddress;
+    String documentType;
     Map time;
 
     public BusincessClearanceRequests() {
     }
 
-    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String typeOfBusiness, String businessAddress, Map time) {
+    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String typeOfBusiness, String businessAddress, String documentType, Map time) {
         this.fullname = fullname;
         this.nameOfBussiness = nameOfBussiness;
         this.typeOfBusiness = typeOfBusiness;
         this.businessAddress = businessAddress;
         this.time = time;
+        this.documentType = documentType;
     }
 
     public String getTypeOfBusiness() {

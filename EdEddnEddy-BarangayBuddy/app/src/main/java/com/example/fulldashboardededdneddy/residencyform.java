@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -18,6 +20,7 @@ import com.example.fulldashboardededdneddy.databinding.ActivityBarangayclearance
 import com.example.fulldashboardededdneddy.databinding.ActivityResidencyformBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
@@ -34,8 +37,10 @@ public class residencyform extends AppCompatActivity {
     private Spinner civilStatus_spinner;
     private EditText birthDateResidency;
     private EditText durationbtn;
+    FirebaseAuth auth;
 
-    String dateOfBirth, fullName, age, gender, address, duration, status;
+
+    String dateOfBirth, fullName, age, gender, address, duration, status, documentType;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
@@ -114,43 +119,96 @@ public class residencyform extends AppCompatActivity {
                 int selectedRadioButtonId = genderRadioGroup.getCheckedRadioButtonId();
                 RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
 
-
                 if (selectedRadioButton != null) {
                     gender = selectedRadioButton.getText().toString();
 
-                    fullName = binding.fullNameResidency.getText().toString();
-                    age = binding.ageResidency.getText().toString();
+                    fullName = binding.fullNameResidency.getText().toString().trim();
+                    age = binding.ageResidency.getText().toString().trim();
                     String selectedCivilStatus = civilStatus.getSelectedItem().toString();
-                    address = binding.residentialAddress.getText().toString();
-                    dateOfBirth = binding.birthDateResidency.getText().toString();
-                    duration = binding.duration.getText().toString();
+                    address = binding.residentialAddress.getText().toString().trim();
+                    dateOfBirth = binding.birthDateResidency.getText().toString().trim();
+                    duration = binding.duration.getText().toString().trim();
 
-
-                    if (!fullName.isEmpty() && !age.isEmpty() && !selectedCivilStatus.equals("Choose Civil Status") && !gender.isEmpty() && !address.isEmpty() && !dateOfBirth.isEmpty() && !duration.isEmpty()) {
-                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, ServerValue.TIMESTAMP);
-                        db = FirebaseDatabase.getInstance();
-
-                        reference = db.getReference("RequestedDocuments");
-                        String resiUID = reference.child("Residency").push().getKey();
-                        reference.child("Residency").child(resiUID).setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                binding.fullNameResidency.setText("");
-                                binding.ageResidency.setText("");
-                                binding.birthDateResidency.setText("");
-                                binding.residentialAddress.setText("");
-                                binding.duration.setText("");
-                                Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
-
-                            }
-
-                        });
+                    // Validate input fields
+                    if (TextUtils.isEmpty(fullName)) {
+                        Log.d("Validation", "Full name is empty");
+                        binding.fullNameResidency.setError("Please enter your full name");
+                        binding.fullNameResidency.requestFocus();
+                        return;
                     }
 
+                    if (TextUtils.isEmpty(age)) {
+                        Log.d("Validation", "Age is empty");
+                        binding.ageResidency.setError("Please enter your age");
+                        binding.ageResidency.requestFocus();
+                        return;
+                    }
 
+                    if (selectedCivilStatus.equals("Choose Civil Status")) {
+                        Log.d("Validation", "Civil status is not selected");
+                        Toast.makeText(residencyform.this, "Please select your civil status", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(gender)) {
+                        Log.d("Validation", "Gender is not selected");
+                        Toast.makeText(residencyform.this, "Please select your gender", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(address)) {
+                        Log.d("Validation", "Residential address is empty");
+                        binding.residentialAddress.setError("Please enter your residential address");
+                        binding.residentialAddress.requestFocus();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(dateOfBirth)) {
+                        Log.d("Validation", "Date of birth is empty");
+                        binding.birthDateResidency.setError("Please enter your date of birth");
+                        binding.birthDateResidency.requestFocus();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(duration)) {
+                        Log.d("Validation", "Duration is empty");
+                        binding.duration.setError("Please enter the duration");
+                        binding.duration.requestFocus();
+                        return;
+                    }
+
+                    Log.d("Validation", "All fields are filled. Proceed with submission.");
+
+                    // Proceed with form submission
+                    auth = FirebaseAuth.getInstance();
+                    db = FirebaseDatabase.getInstance();
+                    reference = db.getReference("RequestedDocuments");
+                    String resiUID = reference.child("Residency").push().getKey();
+                    String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+
+                    DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
+
+                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP);
+
+                    documentTypeRef.setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            documentTypeRef.child("documentType").setValue("Certificate of Residency");
+
+                            binding.fullNameResidency.setText("");
+                            binding.ageResidency.setText("");
+                            binding.birthDateResidency.setText("");
+                            binding.residentialAddress.setText("");
+                            binding.duration.setText("");
+                            Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                        }
+
+                    });
                 }
             }
         });
+
     }
 }

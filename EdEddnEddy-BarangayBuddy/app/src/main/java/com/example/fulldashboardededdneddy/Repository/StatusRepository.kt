@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class StatusRepository() {
+    
     private val databaseReference: DatabaseReference =
         FirebaseDatabase.getInstance().getReference("RequestedDocuments")
 

@@ -65,7 +65,6 @@ class FetchingActivity : AppCompatActivity() {
                             intent.putExtra("resName", repList[position].resName)
                             intent.putExtra("resCurLoc", repList[position].resCurLoc)
                             intent.putExtra("resReport", repList[position].resReport)
-                            intent.putExtra("replies", repList[position].replies)
                             startActivity(intent)
                         }
 

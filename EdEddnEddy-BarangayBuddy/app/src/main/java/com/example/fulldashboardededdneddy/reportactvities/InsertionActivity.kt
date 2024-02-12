@@ -9,6 +9,7 @@ import com.example.fulldashboardededdneddy.R
 import com.example.fulldashboardededdneddy.model.ResidentModel
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ServerValue
 
 class  InsertionActivity : AppCompatActivity() {
 
@@ -58,8 +59,9 @@ class  InsertionActivity : AppCompatActivity() {
         }
 
         val resId = dbDatabaseReference.push().key!!
+        val timeStamp = System.currentTimeMillis()
 
-        val resident = ResidentModel(resId, resName, resCurLoc, resReport)
+        val resident = ResidentModel(resId, resName, resCurLoc, resReport, timeStamp)
 
         dbDatabaseReference.child(resId).setValue(resident)
             .addOnCompleteListener{

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -92,47 +93,91 @@ public class BarangayClearanceForm extends AppCompatActivity {
                 if (selectedRadioButton != null) {
                     gender = selectedRadioButton.getText().toString();
 
-                    fullName = binding.fullNameBarangayClearance.getText().toString();
-                    age = binding.age.getText().toString();
-                    dateOfBirth = binding.birthDate.getText().toString();
-                    presentAddress = binding.presentAddress.getText().toString();
-                    purpose = binding.purpose.getText().toString();
+                    fullName = binding.fullNameBarangayClearance.getText().toString().trim();
+                    age = binding.age.getText().toString().trim();
+                    dateOfBirth = binding.birthDate.getText().toString().trim();
+                    presentAddress = binding.presentAddress.getText().toString().trim();
+                    purpose = binding.purpose.getText().toString().trim();
 
-
-                    if (!fullName.isEmpty() && !age.isEmpty() && !dateOfBirth.isEmpty() && !presentAddress.isEmpty() && !purpose.isEmpty() && !gender.isEmpty()) {
-
-
-                        BarangayClearanceRequests BarangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP);
-                        auth = FirebaseAuth.getInstance();
-                        db = FirebaseDatabase.getInstance();
-                        reference = db.getReference("RequestedDocuments");
-                        documentTypeName = db.getReference("RequestedDocuments");
-
-                        String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
-                        String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
-
-                        DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
-
-                        documentTypeRef.setValue(BarangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                                documentTypeRef.child("documentType").setValue("Barangay Clearance");
-
-                                binding.fullNameBarangayClearance.setText("");
-                                binding.age.setText("");
-                                binding.birthDate.setText("");
-                                binding.presentAddress.setText("");
-                                binding.purpose.setText("");
-                                Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
+                    // Validate input fields
+                    if (TextUtils.isEmpty(fullName)) {
+                        Log.d("Validation", "Full name is empty");
+                        binding.fullNameBarangayClearance.setError("Please enter your full name");
+                        binding.fullNameBarangayClearance.requestFocus();
+                        return;
                     }
+
+                    if (TextUtils.isEmpty(age)) {
+                        Log.d("Validation", "Age is empty");
+                        binding.age.setError("Please enter your age");
+                        binding.age.requestFocus();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(dateOfBirth)) {
+                        Log.d("Validation", "Date of birth is empty");
+                        binding.birthDate.setError("Please enter your date of birth");
+                        binding.birthDate.requestFocus();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(presentAddress)) {
+                        Log.d("Validation", "Present address is empty");
+                        binding.presentAddress.setError("Please enter your present address");
+                        binding.presentAddress.requestFocus();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(purpose)) {
+                        Log.d("Validation", "Purpose is empty");
+                        binding.purpose.setError("Please enter the purpose of your request");
+                        binding.purpose.requestFocus();
+                        return;
+                    }
+
+                    // Check if gender is selected
+                    if (TextUtils.isEmpty(gender)) {
+                        Log.d("Validation", "Gender is not selected");
+                        Toast.makeText(BarangayClearanceForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    Log.d("Validation", "All fields are filled. Proceed with submission.");
+
+                    // Proceed with form submission
+                    auth = FirebaseAuth.getInstance();
+                    db = FirebaseDatabase.getInstance();
+                    reference = db.getReference("RequestedDocuments");
+                    documentTypeName = db.getReference("RequestedDocuments");
+
+                    String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
+                    String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+
+                    DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
+
+                    BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP);
+
+                    documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            documentTypeRef.child("documentType").setValue("Barangay Clearance");
+
+                            binding.fullNameBarangayClearance.setText("");
+                            binding.age.setText("");
+                            binding.birthDate.setText("");
+                            binding.presentAddress.setText("");
+                            binding.purpose.setText("");
+                            Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });
+
+
+
     }
 
     private void setSupportActionBar(Toolbar myToolbar) {
