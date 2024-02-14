@@ -1,8 +1,16 @@
 <resources>
+
     <style name="AppTheme.NavigationView" parent="Widget.Design.NavigationView">
         <item name="android:textColor">#21232D</item>
     </style>
+
     <style name="NavigationViewTheme" parent="Widget.Design.NavigationView">
         <item name="android:background">@color/navyblue</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 </resources>

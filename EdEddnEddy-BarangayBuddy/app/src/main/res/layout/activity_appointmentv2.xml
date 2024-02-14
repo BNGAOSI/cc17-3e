@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/divider_grey_2"
-    tools:context=".SecureDocument">>
+    tools:context=".SecureDocument">
+
+        <include
+            layout="@layout/appbar"/>
 
         <TextView
             android:layout_width="300dp"

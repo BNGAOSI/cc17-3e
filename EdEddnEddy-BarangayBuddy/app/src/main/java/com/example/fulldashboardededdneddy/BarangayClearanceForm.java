@@ -1,7 +1,9 @@
 package com.example.fulldashboardededdneddy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -15,7 +17,6 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.fulldashboardededdneddy.databinding.ActivityBarangayclearanceformBinding;
 import com.example.fulldashboardededdneddy.databinding.ActivityMainBinding;
@@ -34,6 +35,8 @@ import java.util.Map;
 public class BarangayClearanceForm extends AppCompatActivity {
 
     ActivityBarangayclearanceformBinding binding;
+
+    Toolbar toolbar;
     String fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType;
     private EditText birthDate;
     private DatePickerDialog picker;
@@ -50,8 +53,11 @@ public class BarangayClearanceForm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(myToolbar);
+        toolbar = findViewById(R.id.appToolbar);
+
+        setSupportActionBar(toolbar);
+
+
 
 
         binding = ActivityBarangayclearanceformBinding.inflate(getLayoutInflater());
@@ -180,6 +186,4 @@ public class BarangayClearanceForm extends AppCompatActivity {
 
     }
 
-    private void setSupportActionBar(Toolbar myToolbar) {
-    }
 }

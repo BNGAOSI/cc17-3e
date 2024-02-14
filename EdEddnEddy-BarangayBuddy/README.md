@@ -167,3 +167,15 @@
 - Add currently logged in user node to every document submission form
 
 - Add checkbox funcionality to the suggestion screen
+
+### 2024/02/15
+
+- Add toolbar to SecureDocuments Feat
+
+- Add notification bell on toolbar
+
+- Add notification screen
+
+- Improve Register activity visual layout 
+
+- Add notification feat

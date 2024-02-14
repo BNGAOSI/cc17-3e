@@ -5,7 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.fulldashboardededdneddy.R.id;
 import com.example.fulldashboardededdneddy.R.layout;
 import kotlin.Metadata;
@@ -13,10 +17,21 @@ import org.jetbrains.annotations.Nullable;
 
 public final class SecureDocument extends AppCompatActivity {
 
+    private Toolbar toolbar;
+
+
     private Button residencyact;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_appointmentv2);
+
+        toolbar = findViewById(id.appToolbar);
+
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         Button barangayClearancbutton = (Button)this.findViewById(id.barangayClearancebtn);
         barangayClearancbutton.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
             public final void onClick(View it) {

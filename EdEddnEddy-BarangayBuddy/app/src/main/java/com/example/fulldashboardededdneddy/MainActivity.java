@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +29,7 @@ import com.google.android.material.navigation.NavigationView;
 import org.jetbrains.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    
+
     private DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
 
@@ -35,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(layout.activity_main);
-
 
 
 //=================  Toolbar Settings  ==========================
@@ -46,36 +47,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav );
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(id.fragment_container, new Home()).commit();
             navigationView.setCheckedItem(id.nav_home);
         }
 
 
-        //===========================  Kotlin converted to Java ==========================
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        return true;
 
     }
 
 
-
-//======================== Navigation Drawer =================================
+    //======================== Navigation Drawer =================================
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if(itemId == id.nav_home){
+        if (itemId == id.nav_home) {
             replaceFragment(new Home());
-        } else if (itemId == id.nav_secure_document){
+        } else if (itemId == id.nav_secure_document) {
             replaceFragment(new SecureDocumentsFragment());
-        } else if (itemId == id.nav_suggest){
+        } else if (itemId == id.nav_suggest) {
             replaceFragment(new SuggestionFragment());
-        } else if (itemId == id.nav_settings){
+        } else if (itemId == id.nav_settings) {
             replaceFragment(new DocumentStatusFragment());
         }
-
 
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -92,13 +97,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
     //=====================  Converts Frame layout to Fragment  ==================
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(id.fragment_container,fragment);
+        fragmentTransaction.replace(id.fragment_container, fragment);
         fragmentTransaction.commit();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == id.notification_bell) {
+            Intent sintent = new Intent(this, notification.class);
+            startActivity(sintent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
+}
