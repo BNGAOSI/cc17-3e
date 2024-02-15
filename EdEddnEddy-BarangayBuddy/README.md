@@ -179,3 +179,11 @@
 - Improve Register activity visual layout 
 
 - Add notification feat
+
+### 2024/02/16
+
+- Add new document called "Other Document"
+
+- Remove temporarily report history
+
+- Add new UID node for Report

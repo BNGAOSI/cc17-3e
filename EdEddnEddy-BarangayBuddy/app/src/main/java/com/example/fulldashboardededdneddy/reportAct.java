@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.fulldashboardededdneddy.R.id;
 import com.example.fulldashboardededdneddy.R.layout;
+import com.example.fulldashboardededdneddy.reportactvities.InsertionActivity;
 import com.example.fulldashboardededdneddy.reportactvities.ReportActivity;
 import kotlin.Metadata;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +28,7 @@ public final class reportAct extends AppCompatActivity {
         Button Click = (Button)this.findViewById(id.reportButton1);
         Click.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
             public final void onClick(View it) {
-                Intent Intent = new Intent((Context)reportAct.this, ReportActivity.class);
+                Intent Intent = new Intent((Context)reportAct.this, InsertionActivity.class);
                 reportAct.this.startActivity(Intent);
             }
         }));

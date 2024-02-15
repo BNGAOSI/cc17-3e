@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".otherDocsForm">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textViewOtherDocstitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="Please fill in the form"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name*"
+            android:textColor="#555555"
+            app:layout_constraintBottom_toTopOf="@+id/fullName_otherDocs"
+            app:layout_constraintStart_toStartOf="@+id/fullName_otherDocs" />
+
+        <EditText
+            android:id="@+id/fullName_otherDocs"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/edt_background"
+            android:elevation="8dp"
+            android:hint="Last Name, First Name"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hintColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOtherDocstitle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age*"
+            android:textColor="#555555"
+            app:layout_constraintBottom_toTopOf="@+id/age_otherDocs"
+            app:layout_constraintStart_toStartOf="@+id/age_otherDocs" />
+
+
+        <EditText
+            android:id="@+id/age_otherDocs"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edt_background"
+            android:hint=""
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hintColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fullName_otherDocs" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth*"
+            android:textColor="#555555"
+            app:layout_constraintBottom_toTopOf="@+id/birthDateotherDocs"
+            app:layout_constraintStart_toStartOf="@+id/birthDateotherDocs" />
+
+        <EditText
+            android:id="@+id/birthDateotherDocs"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edt_background"
+            android:focusable="false"
+            android:hint="(dd/mm/yyyy)"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hintColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age_otherDocs" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/baseline_calendar_month_24"
+            app:layout_constraintBottom_toBottomOf="@+id/birthDateotherDocs"
+            app:layout_constraintEnd_toEndOf="@+id/birthDateotherDocs"
+            app:layout_constraintTop_toTopOf="@+id/birthDateotherDocs" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/baseline_arrow_drop_down_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/civilStatus_linearlayoutOtherDocs" />
+
+
+        <LinearLayout
+            android:id="@+id/civilStatus_linearlayoutOtherDocs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingLeft="55dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/birthDateotherDocs">
+
+
+            <Spinner
+                android:id="@+id/civilstatus_spinner"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="55dp"
+                android:layout_weight="1"
+                android:background="@drawable/edt_background"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender*"
+            android:textColor="#555555"
+            app:layout_constraintBottom_toTopOf="@+id/genderRadioGroup"
+            app:layout_constraintStart_toStartOf="@+id/genderRadioGroup" />
+
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="180dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/civilStatus_linearlayoutOtherDocs">
+
+            <RadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/black" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address*"
+            android:textColor="#555555"
+            app:layout_constraintBottom_toTopOf="@+id/OtherDocsAddress"
+            app:layout_constraintStart_toStartOf="@+id/OtherDocsAddress" />
+
+        <EditText
+            android:id="@+id/OtherDocsAddress"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edt_background"
+            android:hint="Residential Address"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hintColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purpose of this document* "
+            android:textAlignment="textStart"
+            android:textColor="#555555"
+            app:layout_constraintBottom_toTopOf="@+id/duration"
+            app:layout_constraintStart_toStartOf="@+id/duration" />
+
+        <EditText
+            android:id="@+id/duration"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/edt_background"
+            android:hint=""
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hintColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/OtherDocsAddress" />
+
+
+        <Button
+            android:id="@+id/submit_btn_otherDocs"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/redButton"
+            android:text="Submit"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/duration" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

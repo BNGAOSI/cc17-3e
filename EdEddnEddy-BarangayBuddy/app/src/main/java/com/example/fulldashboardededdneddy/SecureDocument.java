@@ -56,6 +56,14 @@ public final class SecureDocument extends AppCompatActivity {
             }
         }));
 
+        Button otherDocsbtn = (Button)this.findViewById(id.otherDocbtn);
+        otherDocsbtn.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
+            public final void onClick(View it) {
+                Intent intent = new Intent((Context)SecureDocument.this, otherDocsForm.class);
+                startActivity(intent);
+            }
+        }));
+
         /*
         Button indigencybtn = (Button)this.findViewById(id.indigencybtn);
         indigencybtn.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {

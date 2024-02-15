@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.fulldashboardededdneddy.reportactvities.InsertionActivity;
 import com.example.fulldashboardededdneddy.reportactvities.ReportActivity;
 
 
@@ -47,7 +48,7 @@ public class Home extends Fragment {
         rprtsuggbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ReportActivity.class);
+                Intent intent = new Intent(context, InsertionActivity.class);
                 startActivity(intent);
             }
         });
