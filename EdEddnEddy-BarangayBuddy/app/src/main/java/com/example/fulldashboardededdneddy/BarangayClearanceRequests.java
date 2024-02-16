@@ -7,6 +7,8 @@ public class BarangayClearanceRequests {
     Map time;
     String fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType;
 
+    public String userTokenBarangayClearance;
+
     public BarangayClearanceRequests() {
     }
 
@@ -19,8 +21,7 @@ public class BarangayClearanceRequests {
     }
 
 
-
-    public BarangayClearanceRequests(String fullName, String age, String dateOfBirth, String presentAddress, String purpose, String gender, String documentType,Map time) {
+    public BarangayClearanceRequests(String fullName, String age, String dateOfBirth, String presentAddress, String purpose, String gender, String documentType, Map time, String userTokenBarangayClearance) {
         this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
@@ -29,6 +30,15 @@ public class BarangayClearanceRequests {
         this.gender = gender;
         this.time = time;
         this.documentType = documentType;
+        this.userTokenBarangayClearance = userTokenBarangayClearance;
+    }
+
+    public String getUserTokenBarangayClearance() {
+        return userTokenBarangayClearance;
+    }
+
+    public void setUserTokenBarangayClearance(String userTokenBarangayClearance) {
+        this.userTokenBarangayClearance = userTokenBarangayClearance;
     }
 
     public String getDocumentType() {

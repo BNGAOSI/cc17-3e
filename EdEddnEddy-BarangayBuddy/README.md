@@ -187,3 +187,11 @@
 - Remove temporarily report history
 
 - Add new UID node for Report
+
+### 2024/02/17
+
+- Improve Style Notification
+
+- Add Permission request for notification
+
+- Add device token for FCM for every document request

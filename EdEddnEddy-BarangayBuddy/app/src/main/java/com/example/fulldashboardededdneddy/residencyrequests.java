@@ -5,7 +5,7 @@ import java.util.Map;
 public class residencyrequests {
     String fullName, age, dateOfBirth, civilStatus, gender, address, duration, documentType;
     String status;
-
+    public String userTokenResidency;
     public String getStatus() {
         return status;
     }
@@ -31,7 +31,7 @@ public class residencyrequests {
         this.civilStatus = civilStatus;
     }
 
-    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, String documentType, Map time) {
+    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, String documentType, Map time, String userTokenResidency) {
         this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
@@ -41,10 +41,17 @@ public class residencyrequests {
         this.duration = duration;
         this.documentType = documentType;
         this.time = time;
+        this.userTokenResidency = userTokenResidency;
 
     }
 
+    public String getUserTokenResidency() {
+        return userTokenResidency;
+    }
 
+    public void setUserTokenResidency(String userTokenResidency) {
+        this.userTokenResidency = userTokenResidency;
+    }
 
     public String getFullName() {
         return fullName;

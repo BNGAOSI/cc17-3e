@@ -12,11 +12,11 @@
         android:id="@+id/titleReport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Report"
-        android:textSize="30dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/montserratbold"
+        android:text="Report"
         android:textColor="@color/black"
+        android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/etResName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,11 +27,11 @@
         android:id="@+id/etResName"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:background="@drawable/edt_background"
-        android:paddingLeft="20dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edt_background"
         android:hint="Enter name"
         android:inputType="textPersonName"
+        android:paddingLeft="20dp"
         android:textColor="@color/black"
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,31 +43,65 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"
         android:background="@drawable/edt_background"
         android:hint="Enter Current Location"
         android:inputType="textPersonName"
+        android:paddingLeft="20dp"
         android:textColor="@color/black"
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etResName" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="65dp"
+        android:background="@drawable/baseline_arrow_drop_down_24"
+        app:layout_constraintBottom_toBottomOf="@+id/report_type_linearlayout"
+        app:layout_constraintEnd_toEndOf="@+id/report_type_linearlayout"
+        app:layout_constraintTop_toTopOf="@+id/report_type_linearlayout" />
+
+    <LinearLayout
+        android:id="@+id/report_type_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etResCurLoc">
+
+        <Spinner
+            android:id="@+id/report_type_spinner"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="55dp"
+            android:layout_weight="1"
+            android:background="@drawable/edt_background"
+            android:entries="@array/report_types"
+            android:paddingLeft="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hintColor" />
+    </LinearLayout>
+
+
     <EditText
         android:id="@+id/etResRep"
         android:layout_width="300dp"
         android:layout_height="200dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/edt_background"
+        android:hint="Enter Report"
+        android:inputType="textMultiLine"
         android:paddingLeft="20dp"
         android:paddingBottom="130dp"
-        android:layout_marginTop="20dp"
-        android:hint="Enter Report"
-        android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etResCurLoc" />
+        app:layout_constraintTop_toBottomOf="@+id/report_type_linearlayout" />
 
     <Button
         android:id="@+id/btnSave"

@@ -9,17 +9,27 @@ public class BusincessClearanceRequests {
     String businessAddress;
     String documentType;
     Map time;
+    public String userToken;
 
     public BusincessClearanceRequests() {
     }
 
-    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String typeOfBusiness, String businessAddress, String documentType, Map time) {
+    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String typeOfBusiness, String businessAddress, String documentType, Map time, String userToken) {
         this.fullname = fullname;
         this.nameOfBussiness = nameOfBussiness;
         this.typeOfBusiness = typeOfBusiness;
         this.businessAddress = businessAddress;
         this.time = time;
         this.documentType = documentType;
+        this.userToken = userToken;
+    }
+
+    public String getUserToken() {
+        return userToken;
+    }
+
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
     }
 
     public String getTypeOfBusiness() {

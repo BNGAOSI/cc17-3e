@@ -24,30 +24,26 @@ class StatusRepository() {
         }
     }
 
-    fun loadDocuments(DocumentList: MutableLiveData<List<StatusDocuments>>) {
+    fun loadDocuments(uid: String, documentType: String, documentList: MutableLiveData<List<StatusDocuments>>) {
+        val userDocumentsRef = databaseReference.child(documentType).child(uid)
 
-        databaseReference.addValueEventListener(object : ValueEventListener {
+        userDocumentsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 try {
-
-                    val _statusList: List<StatusDocuments> = snapshot.children.map { dataSnapshot ->
+                    val statusList: List<StatusDocuments> = snapshot.children.map { dataSnapshot ->
                         dataSnapshot.getValue(StatusDocuments::class.java)!!
-
                     }
-
-                    DocumentList.postValue(_statusList)
-
+                    documentList.postValue(statusList)
                 } catch (e: Exception) {
-
+                    // Handle the exception if needed
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                // Handle the error if needed
             }
-
         })
     }
+
+
 }

@@ -59,5 +59,14 @@ View view;
                 startActivity(intent);
             }
         });
+
+        Button otherDocsbtn = (Button) context.findViewById(R.id.otherDocbtn);
+        otherDocsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, otherDocsForm.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -206,11 +206,11 @@
             android:text="Purpose of this document* "
             android:textAlignment="textStart"
             android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/duration"
-            app:layout_constraintStart_toStartOf="@+id/duration" />
+            app:layout_constraintBottom_toTopOf="@+id/purposeOtherDocs"
+            app:layout_constraintStart_toStartOf="@+id/purposeOtherDocs" />
 
         <EditText
-            android:id="@+id/duration"
+            android:id="@+id/purposeOtherDocs"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="52dp"
@@ -235,7 +235,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/duration" />
+            app:layout_constraintTop_toBottomOf="@+id/purposeOtherDocs" />
 
         <ProgressBar
             android:id="@+id/progressBar"

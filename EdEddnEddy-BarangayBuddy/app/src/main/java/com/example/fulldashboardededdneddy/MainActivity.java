@@ -1,7 +1,10 @@
 package com.example.fulldashboardededdneddy;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -30,6 +34,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int RC_NOTIFICATION = 99;
     private DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
 
@@ -37,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(layout.activity_main);
+
+//==========================  Ask user permission for notification  =====================================
 
 
 //=================  Toolbar Settings  ==========================
@@ -58,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == id.notification_bell) {
-            Intent sintent = new Intent(this, notification.class);
-            startActivity(sintent);
+            Intent intent = new Intent(this, PermissionActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -6,4 +6,5 @@ data class ResidentModel(
     var resCurLoc: String? = null,
     var resReport: String? = null,
     val timeStamp: Long? = 0,
+    var reportType: String? = null
 )

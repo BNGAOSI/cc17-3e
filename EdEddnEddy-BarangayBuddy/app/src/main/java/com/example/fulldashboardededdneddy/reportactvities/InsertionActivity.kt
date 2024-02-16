@@ -3,6 +3,7 @@ package com.example.fulldashboardededdneddy.reportactvities
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fulldashboardededdneddy.R
@@ -19,6 +20,7 @@ class InsertionActivity : AppCompatActivity() {
     private lateinit var etResRep: EditText
     private lateinit var btnSubmitReport: Button
     private lateinit var auth: FirebaseAuth
+    private lateinit var reportTypeSpinner: Spinner
 
     private lateinit var dbDatabaseReference: DatabaseReference
 
@@ -28,6 +30,7 @@ class InsertionActivity : AppCompatActivity() {
 
         etResName = findViewById(R.id.etResName)
         etResCurLoc = findViewById(R.id.etResCurLoc)
+        reportTypeSpinner = findViewById(R.id.report_type_spinner)
         etResRep = findViewById(R.id.etResRep)
         btnSubmitReport = findViewById(R.id.btnSave)
 
@@ -54,6 +57,7 @@ class InsertionActivity : AppCompatActivity() {
         // Getting values
         val resName = etResName.text.toString()
         val resCurLoc = etResCurLoc.text.toString()
+        val  reportType = reportTypeSpinner.selectedItem.toString()
         val resReport = etResRep.text.toString()
 
         if (resName.isEmpty()) {
@@ -75,7 +79,7 @@ class InsertionActivity : AppCompatActivity() {
         val resId = dbDatabaseReference.child(userId).push().key!!
         val timeStamp = System.currentTimeMillis()
 
-        val resident = ResidentModel(resId, resName, resCurLoc, resReport, timeStamp)
+        val resident = ResidentModel(resId, resName, resCurLoc, resReport, timeStamp, reportType)
 
         dbDatabaseReference.child(userId).child(resId).setValue(resident)
             .addOnCompleteListener {
@@ -89,5 +93,7 @@ class InsertionActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
             }
     }
+
+
 
 }

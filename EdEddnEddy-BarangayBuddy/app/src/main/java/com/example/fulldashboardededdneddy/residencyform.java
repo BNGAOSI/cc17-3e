@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -179,33 +180,38 @@ public class residencyform extends AppCompatActivity {
 
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
-                    // Proceed with form submission
-                    auth = FirebaseAuth.getInstance();
-                    db = FirebaseDatabase.getInstance();
-                    reference = db.getReference("RequestedDocuments");
-                    String resiUID = reference.child("Residency").push().getKey();
-                    String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+                    FirebaseMessaging.getInstance().getToken()
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful() && task.getResult() != null) {
+                                    String userToken = task.getResult();
 
-                    DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
+                                    // Proceed with form submission
+                                    auth = FirebaseAuth.getInstance();
+                                    db = FirebaseDatabase.getInstance();
+                                    reference = db.getReference("RequestedDocuments");
+                                    String resiUID = reference.child("Residency").push().getKey();
+                                    String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP);
+                                    DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
 
-                    documentTypeRef.setValue(residencyrequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP, userToken);
 
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                                    documentTypeRef.setValue(residencyrequests)
+                                            .addOnCompleteListener(task1 -> {
+                                                documentTypeRef.child("documentType").setValue("Certificate of Residency");
 
-                            documentTypeRef.child("documentType").setValue("Certificate of Residency");
+                                                binding.fullNameResidency.setText("");
+                                                binding.ageResidency.setText("");
+                                                binding.birthDateResidency.setText("");
+                                                binding.residentialAddress.setText("");
+                                                binding.duration.setText("");
+                                                Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                                            });
+                                } else {
+                                    String defaultToken = "default_token";
+                                }
 
-                            binding.fullNameResidency.setText("");
-                            binding.ageResidency.setText("");
-                            binding.birthDateResidency.setText("");
-                            binding.residentialAddress.setText("");
-                            binding.duration.setText("");
-                            Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
-                        }
-
-                    });
+                            });
                 }
             }
         });

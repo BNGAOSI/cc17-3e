@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,21 +18,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+
         <activity
             android:name=".otherDocsForm"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".notification"
-            android:exported="false" />
-        <activity
-            android:name=".StatusJava.StatusDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".validateField"
-            android:exported="false" />
+            android:name=".PermissionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".indigencyform"
             android:exported="false" />
+        <activity
+            android:name=".StatusJava.Status"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".residencyform"
             android:exported="false"
@@ -63,26 +69,12 @@
             android:name=".ChatActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".QueryDetailsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".FetchQuery"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".QueryActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".MapActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Urgent"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ReportDetailsActivity"
             android:exported="false"
@@ -107,14 +99,7 @@
             android:name=".MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".AskQueryDONE"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AskQuery"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".SuggestNext"
             android:exported="false"
@@ -143,10 +128,7 @@
             android:name=".settingsAct"
             android:exported="false"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".announcementsAct"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".locateAct"
             android:exported="false"
@@ -155,10 +137,7 @@
             android:name=".reportAct"
             android:exported="false"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".appointmentAct"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".Loginpage"
             android:exported="true"

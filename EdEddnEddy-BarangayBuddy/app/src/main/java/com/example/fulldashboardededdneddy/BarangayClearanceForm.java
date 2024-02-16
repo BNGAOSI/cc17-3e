@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -56,8 +57,6 @@ public class BarangayClearanceForm extends AppCompatActivity {
         toolbar = findViewById(R.id.appToolbar);
 
         setSupportActionBar(toolbar);
-
-
 
 
         binding = ActivityBarangayclearanceformBinding.inflate(getLayoutInflater());
@@ -150,38 +149,41 @@ public class BarangayClearanceForm extends AppCompatActivity {
 
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
-                    // Proceed with form submission
-                    auth = FirebaseAuth.getInstance();
-                    db = FirebaseDatabase.getInstance();
-                    reference = db.getReference("RequestedDocuments");
-                    documentTypeName = db.getReference("RequestedDocuments");
+                    FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            String userTokenBarangayClearance = task.getResult();
 
-                    String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
-                    String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+                            // Proceed with form submission
+                            auth = FirebaseAuth.getInstance();
+                            db = FirebaseDatabase.getInstance();
+                            reference = db.getReference("RequestedDocuments");
+                            documentTypeName = db.getReference("RequestedDocuments");
 
-                    DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
+                            String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
+                            String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                    BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP);
+                            DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
 
-                    documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
 
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                            BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance);
 
-                            documentTypeRef.child("documentType").setValue("Barangay Clearance");
+                            documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
+                                documentTypeRef.child("documentType").setValue("Barangay Clearance");
 
-                            binding.fullNameBarangayClearance.setText("");
-                            binding.age.setText("");
-                            binding.birthDate.setText("");
-                            binding.presentAddress.setText("");
-                            binding.purpose.setText("");
-                            Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
+                                binding.fullNameBarangayClearance.setText("");
+                                binding.age.setText("");
+                                binding.birthDate.setText("");
+                                binding.presentAddress.setText("");
+                                binding.purpose.setText("");
+                                Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
+                            });
+                        } else {
+                            String defaultToken = "default_token";
                         }
                     });
                 }
             }
         });
-
 
 
     }

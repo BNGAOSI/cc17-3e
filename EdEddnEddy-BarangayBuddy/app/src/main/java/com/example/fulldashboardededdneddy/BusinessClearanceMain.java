@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 
@@ -79,31 +80,35 @@ public class BusinessClearanceMain extends AppCompatActivity {
 
                 Log.d("Validation", "All fields are filled. Proceed with submission.");
 
-                // Proceed with form submission
-                auth = FirebaseAuth.getInstance();
-                db = FirebaseDatabase.getInstance();
-                reference = db.getReference("RequestedDocuments");
-                String businessClearanceUID = reference.child("Business Clearance").push().getKey();
-                String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+                FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        String userTokenResidency = task.getResult();
 
-                DatabaseReference documentTypeRef = reference.child("Business Clearance").child(uid).child(businessClearanceUID);
+                        // Proceed with form submission
+                        auth = FirebaseAuth.getInstance();
+                        db = FirebaseDatabase.getInstance();
+                        reference = db.getReference("RequestedDocuments");
+                        String businessClearanceUID = reference.child("Business Clearance").push().getKey();
+                        String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP);
-                documentTypeRef.setValue(BusinessClearanceRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+                        DatabaseReference documentTypeRef = reference.child("Business Clearance").child(uid).child(businessClearanceUID);
 
-                        documentTypeRef.child("documentType").setValue("Business Clearance");
+                        BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenResidency);
+                        documentTypeRef.setValue(BusinessClearanceRequests).addOnCompleteListener(task1 -> {
+                            documentTypeRef.child("documentType").setValue("Business Clearance");
 
-                        binding.fullNameBusinessClearance.setText("");
-                        binding.businessNameOrEstablishment.setText("");
-                        binding.typeOfBusiness.setText("");
-                        binding.businessLocation.setText("");
-                        Toast.makeText(BusinessClearanceMain.this, "Form successfully submitted", Toast.LENGTH_SHORT).show();
+                            binding.fullNameBusinessClearance.setText("");
+                            binding.businessNameOrEstablishment.setText("");
+                            binding.typeOfBusiness.setText("");
+                            binding.businessLocation.setText("");
+                            Toast.makeText(BusinessClearanceMain.this, "Form successfully submitted", Toast.LENGTH_SHORT).show();
+                        });
+                    } else {
+                        String defaultToken = "default_token";
                     }
                 });
+
             }
         });
-
     }
 }

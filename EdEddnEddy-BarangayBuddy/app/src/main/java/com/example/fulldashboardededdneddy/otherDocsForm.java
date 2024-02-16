@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,13 +32,14 @@ import java.util.List;
 
 public class otherDocsForm extends AppCompatActivity {
 
-    @NonNull ActivityOtherDocsFormBinding binding;
+    @NonNull
+    ActivityOtherDocsFormBinding binding;
     private Spinner civilStatus_spinner;
     private EditText birthDateOtherDocs;
     FirebaseAuth auth;
 
 
-    String dateOfBirth, fullName, age, gender, address, duration, status, documentType;
+    String dateOfBirth, fullName, age, gender, address, purpose, status, documentType;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
@@ -77,13 +79,12 @@ public class otherDocsForm extends AppCompatActivity {
                 int year = calendar.get(Calendar.YEAR);
 
                 //DatePicker Dialog
-                picker = new DatePickerDialog(otherDocsForm.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                birthDateOtherDocs.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                            }
-                        }, year, month, day);
+                picker = new DatePickerDialog(otherDocsForm.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        birthDateOtherDocs.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    }
+                }, year, month, day);
                 picker.show();
             }
         });
@@ -102,8 +103,8 @@ public class otherDocsForm extends AppCompatActivity {
                     age = binding.ageOtherDocs.getText().toString().trim();
                     String selectedCivilStatus = civilStatus.getSelectedItem().toString();
                     address = binding.OtherDocsAddress.getText().toString().trim();
-                    dateOfBirth = binding.OtherDocsAddress.getText().toString().trim();
-                    duration = binding.duration.getText().toString().trim();
+                    dateOfBirth = binding.birthDateotherDocs.getText().toString().trim();
+                    purpose = binding.purposeOtherDocs.getText().toString().trim();
 
                     // Validate input fields
                     if (TextUtils.isEmpty(fullName)) {
@@ -146,45 +147,48 @@ public class otherDocsForm extends AppCompatActivity {
                         return;
                     }
 
-                    if (TextUtils.isEmpty(duration)) {
-                        Log.d("Validation", "Duration is empty");
-                        binding.duration.setError("Please enter the duration");
-                        binding.duration.requestFocus();
+                    if (TextUtils.isEmpty(purpose)) {
+                        Log.d("Validation", "This field should not be empty");
+                        binding.purposeOtherDocs.setError("Please enter the duration");
+                        binding.purposeOtherDocs.requestFocus();
                         return;
                     }
 
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
-                    // Proceed with form submission
-                    auth = FirebaseAuth.getInstance();
-                    db = FirebaseDatabase.getInstance();
-                    reference = db.getReference("RequestedDocuments");
-                    String resiUID = reference.child("Others").push().getKey();
-                    String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+                    FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            String userTokenOtherDocs = task.getResult();
 
-                    DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
+                            // Proceed with form submission
+                            auth = FirebaseAuth.getInstance();
+                            db = FirebaseDatabase.getInstance();
+                            reference = db.getReference("RequestedDocuments");
+                            String resiUID = reference.child("Others").push().getKey();
+                            String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                    otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP);
+                            DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
 
-                    documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs);
 
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                            documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
 
-                            documentTypeRef.child("documentType").setValue("Other Document");
+                                documentTypeRef.child("documentType").setValue("Other Document");
 
-                            binding.fullNameOtherDocs.setText("");
-                            binding.ageOtherDocs.setText("");
-                            binding.birthDateotherDocs.setText("");
-                            binding.OtherDocsAddress.setText("");
-                            binding.duration.setText("");
-                            Toast.makeText(otherDocsForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                                binding.fullNameOtherDocs.setText("");
+                                binding.ageOtherDocs.setText("");
+                                binding.birthDateotherDocs.setText("");
+                                binding.OtherDocsAddress.setText("");
+                                binding.purposeOtherDocs.setText("");
+                                Toast.makeText(otherDocsForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                            });
+                        } else {
+                            String defaultToken = "default_token";
                         }
-
                     });
                 }
+
             }
         });
-
     }
 }

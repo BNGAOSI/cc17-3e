@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Brgy Buddy</string>
+    <string name="app_name">Barangay Buddy</string>
     <string name="button_string1">Appointment</string>
     <string name="title">Welcome, User!</string>
     <string name="report">Report</string>
@@ -42,4 +42,12 @@
     <string name="close_nav">Close Navigation Drawer</string>
     <string name="VisionMission">Vision - We envision Barangay Ambiong to become a model of a just, clean, progressive, and fully developed barangay, where people live harmoniously, and enjoy the fullness of God’s love. \n \n Mission - To bring about the delivery of adequate and responsive services thru peoples involvement, empowerment and networking with GO’s, NGO’s, and PO’s by utilizing available resources. \n \n Goal - To uplift and improve the quality of life by sustaining community mobilization in the barangay development activities.</string>
     <string name="sincewhen">Since when have you been a resident\nof this barangay?</string>
+    <string-array name="report_types">
+        <item>Incident Report</item>
+        <item>Lost and Found Report</item>
+    </string-array>
+    <string name="get_notified">Get Notified</string>
+    <string name="details_text">All our app keep you updated, with all of the latest events.</string>
+    <string name="i_m_in">I\'m in</string>
+    <string name="skip">Skip</string>
 </resources>
