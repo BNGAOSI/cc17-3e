@@ -1,7 +1,9 @@
 package com.example.fulldashboardededdneddy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -31,7 +33,7 @@ public class BusinessClearanceMain extends AppCompatActivity {
     private DatePickerDialog picker;
     FirebaseDatabase db;
     FirebaseAuth auth;
-
+    Toolbar toolbar;
     DatabaseReference reference;
 
     @Override
@@ -40,6 +42,14 @@ public class BusinessClearanceMain extends AppCompatActivity {
         binding = ActivityBusinessClearanceMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        toolbar = findViewById(R.id.appToolbar);
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Business Clearance");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         binding.submitBtnBusinessClearance.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +92,7 @@ public class BusinessClearanceMain extends AppCompatActivity {
 
                 FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
                     if (task.isSuccessful() && task.getResult() != null) {
-                        String userTokenResidency = task.getResult();
+                        String userTokenBusiness = task.getResult();
 
                         // Proceed with form submission
                         auth = FirebaseAuth.getInstance();
@@ -93,7 +103,7 @@ public class BusinessClearanceMain extends AppCompatActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Business Clearance").child(uid).child(businessClearanceUID);
 
-                        BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenResidency);
+                        BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenBusiness);
                         documentTypeRef.setValue(BusinessClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Business Clearance");
 

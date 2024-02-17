@@ -13,37 +13,29 @@
         android:id="@+id/BarangayHall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratbold"
         android:text="Barangay Hall Location"
         android:textColor="@color/navyblue"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:fontFamily="@font/montserratbold"
-        app:layout_constraintBottom_toTopOf="@+id/MapCardView"
+        app:layout_constraintBottom_toTopOf="@+id/openMapsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/MapCardView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="60dp"
-        android:background="@color/white"
-        app:cardCornerRadius="46dp"
+
+
+    <Button
+        android:id="@+id/openMapsButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_rounded_button"
+        android:text="Map"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

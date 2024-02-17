@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".residencyform">
+
+    <include
+        android:id="@+id/appToolbar"
+        layout="@layout/appbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,7 +24,7 @@
             android:id="@+id/textViewBusinessClearancetitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             android:text="Certificate of Residency"
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -105,13 +114,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="135dp"
-            android:layout_marginLeft="240dp"
+            android:layout_marginRight="30dp"
             android:src="@drawable/baseline_calendar_month_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/birthDateResidency"
+            app:layout_constraintEnd_toEndOf="@+id/birthDateResidency"
+            app:layout_constraintTop_toTopOf="@+id/birthDateResidency" />
 
 
         <ImageView
@@ -264,5 +271,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
         <include
+            android:id="@+id/appToolbar"
             layout="@layout/appbar"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout

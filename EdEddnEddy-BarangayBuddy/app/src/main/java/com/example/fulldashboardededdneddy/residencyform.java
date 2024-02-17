@@ -1,7 +1,9 @@
 package com.example.fulldashboardededdneddy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -36,6 +38,7 @@ public class residencyform extends AppCompatActivity {
 
     ActivityResidencyformBinding binding;
     private Spinner civilStatus_spinner;
+    Toolbar toolbar;
     private EditText birthDateResidency;
     private EditText durationbtn;
     FirebaseAuth auth;
@@ -52,6 +55,15 @@ public class residencyform extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityResidencyformBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        toolbar = findViewById(R.id.appToolbar);
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Residency Certificate");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
 
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
@@ -81,13 +93,12 @@ public class residencyform extends AppCompatActivity {
                 int year = calendar.get(Calendar.YEAR);
 
                 //DatePicker Dialog
-                picker = new DatePickerDialog(residencyform.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                birthDateResidency.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                            }
-                        }, year, month, day);
+                picker = new DatePickerDialog(residencyform.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        birthDateResidency.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    }
+                }, year, month, day);
                 picker.show();
             }
         });
@@ -102,13 +113,12 @@ public class residencyform extends AppCompatActivity {
                 int year = calendar.get(Calendar.YEAR);
 
                 //DatePicker Dialog
-                picker = new DatePickerDialog(residencyform.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                durationbtn.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                            }
-                        }, year, month, day);
+                picker = new DatePickerDialog(residencyform.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        durationbtn.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    }
+                }, year, month, day);
                 picker.show();
             }
         });
@@ -180,38 +190,36 @@ public class residencyform extends AppCompatActivity {
 
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
-                    FirebaseMessaging.getInstance().getToken()
-                            .addOnCompleteListener(task -> {
-                                if (task.isSuccessful() && task.getResult() != null) {
-                                    String userToken = task.getResult();
+                    FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            String userTokenResidency = task.getResult();
 
-                                    // Proceed with form submission
-                                    auth = FirebaseAuth.getInstance();
-                                    db = FirebaseDatabase.getInstance();
-                                    reference = db.getReference("RequestedDocuments");
-                                    String resiUID = reference.child("Residency").push().getKey();
-                                    String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+                            // Proceed with form submission
+                            auth = FirebaseAuth.getInstance();
+                            db = FirebaseDatabase.getInstance();
+                            reference = db.getReference("RequestedDocuments");
+                            String resiUID = reference.child("Residency").push().getKey();
+                            String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                                    DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
+                            DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
 
-                                    residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP, userToken);
+                            residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP, userTokenResidency);
 
-                                    documentTypeRef.setValue(residencyrequests)
-                                            .addOnCompleteListener(task1 -> {
-                                                documentTypeRef.child("documentType").setValue("Certificate of Residency");
+                            documentTypeRef.setValue(residencyrequests).addOnCompleteListener(task1 -> {
+                                documentTypeRef.child("documentType").setValue("Certificate of Residency");
 
-                                                binding.fullNameResidency.setText("");
-                                                binding.ageResidency.setText("");
-                                                binding.birthDateResidency.setText("");
-                                                binding.residentialAddress.setText("");
-                                                binding.duration.setText("");
-                                                Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
-                                            });
-                                } else {
-                                    String defaultToken = "default_token";
-                                }
-
+                                binding.fullNameResidency.setText("");
+                                binding.ageResidency.setText("");
+                                binding.birthDateResidency.setText("");
+                                binding.residentialAddress.setText("");
+                                binding.duration.setText("");
+                                Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
                             });
+                        } else {
+                            String defaultToken = "default_token";
+                        }
+
+                    });
                 }
             }
         });

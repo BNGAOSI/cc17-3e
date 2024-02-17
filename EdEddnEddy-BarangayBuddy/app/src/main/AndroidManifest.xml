@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,6 +21,7 @@
         <activity
             android:name=".otherDocsForm"
             android:exported="false"
+            android:parentActivityName=".SecureDocument"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PermissionActivity"
@@ -34,10 +34,11 @@
         <activity
             android:name=".StatusJava.Status"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".residencyform"
             android:exported="false"
+            android:parentActivityName=".SecureDocument"
             android:screenOrientation="portrait" />
         <activity
             android:name=".navigation_drawer_main"
@@ -46,6 +47,7 @@
         <activity
             android:name=".BusinessClearanceMain"
             android:exported="false"
+            android:parentActivityName=".SecureDocument"
             android:screenOrientation="portrait" />
         <activity
             android:name=".BarangayClearanceForm"
@@ -64,6 +66,7 @@
         <activity
             android:name=".AnnouncementDetailActivity"
             android:exported="false"
+            android:parentActivityName=".announcementsRefinedScreen"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ChatActivity"
@@ -86,6 +89,7 @@
         <activity
             android:name=".reportactvities.InsertionActivity"
             android:exported="false"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".reportactvities.ReportActivity"
@@ -107,6 +111,7 @@
         <activity
             android:name=".Suggest"
             android:exported="false"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReportDONE"

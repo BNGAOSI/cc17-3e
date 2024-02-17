@@ -43,7 +43,6 @@ public class BarangayClearanceForm extends AppCompatActivity {
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
-    DatabaseReference statusReference;
 
     DatabaseReference documentTypeName;
     FirebaseAuth auth;
@@ -53,14 +52,19 @@ public class BarangayClearanceForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityBarangayclearanceformBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         toolbar = findViewById(R.id.appToolbar);
 
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Barangay Clearance");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
 
-        binding = ActivityBarangayclearanceformBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDate = findViewById(R.id.birthDate);

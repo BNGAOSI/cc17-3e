@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
 
+    private double destinationLat = 16.433671;
+    private double destinationLng = 120.606401;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -3,6 +3,7 @@ package com.example.fulldashboardededdneddy;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -10,7 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.fulldashboardededdneddy.R.id;
 import com.example.fulldashboardededdneddy.R.layout;
@@ -32,11 +35,20 @@ public final class Suggest extends AppCompatActivity {
     private EditText etSugName;
     private EditText etSuggest;
     private Button btnSaveData;
+    private Toolbar toolbar;
     private DatabaseReference databaseReference;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(layout.activity_suggest);
+
+        toolbar = findViewById(id.appToolbar);
+
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Suggest");
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         CheckBox ckboxHealth = findViewById(id.checkboxHealth);
         CheckBox ckboxEducation = findViewById(id.checkboxEducation);
@@ -45,11 +57,6 @@ public final class Suggest extends AppCompatActivity {
         CheckBox ckboxEtc = findViewById(id.checkboxEtc);
 
 
-        ImageButton backbutton = this.findViewById(id.goback1);
-        backbutton.setOnClickListener(it -> {
-            Intent intent = new Intent(Suggest.this, reportAct.class);
-            Suggest.this.startActivity(intent);
-        });
         Button proceedSuggest1 = this.findViewById(id.btnSaveData);
         proceedSuggest1.setOnClickListener(it -> {
             Intent intent = new Intent(Suggest.this, SuggestNext.class);
@@ -73,6 +80,8 @@ public final class Suggest extends AppCompatActivity {
         }
 
         btnSaveData.setOnClickListener(it -> Suggest.this.saveSuggestionData());
+
+
     }
 
     private void saveSuggestionData() {
@@ -104,30 +113,17 @@ public final class Suggest extends AppCompatActivity {
                     String etcDetails = etEtcDetails != null ? etEtcDetails.getText().toString() : "";
 
 
-                    SuggestionModel suggestion = new SuggestionModel(
-                            sugId,
-                            sugName,
-                            suggest,
-                            ServerValue.TIMESTAMP,
-                            ckboxHealth.isChecked(),
-                            ckboxEducation.isChecked(),
-                            ckboxSports.isChecked(),
-                            ckboxBarangayImprv.isChecked(),
-                            ckboxEtc.isChecked(),
-                            etcDetails
-                    );
+                    SuggestionModel suggestion = new SuggestionModel(sugId, sugName, suggest, ServerValue.TIMESTAMP, ckboxHealth.isChecked(), ckboxEducation.isChecked(), ckboxSports.isChecked(), ckboxBarangayImprv.isChecked(), ckboxEtc.isChecked(), etcDetails);
 
 
-                    suggestionReference.setValue(suggestion)
-                            .addOnCompleteListener(it -> {
-                                Toast.makeText(Suggest.this, "Suggestion sent successfully", Toast.LENGTH_LONG).show();
-                                if (etSugName != null) etSugName.getText().clear();
-                                if (etSuggest != null) etSuggest.getText().clear();
-                                if (etEtcDetails != null) etEtcDetails.getText().clear();
-                            })
-                            .addOnFailureListener(err -> {
-                                Toast.makeText(Suggest.this, "Error " + err.getMessage(), Toast.LENGTH_LONG).show();
-                            });
+                    suggestionReference.setValue(suggestion).addOnCompleteListener(it -> {
+                        Toast.makeText(Suggest.this, "Suggestion sent successfully", Toast.LENGTH_LONG).show();
+                        if (etSugName != null) etSugName.getText().clear();
+                        if (etSuggest != null) etSuggest.getText().clear();
+                        if (etEtcDetails != null) etEtcDetails.getText().clear();
+                    }).addOnFailureListener(err -> {
+                        Toast.makeText(Suggest.this, "Error " + err.getMessage(), Toast.LENGTH_LONG).show();
+                    });
                 }
             }
         }
@@ -153,5 +149,15 @@ public final class Suggest extends AppCompatActivity {
 
         return var10000;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

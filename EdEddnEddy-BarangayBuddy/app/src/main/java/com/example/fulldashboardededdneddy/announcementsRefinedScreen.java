@@ -1,6 +1,7 @@
 package com.example.fulldashboardededdneddy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,8 +31,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class announcementsRefinedScreen extends AppCompatActivity{
+public class announcementsRefinedScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     RecyclerView recyclerView;
+    Toolbar toolbar;
     List<AnnouncementDataClass> datalist;
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
@@ -40,6 +42,15 @@ public class announcementsRefinedScreen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements_refined_screen);
+
+//============================Toolbar Settings================================
+
+        toolbar = findViewById(R.id.appToolbar);
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Announcements");
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.announcement_recyclerView);
 
@@ -80,7 +91,34 @@ public class announcementsRefinedScreen extends AppCompatActivity{
         });
 
     }
-//============================Toolbar Settings================================
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            // Handle back button press
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Close the drawer if it is open, otherwise, perform the default back button behavior
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
 
 }

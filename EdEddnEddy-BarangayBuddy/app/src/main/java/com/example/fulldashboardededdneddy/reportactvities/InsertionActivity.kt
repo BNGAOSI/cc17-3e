@@ -5,7 +5,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.fulldashboardededdneddy.R
 import com.example.fulldashboardededdneddy.model.ResidentModel
 import com.google.firebase.auth.FirebaseAuth
@@ -15,6 +17,7 @@ import com.google.firebase.database.ServerValue
 
 class InsertionActivity : AppCompatActivity() {
 
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var etResName: EditText
     private lateinit var etResCurLoc: EditText
     private lateinit var etResRep: EditText
@@ -27,6 +30,16 @@ class InsertionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insertion)
+
+        toolbar = findViewById(R.id.appToolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.apply {
+            title = "Report"
+            setDisplayHomeAsUpEnabled(true)
+        }
+        toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.white))
+
 
         etResName = findViewById(R.id.etResName)
         etResCurLoc = findViewById(R.id.etResCurLoc)

@@ -1,7 +1,9 @@
 package com.example.fulldashboardededdneddy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -37,6 +39,7 @@ public class otherDocsForm extends AppCompatActivity {
     private Spinner civilStatus_spinner;
     private EditText birthDateOtherDocs;
     FirebaseAuth auth;
+    Toolbar toolbar;
 
 
     String dateOfBirth, fullName, age, gender, address, purpose, status, documentType;
@@ -50,6 +53,14 @@ public class otherDocsForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityOtherDocsFormBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        toolbar = findViewById(R.id.appToolbar);
+
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Other Documents");
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);

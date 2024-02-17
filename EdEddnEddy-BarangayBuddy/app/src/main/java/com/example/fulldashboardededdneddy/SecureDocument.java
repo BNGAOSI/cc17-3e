@@ -30,6 +30,7 @@ public final class SecureDocument extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Secure Document");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         Button barangayClearancbutton = (Button)this.findViewById(id.barangayClearancebtn);

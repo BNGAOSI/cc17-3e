@@ -195,3 +195,9 @@
 - Add Permission request for notification
 
 - Add device token for FCM for every document request
+
+### 2024/02/18
+
+- Add toolbar to all activities
+
+- Feat Map now directs users to google map for easy access to navigation etc.
