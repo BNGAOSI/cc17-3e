@@ -44,7 +44,7 @@ public class residencyform extends AppCompatActivity {
     FirebaseAuth auth;
 
 
-    String dateOfBirth, fullName, age, gender, address, duration, status, documentType;
+    String dateOfBirth, fullName, age, gender, address, duration, status, documentType, residencyPhoneNumber;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
@@ -63,7 +63,6 @@ public class residencyform extends AppCompatActivity {
             actionBar.setTitle("Residency Certificate");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
 
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
@@ -139,6 +138,7 @@ public class residencyform extends AppCompatActivity {
                     address = binding.residentialAddress.getText().toString().trim();
                     dateOfBirth = binding.birthDateResidency.getText().toString().trim();
                     duration = binding.duration.getText().toString().trim();
+                    residencyPhoneNumber = binding.residencyPhoneNumber.getText().toString().trim();
 
                     // Validate input fields
                     if (TextUtils.isEmpty(fullName)) {
@@ -188,6 +188,13 @@ public class residencyform extends AppCompatActivity {
                         return;
                     }
 
+                    if (TextUtils.isEmpty(residencyPhoneNumber)) {
+                        Log.d("Validation", "Phone Number is empty");
+                        binding.duration.setError("Please enter your phone number");
+                        binding.duration.requestFocus();
+                        return;
+                    }
+
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
                     FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
@@ -203,7 +210,7 @@ public class residencyform extends AppCompatActivity {
 
                             DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
 
-                            residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP, userTokenResidency);
+                            residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP, userTokenResidency, residencyPhoneNumber);
 
                             documentTypeRef.setValue(residencyrequests).addOnCompleteListener(task1 -> {
                                 documentTypeRef.child("documentType").setValue("Certificate of Residency");
@@ -213,6 +220,7 @@ public class residencyform extends AppCompatActivity {
                                 binding.birthDateResidency.setText("");
                                 binding.residentialAddress.setText("");
                                 binding.duration.setText("");
+                                binding.residencyPhoneNumber.setText("");
                                 Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
                             });
                         } else {

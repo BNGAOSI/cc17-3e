@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".PermissionActivity">
 
+    <include
+        layout="@layout/appbar"/>
+
     <ImageView
         android:id="@+id/bell_icon"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginTop="90dp"
         android:src="@drawable/baseline_notifications_24"
         app:layout_constraintBottom_toTopOf="@id/textView1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +38,9 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
+        android:padding="20dp"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
+
         android:text="@string/details_text"
         android:textAlignment="center"
         android:textSize="16sp"

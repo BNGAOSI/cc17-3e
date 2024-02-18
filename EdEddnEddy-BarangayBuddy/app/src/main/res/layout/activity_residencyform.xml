@@ -9,267 +9,290 @@
 
     <include
         android:id="@+id/appToolbar"
-        layout="@layout/appbar"/>
+        layout="@layout/appbar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <TextView
-            android:id="@+id/textViewBusinessClearancetitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Certificate of Residency"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Full Name*"
-            android:textColor="#555555"
-            android:layout_marginRight="190dp"
-            app:layout_constraintBottom_toTopOf="@+id/fullName_residency"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/fullName_residency"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/edt_background"
-            android:hint="Last Name, First Name"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle"
-            android:elevation="8dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Age*"
-            android:layout_marginLeft="-230dp"
-            android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/age_residency"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
-
-        <EditText
-            android:id="@+id/age_residency"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint=""
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            android:paddingLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fullName_residency" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date of Birth*"
-            android:textColor="#555555"
-            android:layout_marginRight="185dp"
-            app:layout_constraintBottom_toTopOf="@+id/birthDateResidency"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/birthDateResidency"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:textColor="@color/black"
-            android:background="@drawable/edt_background"
-            android:hint="(dd/mm/yyyy)"
-            android:paddingLeft="20dp"
-            android:focusable="false"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/age_residency" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:src="@drawable/baseline_calendar_month_24"
-            app:layout_constraintBottom_toBottomOf="@+id/birthDateResidency"
-            app:layout_constraintEnd_toEndOf="@+id/birthDateResidency"
-            app:layout_constraintTop_toTopOf="@+id/birthDateResidency" />
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/baseline_arrow_drop_down_24"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="13dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/civilStatus_linearlayout"/>
-
-
-        <LinearLayout
-            android:id="@+id/civilStatus_linearlayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="55dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateResidency">
+            android:layout_height="match_parent">
 
 
-            <Spinner
-                android:id="@+id/civilstatus_spinner"
+            <TextView
+                android:id="@+id/textViewBusinessClearancetitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Certificate of Residency"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/fullName_residency"
+                app:layout_constraintStart_toStartOf="@+id/fullName_residency" />
+
+            <EditText
+                android:id="@+id/fullName_residency"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="55dp"
+                android:layout_marginTop="36dp"
                 android:background="@drawable/edt_background"
+                android:elevation="8dp"
+                android:hint="Last Name, First Name"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
-                android:layout_gravity="center" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle" />
 
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gender*"
-            android:textColor="#555555"
-            android:layout_marginLeft="-230dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"/>
-
-        <RadioGroup
-            android:id="@+id/genderRadioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="180dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/civilStatus_linearlayout">
-
-            <RadioButton
-                android:id="@+id/maleRadioButton"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"
-                android:textColor="@color/black" />
+                android:text="Age*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/age_residency"
+                app:layout_constraintStart_toStartOf="@+id/age_residency" />
 
-            <RadioButton
-                android:id="@+id/femaleRadioButton"
+
+            <EditText
+                android:id="@+id/age_residency"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint=""
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullName_residency" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"
-                android:textColor="@color/black" />
+                android:text="Date of Birth*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/birthDateResidency"
+                app:layout_constraintStart_toStartOf="@+id/birthDateResidency" />
 
-        </RadioGroup>
+            <EditText
+                android:id="@+id/birthDateResidency"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:focusable="false"
+                android:hint="(dd/mm/yyyy)"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/age_residency" />
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Address*"
-            android:textColor="#555555"
-            android:layout_marginRight="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/residentialAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/residentialAddress"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint="Residential Address"
-            android:textColor="@color/black"
-            android:paddingLeft="20dp"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sincewhen"
-            android:textColor="#555555"
-            android:layout_marginRight="35dp"
-            android:textAlignment="textStart"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/duration"/>
-
-        <EditText
-            android:id="@+id/duration"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/edt_background"
-            android:hint="Since..."
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            android:paddingLeft="20dp"
-            android:focusable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/residentialAddress"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/baseline_calendar_month_24"
+                app:layout_constraintBottom_toBottomOf="@+id/birthDateResidency"
+                app:layout_constraintEnd_toEndOf="@+id/birthDateResidency"
+                app:layout_constraintTop_toTopOf="@+id/birthDateResidency" />
 
 
-        <Button
-            android:id="@+id/submit_btn_residency"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/redButton"
-            android:text="Submit"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/duration" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:elevation="10dp"
-            android:visibility="gone"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/baseline_arrow_drop_down_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/civilStatus_linearlayout" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/civilStatus_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingLeft="55dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birthDateResidency">
+
+
+                <Spinner
+                    android:id="@+id/civilstatus_spinner"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="55dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edt_background"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-230dp"
+                android:text="Gender*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/genderRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="180dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/civilStatus_linearlayout">
+
+                <RadioButton
+                    android:id="@+id/maleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/femaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textColor="@color/black" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/residentialAddress"
+                app:layout_constraintStart_toStartOf="@+id/residentialAddress" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/residencyPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/residencyPhoneNumber" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="+63"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/residencyPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/residencyPhoneNumber"
+                app:layout_constraintTop_toTopOf="@+id/residencyPhoneNumber" />
+
+            <EditText
+                android:id="@+id/residencyPhoneNumber"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:inputType="number"
+                android:paddingLeft="60dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
+
+            <EditText
+                android:id="@+id/residentialAddress"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint="Residential Address"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/residencyPhoneNumber" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sincewhen"
+                android:textAlignment="textStart"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/duration"
+                app:layout_constraintStart_toStartOf="@+id/duration" />
+
+            <EditText
+                android:id="@+id/duration"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/edt_background"
+                android:focusable="false"
+                android:hint="Since..."
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/residentialAddress" />
+
+
+            <Button
+                android:id="@+id/submit_btn_residency"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/redButton"
+                android:text="Submit"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/duration" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </LinearLayout>

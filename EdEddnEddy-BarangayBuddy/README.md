@@ -201,3 +201,11 @@
 - Add toolbar to all activities
 
 - Feat Map now directs users to google map for easy access to navigation etc.
+
+### 2024/02/19
+
+- Add Phone number to all documents form
+
+- Change age field to "number" input
+
+- Style: Add constraints to the red lines to the buttons at home fragment

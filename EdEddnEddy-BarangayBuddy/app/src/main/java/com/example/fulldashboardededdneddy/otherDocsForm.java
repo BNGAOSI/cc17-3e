@@ -42,7 +42,7 @@ public class otherDocsForm extends AppCompatActivity {
     Toolbar toolbar;
 
 
-    String dateOfBirth, fullName, age, gender, address, purpose, status, documentType;
+    String dateOfBirth, fullName, age, gender, address, purpose, status, documentType, otherDocsPhoneNumber;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
@@ -116,6 +116,7 @@ public class otherDocsForm extends AppCompatActivity {
                     address = binding.OtherDocsAddress.getText().toString().trim();
                     dateOfBirth = binding.birthDateotherDocs.getText().toString().trim();
                     purpose = binding.purposeOtherDocs.getText().toString().trim();
+                    otherDocsPhoneNumber = binding.otherDocsPhoneNumber.getText().toString().trim();
 
                     // Validate input fields
                     if (TextUtils.isEmpty(fullName)) {
@@ -165,6 +166,13 @@ public class otherDocsForm extends AppCompatActivity {
                         return;
                     }
 
+                    if (TextUtils.isEmpty(otherDocsPhoneNumber)) {
+                        Log.d("Validation", "This field should not be empty");
+                        binding.purposeOtherDocs.setError("Please enter your phone number");
+                        binding.purposeOtherDocs.requestFocus();
+                        return;
+                    }
+
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
                     FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
@@ -180,7 +188,7 @@ public class otherDocsForm extends AppCompatActivity {
 
                             DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
 
-                            otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs);
+                            otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
 
                             documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
 
@@ -191,6 +199,7 @@ public class otherDocsForm extends AppCompatActivity {
                                 binding.birthDateotherDocs.setText("");
                                 binding.OtherDocsAddress.setText("");
                                 binding.purposeOtherDocs.setText("");
+                                binding.otherDocsPhoneNumber.setText("");
                                 Toast.makeText(otherDocsForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
                             });
                         } else {

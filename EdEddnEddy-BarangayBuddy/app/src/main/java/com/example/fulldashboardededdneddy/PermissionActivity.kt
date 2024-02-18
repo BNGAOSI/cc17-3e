@@ -9,12 +9,15 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.example.fulldashboardededdneddy.databinding.ActivityNotificationBinding
 
 class PermissionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNotificationBinding
     private lateinit var requestLauncher: ActivityResultLauncher<String>
+    private lateinit var toolbar: Toolbar
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,15 +25,24 @@ class PermissionActivity : AppCompatActivity() {
         binding = ActivityNotificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        toolbar = findViewById(R.id.appToolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.apply {
+            title = "Notifications"
+            setDisplayHomeAsUpEnabled(true)
+        }
+        toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.white))
+
         requestLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             if (it) {
                 //main activity
-                startActivity(Intent(
-                    this@PermissionActivity,
-                    MainActivity::class.java
-                ))
-            }
-            else {
+                startActivity(
+                    Intent(
+                        this@PermissionActivity, MainActivity::class.java
+                    )
+                )
+            } else {
                 //show error message
                 showErrorMessage()
             }
@@ -51,9 +63,7 @@ class PermissionActivity : AppCompatActivity() {
 
     private fun showErrorMessage() {
         Toast.makeText(
-            this,
-            "Permission is not granted",
-            Toast.LENGTH_SHORT
+            this, "Permission is not granted", Toast.LENGTH_SHORT
         ).show()
     }
 }

@@ -16,155 +16,179 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/textViewBusinessClearancetitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="Business Clearance"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
+            <TextView
+                android:id="@+id/textViewBusinessClearancetitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:text="Business Clearance"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name of Owner*"
-            android:textColor="#555555"
-            android:layout_marginRight="160dp"
-            app:layout_constraintBottom_toTopOf="@+id/fullNameBusinessClearance"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name of Owner*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/fullNameBusinessClearance"
+                app:layout_constraintStart_toStartOf="@+id/fullNameBusinessClearance" />
 
-        <EditText
-            android:id="@+id/fullNameBusinessClearance"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/edt_background"
-            android:hint="Last Name, First Name"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle"
-            android:elevation="8dp"/>
+            <EditText
+                android:id="@+id/fullNameBusinessClearance"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/edt_background"
+                android:elevation="8dp"
+                android:hint="Last Name, First Name"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name of Business or Establishment*"
-            android:textColor="#555555"
-            android:layout_marginRight="35dp"
-            app:layout_constraintBottom_toTopOf="@+id/businessNameOrEstablishment"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name of Business or Establishment*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/businessNameOrEstablishment"
+                app:layout_constraintStart_toStartOf="@+id/businessNameOrEstablishment" />
 
 
+            <EditText
+                android:id="@+id/businessNameOrEstablishment"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint=""
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance" />
 
-        <EditText
-            android:id="@+id/businessNameOrEstablishment"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint=""
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            android:paddingLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Type of Business*"
-            android:textColor="#555555"
-            android:layout_marginRight="146dp"
-            app:layout_constraintBottom_toTopOf="@+id/typeOfBusiness"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type of Business*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/typeOfBusiness"
+                app:layout_constraintStart_toStartOf="@+id/typeOfBusiness" />
 
 
-
-        <EditText
-            android:id="@+id/typeOfBusiness"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint=""
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            android:paddingLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessNameOrEstablishment" />
-
+            <EditText
+                android:id="@+id/typeOfBusiness"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint=""
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/businessNameOrEstablishment" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Business Address*"
-            android:textColor="#555555"
-            android:layout_marginRight="145dp"
-            app:layout_constraintBottom_toTopOf="@+id/businessLocation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Business Address*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/businessLocation"
+                app:layout_constraintStart_toStartOf="@+id/businessLocation" />
 
-        <EditText
-            android:id="@+id/businessLocation"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint="Business Location "
-            android:textColor="@color/black"
-            android:paddingLeft="20dp"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/typeOfBusiness" />
+            <EditText
+                android:id="@+id/businessLocation"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint="Business Location "
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/typeOfBusiness" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/businessClearancePhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/businessClearancePhoneNumber" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="+63"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/businessClearancePhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/businessClearancePhoneNumber"
+                app:layout_constraintTop_toTopOf="@+id/businessClearancePhoneNumber" />
+
+            <EditText
+                android:id="@+id/businessClearancePhoneNumber"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edt_background"
+                android:inputType="number"
+                android:paddingLeft="60dp"
+                android:layout_marginTop="32dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/businessLocation" />
 
 
-        <Button
-            android:id="@+id/submit_btn_businessClearance"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/redButton"
-            android:text="Submit"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessLocation" />
+            <Button
+                android:id="@+id/submit_btn_businessClearance"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/redButton"
+                android:text="Submit"
+                android:layout_marginTop="32dp"
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:elevation="10dp"
-            android:visibility="gone"/>
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/businessClearancePhoneNumber" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </LinearLayout>

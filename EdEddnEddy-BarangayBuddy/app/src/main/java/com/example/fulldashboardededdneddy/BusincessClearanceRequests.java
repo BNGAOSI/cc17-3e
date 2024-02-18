@@ -11,10 +11,12 @@ public class BusincessClearanceRequests {
     Map time;
     public String userTokenBusiness;
 
+    String businessClearancePhone;
+
     public BusincessClearanceRequests() {
     }
 
-    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String typeOfBusiness, String businessAddress, String documentType, Map time, String userTokenBusiness) {
+    public BusincessClearanceRequests(String fullname, String nameOfBussiness, String typeOfBusiness, String businessAddress, String documentType, Map time, String userTokenBusiness, String businessClearancePhone) {
         this.fullname = fullname;
         this.nameOfBussiness = nameOfBussiness;
         this.typeOfBusiness = typeOfBusiness;
@@ -22,6 +24,15 @@ public class BusincessClearanceRequests {
         this.time = time;
         this.documentType = documentType;
         this.userTokenBusiness = userTokenBusiness;
+        this.businessClearancePhone = businessClearancePhone;
+    }
+
+    public String getBusinessClearancePhone() {
+        return businessClearancePhone;
+    }
+
+    public void setBusinessClearancePhone(String businessClearancePhone) {
+        this.businessClearancePhone = businessClearancePhone;
     }
 
     public String getUserTokenBusiness() {

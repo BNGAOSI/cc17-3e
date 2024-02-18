@@ -38,7 +38,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
     ActivityBarangayclearanceformBinding binding;
 
     Toolbar toolbar;
-    String fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType;
+    String fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, phoneNumber;
     private EditText birthDate;
     private DatePickerDialog picker;
     FirebaseDatabase db;
@@ -107,6 +107,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
                     dateOfBirth = binding.birthDate.getText().toString().trim();
                     presentAddress = binding.presentAddress.getText().toString().trim();
                     purpose = binding.purpose.getText().toString().trim();
+                    phoneNumber = binding.barangayClearancePhoneNumber.getText().toString().trim();
 
                     // Validate input fields
                     if (TextUtils.isEmpty(fullName)) {
@@ -145,9 +146,10 @@ public class BarangayClearanceForm extends AppCompatActivity {
                     }
 
                     // Check if gender is selected
-                    if (TextUtils.isEmpty(gender)) {
-                        Log.d("Validation", "Gender is not selected");
-                        Toast.makeText(BarangayClearanceForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
+                    if (TextUtils.isEmpty(phoneNumber)) {
+                        Log.d("Validation", "Phone Number is empty");
+                        binding.fullNameBarangayClearance.setError("Please enter your phone number");
+                        binding.fullNameBarangayClearance.requestFocus();
                         return;
                     }
 
@@ -169,7 +171,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
                             DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
 
 
-                            BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance);
+                            BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
 
                             documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
                                 documentTypeRef.child("documentType").setValue("Barangay Clearance");
@@ -177,6 +179,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
                                 binding.fullNameBarangayClearance.setText("");
                                 binding.age.setText("");
                                 binding.birthDate.setText("");
+                                binding.barangayClearancePhoneNumber.setText("");
                                 binding.presentAddress.setText("");
                                 binding.purpose.setText("");
                                 Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();

@@ -3,7 +3,7 @@ package com.example.fulldashboardededdneddy;
 import java.util.Map;
 
 public class residencyrequests {
-    String fullName, age, dateOfBirth, civilStatus, gender, address, duration, documentType;
+    String fullName, age, dateOfBirth, civilStatus, gender, address, duration, documentType, residencyPhoneNumber;
     String status;
     public String userTokenResidency;
     public String getStatus() {
@@ -31,7 +31,7 @@ public class residencyrequests {
         this.civilStatus = civilStatus;
     }
 
-    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, String documentType, Map time, String userTokenResidency) {
+    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, String documentType, Map time, String userTokenResidency, String residencyPhoneNumber) {
         this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
@@ -42,7 +42,16 @@ public class residencyrequests {
         this.documentType = documentType;
         this.time = time;
         this.userTokenResidency = userTokenResidency;
+        this.residencyPhoneNumber = residencyPhoneNumber;
 
+    }
+
+    public String getResidencyPhoneNumber() {
+        return residencyPhoneNumber;
+    }
+
+    public void setResidencyPhoneNumber(String residencyPhoneNumber) {
+        this.residencyPhoneNumber = residencyPhoneNumber;
     }
 
     public String getUserTokenResidency() {

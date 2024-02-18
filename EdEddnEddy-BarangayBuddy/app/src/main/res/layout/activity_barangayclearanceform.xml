@@ -5,227 +5,256 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".BarangayClearanceForm"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".BarangayClearanceForm">
 
-        <include
-            android:id="@+id/appToolbar"
-            layout="@layout/appbar"/>
+    <include
+        android:id="@+id/appToolbar"
+        layout="@layout/appbar" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/textViewbarangayClearancetitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="BARANGAY CLEARANCE"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="160dp"
-            android:text="Name of Owner*"
-            android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/fullName_barangayClearance"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/fullName_barangayClearance"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/edt_background"
-            android:elevation="8dp"
-            android:hint="Last Name, Full Name"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewbarangayClearancetitle" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="230dp"
-            android:text="Age*"
-            android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/age"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-        <EditText
-            android:id="@+id/age"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint="Age"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fullName_barangayClearance" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="180dp"
-            android:text="Date of Birth*"
-            android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/birthDate"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_calendar_month_24"
-            android:layout_marginRight="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/birthDate"
-            app:layout_constraintEnd_toEndOf="@+id/birthDate"
-            app:layout_constraintTop_toTopOf="@+id/birthDate" />
-
-        <EditText
-            android:id="@+id/birthDate"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:focusable="false"
-            android:hint="(dd/mm/yyyy)"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/age" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-230dp"
-            android:text="Gender*"
-            android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <RadioGroup
-            android:id="@+id/genderRadioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="180dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthDate">
-
-            <RadioButton
-                android:id="@+id/maleRadioButton"
+            <TextView
+                android:id="@+id/textViewbarangayClearancetitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"
-                android:textColor="@color/black" />
+                android:layout_marginTop="20dp"
+                android:text="BARANGAY CLEARANCE"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
 
-            <RadioButton
-                android:id="@+id/femaleRadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"
-                android:textColor="@color/black" />
+                android:text="Full Name*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/fullName_barangayClearance"
+                app:layout_constraintStart_toStartOf="@+id/fullName_barangayClearance" />
 
-        </RadioGroup>
+            <EditText
+                android:id="@+id/fullName_barangayClearance"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/edt_background"
+                android:elevation="8dp"
+                android:hint="Last Name, First Name"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewbarangayClearancetitle" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="80dp"
-            android:text="Present Residential Address*"
-            android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/presentAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/presentAddress"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint=""
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="113dp"
-            android:text="Purpose of this request*"
-            android:textColor="#555555"
-            app:layout_constraintBottom_toTopOf="@+id/purpose"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/age"
+                app:layout_constraintStart_toStartOf="@+id/age" />
 
 
-        <EditText
-            android:id="@+id/purpose"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/edt_background"
-            android:hint=""
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/presentAddress" />
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint="Age"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullName_barangayClearance" />
 
-        <Button
-            android:id="@+id/submit_btn"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/redButton"
-            android:text="Submit"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/purpose" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date of Birth*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/birthDate"
+                app:layout_constraintStart_toStartOf="@+id/birthDate" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="10dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/baseline_calendar_month_24"
+                app:layout_constraintBottom_toBottomOf="@+id/birthDate"
+                app:layout_constraintEnd_toEndOf="@+id/birthDate"
+                app:layout_constraintTop_toTopOf="@+id/birthDate" />
+
+            <EditText
+                android:id="@+id/birthDate"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:focusable="false"
+                android:hint="(dd/mm/yyyy)"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/age" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-230dp"
+                android:text="Gender*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/genderRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="180dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birthDate">
+
+                <RadioButton
+                    android:id="@+id/maleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/femaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textColor="@color/black" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/barangayClearancePhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/barangayClearancePhoneNumber" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="+63"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/barangayClearancePhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/barangayClearancePhoneNumber"
+                app:layout_constraintTop_toTopOf="@+id/barangayClearancePhoneNumber" />
+
+            <EditText
+                android:id="@+id/barangayClearancePhoneNumber"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:paddingLeft="60dp"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Present Residential Address*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/presentAddress"
+                app:layout_constraintStart_toStartOf="@+id/presentAddress" />
+
+            <EditText
+                android:id="@+id/presentAddress"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint=""
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barangayClearancePhoneNumber" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Purpose of this request*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/purpose"
+                app:layout_constraintStart_toStartOf="@+id/purpose" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/purpose"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edt_background"
+                android:hint=""
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/presentAddress" />
 
+            <Button
+                android:id="@+id/submit_btn"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/redButton"
+                android:text="Submit"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/purpose" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </LinearLayout>

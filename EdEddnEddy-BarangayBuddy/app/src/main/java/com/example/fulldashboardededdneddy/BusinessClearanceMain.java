@@ -28,7 +28,7 @@ import java.util.Calendar;
 public class BusinessClearanceMain extends AppCompatActivity {
 
     ActivityBusinessClearanceMainBinding binding;
-    String fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType;
+    String fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, businessClearancePhone;
     private EditText dateIssuedbtn;
     private DatePickerDialog picker;
     FirebaseDatabase db;
@@ -58,6 +58,7 @@ public class BusinessClearanceMain extends AppCompatActivity {
                 nameOfBusiness = binding.businessNameOrEstablishment.getText().toString().trim();
                 typeOfBusiness = binding.typeOfBusiness.getText().toString().trim();
                 businessAddress = binding.businessLocation.getText().toString().trim();
+                businessClearancePhone = binding.businessClearancePhoneNumber.getText().toString().trim();
 
                 // Validate input fields
                 if (TextUtils.isEmpty(fullName)) {
@@ -88,6 +89,13 @@ public class BusinessClearanceMain extends AppCompatActivity {
                     return;
                 }
 
+                if (TextUtils.isEmpty(businessClearancePhone)) {
+                    Log.d("Validation", "Phone Number is empty");
+                    binding.businessLocation.setError("Please enter your Phone Number");
+                    binding.businessLocation.requestFocus();
+                    return;
+                }
+
                 Log.d("Validation", "All fields are filled. Proceed with submission.");
 
                 FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
@@ -103,7 +111,7 @@ public class BusinessClearanceMain extends AppCompatActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Business Clearance").child(uid).child(businessClearanceUID);
 
-                        BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenBusiness);
+                        BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenBusiness, businessClearancePhone);
                         documentTypeRef.setValue(BusinessClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Business Clearance");
 
@@ -111,6 +119,7 @@ public class BusinessClearanceMain extends AppCompatActivity {
                             binding.businessNameOrEstablishment.setText("");
                             binding.typeOfBusiness.setText("");
                             binding.businessLocation.setText("");
+                            binding.businessClearancePhoneNumber.setText("");
                             Toast.makeText(BusinessClearanceMain.this, "Form successfully submitted", Toast.LENGTH_SHORT).show();
                         });
                     } else {
