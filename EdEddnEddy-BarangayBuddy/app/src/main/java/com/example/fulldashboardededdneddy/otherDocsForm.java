@@ -144,6 +144,12 @@ public class otherDocsForm extends AppCompatActivity {
                         Toast.makeText(otherDocsForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    if (TextUtils.isEmpty(otherDocsPhoneNumber)) {
+                        Log.d("Validation", "This field should not be empty");
+                        binding.otherDocsPhoneNumber.setError("Please enter your phone number");
+                        binding.otherDocsPhoneNumber.requestFocus();
+                        return;
+                    }
 
                     if (TextUtils.isEmpty(address)) {
                         Log.d("Validation", "Residential address is empty");
@@ -166,12 +172,6 @@ public class otherDocsForm extends AppCompatActivity {
                         return;
                     }
 
-                    if (TextUtils.isEmpty(otherDocsPhoneNumber)) {
-                        Log.d("Validation", "This field should not be empty");
-                        binding.purposeOtherDocs.setError("Please enter your phone number");
-                        binding.purposeOtherDocs.requestFocus();
-                        return;
-                    }
 
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
@@ -193,6 +193,8 @@ public class otherDocsForm extends AppCompatActivity {
                             documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
 
                                 documentTypeRef.child("documentType").setValue("Other Document");
+                                documentTypeRef.child("status").setValue("Pending");
+
 
                                 binding.fullNameOtherDocs.setText("");
                                 binding.ageOtherDocs.setText("");

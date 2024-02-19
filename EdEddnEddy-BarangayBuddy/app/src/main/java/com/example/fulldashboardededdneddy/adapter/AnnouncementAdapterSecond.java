@@ -2,6 +2,7 @@ package com.example.fulldashboardededdneddy.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,21 +28,17 @@ import java.util.concurrent.TimeUnit;
 public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder> {
 
     private Context context;
+    private List<AnnouncementDataClass> dataList;
 
     public AnnouncementAdapterSecond(Context context, List<AnnouncementDataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
-    private List<AnnouncementDataClass> dataList;
-
-    public AnnouncementAdapterSecond() {
-    }
-
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.announcement_recycler_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.announcement_recycler_item, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -52,8 +49,14 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
 
         // Retrieve timestamp and set the formatted date in recDate TextView
         long timestamp = dataList.get(position).getTimestamp();
-        String formattedDate = MyViewHolder.getTimeDate(timestamp);
+        String formattedDate = getTimeAgo(timestamp);
         holder.recDate.setText(formattedDate);
+
+        if (isAnnouncementNew(timestamp)) {
+            holder.newIndicator.setVisibility(View.VISIBLE);
+        } else {
+            holder.newIndicator.setVisibility(View.GONE);
+        }
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,19 +70,33 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
                 context.startActivity(intent);
             }
         });
+
+
+    }
+
+    private boolean isAnnouncementNew(long timestamp) {
+        long newThreshold = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1); // 1 day
+        return timestamp > newThreshold;
     }
 
     @Override
     public int getItemCount() {
         return dataList.size();
     }
+
+    private String getTimeAgo(long timestamp) {
+        long currentTime = System.currentTimeMillis();
+
+        return DateUtils.getRelativeTimeSpanString(timestamp, currentTime, DateUtils.MINUTE_IN_MILLIS).toString();
+    }
 }
 
-class MyViewHolder extends RecyclerView.ViewHolder{
+class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView recImage;
     TextView recTitle, recDate;
     LinearLayout recCard;
+    ImageView newIndicator;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -88,18 +105,20 @@ class MyViewHolder extends RecyclerView.ViewHolder{
         recCard = itemView.findViewById(R.id.announcement_recCard);
         recTitle = itemView.findViewById(R.id.announcement_recTitle);
         recDate = itemView.findViewById(R.id.announcement_recDate);
+        newIndicator = itemView.findViewById(R.id.newIndicator);
+
 
     }
 
-    public static String getTimeDate(long timestamp){
-        try{
+    public static String getTimeDate(long timestamp) {
+        try {
             Date netDate = (new Date(timestamp));
             SimpleDateFormat sfd = new SimpleDateFormat("MMM d', 'yyyy", Locale.getDefault());
             return sfd.format(netDate);
-        } catch (Exception e){
+        } catch (Exception e) {
             return "date";
         }
     }
 
-    }
+}
 

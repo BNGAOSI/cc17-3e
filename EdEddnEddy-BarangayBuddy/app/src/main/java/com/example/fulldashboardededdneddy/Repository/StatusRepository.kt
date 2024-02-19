@@ -1,49 +1,39 @@
-package com.example.fulldashboardededdneddy.Repository
 
 import androidx.lifecycle.MutableLiveData
-import com.example.fulldashboardededdneddy.model.Documents
 import com.example.fulldashboardededdneddy.model.StatusDocuments
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 
-class StatusRepository() {
-    
-    private val databaseReference: DatabaseReference =
-        FirebaseDatabase.getInstance().getReference("RequestedDocuments")
+class StatusRepository {
+    private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("RequestedDocuments")
 
-    @Volatile
-    private var INSTANCE: StatusRepository? = null
     fun getInstance(): StatusRepository {
-        return INSTANCE ?: synchronized(this) {
-            val instance = StatusRepository()
-            INSTANCE = instance
-            instance
-        }
+        return this
     }
 
-    fun loadDocuments(uid: String, documentType: String, documentList: MutableLiveData<List<StatusDocuments>>) {
-        val userDocumentsRef = databaseReference.child(documentType).child(uid)
+    fun loadDocumentsByType(documentType: String, userId: String, liveData: MutableLiveData<List<StatusDocuments>>) {
+        val documentList = mutableListOf<StatusDocuments>()
 
-        userDocumentsRef.addValueEventListener(object : ValueEventListener {
+        val query: Query = databaseReference.child(documentType).child(userId).orderByChild("time")
+
+        query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                try {
-                    val statusList: List<StatusDocuments> = snapshot.children.map { dataSnapshot ->
-                        dataSnapshot.getValue(StatusDocuments::class.java)!!
-                    }
-                    documentList.postValue(statusList)
-                } catch (e: Exception) {
-                    // Handle the exception if needed
+                documentList.clear()
+                for (documentSnapshot in snapshot.children.reversed()) { // Reversed to get the latest documents first
+                    val document = documentSnapshot.getValue(StatusDocuments::class.java)
+                    document?.let { documentList.add(it) }
                 }
+                liveData.postValue(documentList)
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle the error if needed
+                // Handle the error
             }
         })
     }
-
 
 }

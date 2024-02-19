@@ -10,4 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/status_item"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/documentStatusRecyclerViewResidency"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/status_item"/>
 </FrameLayout>

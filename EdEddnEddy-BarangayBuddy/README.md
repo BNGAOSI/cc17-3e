@@ -209,3 +209,7 @@
 - Change age field to "number" input
 
 - Style: Add constraints to the red lines to the buttons at home fragment
+
+### 2024/02/20
+
+- Add Status Fragment but only Barangay Clearance can be fetched

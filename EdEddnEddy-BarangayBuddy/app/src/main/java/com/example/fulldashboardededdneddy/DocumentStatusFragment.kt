@@ -1,23 +1,22 @@
 package com.example.fulldashboardededdneddy
 
+import StatusViewModel
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fulldashboardededdneddy.adapter.StatusAdapter
-import com.example.fulldashboardededdneddy.model.StatusViewModel
-
-private lateinit var viewModel: StatusViewModel
-private lateinit var documentStatusRecyclerView: RecyclerView
-lateinit var adapter: StatusAdapter
 
 class DocumentStatusFragment : Fragment() {
+
+    private lateinit var viewModel: StatusViewModel
+    private lateinit var documentStatusRecyclerView: RecyclerView
+    private lateinit var adapter: StatusAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +25,6 @@ class DocumentStatusFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_document_status, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

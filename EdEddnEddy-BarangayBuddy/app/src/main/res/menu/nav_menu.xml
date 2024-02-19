@@ -23,9 +23,9 @@
             android:title="Send a suggestion" />
 
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/settings_icon"
-            android:title="Settings" />
+            android:id="@+id/nav_status"
+            android:icon="@drawable/baseline_text_snippet_24"
+            android:title="Document Status" />
 
     </group>
 

@@ -1,5 +1,6 @@
 package com.example.fulldashboardededdneddy.adapter
 
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fulldashboardededdneddy.R
 import com.example.fulldashboardededdneddy.model.StatusDocuments
-import org.w3c.dom.Text
 
 class StatusAdapter : RecyclerView.Adapter<StatusAdapter.MyViewHolder>() {
 
@@ -26,9 +26,14 @@ class StatusAdapter : RecyclerView.Adapter<StatusAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = documentList[position]
 
-        holder.fullName.text = currentitem.fullname
-        holder.docType.text = currentitem.docType
-        holder.dateTime.text = currentitem.date.toString()
+        holder.fullName.text = currentitem.fullName
+        holder.docType.text = currentitem.documentType
+        holder.dateTime.text = currentitem.time.toString()
+        holder.status.text = currentitem.status
+
+        val timestamp = currentitem.time
+        val timeAgo = DateUtils.getRelativeTimeSpanString(timestamp, System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS)
+        holder.dateTime.text = timeAgo.toString()
     }
 
     fun updateDocumentList(documentList: List<StatusDocuments>) {
@@ -42,6 +47,8 @@ class StatusAdapter : RecyclerView.Adapter<StatusAdapter.MyViewHolder>() {
         val fullName: TextView = itemView.findViewById(R.id.document_name)
         val docType: TextView = itemView.findViewById(R.id.document_type)
         val dateTime: TextView = itemView.findViewById(R.id.document_time)
+        val status: TextView = itemView.findViewById(R.id.document_status)
+
     }
 
 }

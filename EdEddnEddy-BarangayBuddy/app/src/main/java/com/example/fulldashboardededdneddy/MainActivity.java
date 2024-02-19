@@ -1,20 +1,10 @@
 package com.example.fulldashboardededdneddy;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -26,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.fulldashboardededdneddy.DocumentStatusFragment;
 import com.example.fulldashboardededdneddy.R.id;
 import com.example.fulldashboardededdneddy.R.layout;
 import com.google.android.material.navigation.NavigationView;
@@ -38,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
 
+    //For navigation feature after opening google maps
     private double destinationLat = 16.433671;
     private double destinationLng = 120.606401;
 
@@ -45,8 +37,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(layout.activity_main);
-
-//==========================  Ask user permission for notification  =====================================
 
 
 //=================  Toolbar Settings  ==========================
@@ -89,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replaceFragment(new SecureDocumentsFragment());
         } else if (itemId == id.nav_suggest) {
             replaceFragment(new SuggestionFragment());
-        } else if (itemId == id.nav_settings) {
+        } else if (itemId == id.nav_status) {
             replaceFragment(new DocumentStatusFragment());
         }
 
@@ -126,4 +116,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

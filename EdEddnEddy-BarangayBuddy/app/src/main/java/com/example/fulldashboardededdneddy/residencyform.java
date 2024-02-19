@@ -166,6 +166,12 @@ public class residencyform extends AppCompatActivity {
                         Toast.makeText(residencyform.this, "Please select your gender", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    if (TextUtils.isEmpty(residencyPhoneNumber)) {
+                        Log.d("Validation", "Phone Number is empty");
+                        binding.duration.setError("Please enter your phone number");
+                        binding.duration.requestFocus();
+                        return;
+                    }
 
                     if (TextUtils.isEmpty(address)) {
                         Log.d("Validation", "Residential address is empty");
@@ -188,12 +194,6 @@ public class residencyform extends AppCompatActivity {
                         return;
                     }
 
-                    if (TextUtils.isEmpty(residencyPhoneNumber)) {
-                        Log.d("Validation", "Phone Number is empty");
-                        binding.duration.setError("Please enter your phone number");
-                        binding.duration.requestFocus();
-                        return;
-                    }
 
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 
@@ -214,6 +214,8 @@ public class residencyform extends AppCompatActivity {
 
                             documentTypeRef.setValue(residencyrequests).addOnCompleteListener(task1 -> {
                                 documentTypeRef.child("documentType").setValue("Certificate of Residency");
+                                documentTypeRef.child("status").setValue("Pending");
+
 
                                 binding.fullNameResidency.setText("");
                                 binding.ageResidency.setText("");

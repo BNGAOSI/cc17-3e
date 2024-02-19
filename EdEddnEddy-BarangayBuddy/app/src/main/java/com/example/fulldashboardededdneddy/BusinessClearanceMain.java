@@ -114,6 +114,8 @@ public class BusinessClearanceMain extends AppCompatActivity {
                         BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenBusiness, businessClearancePhone);
                         documentTypeRef.setValue(BusinessClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Business Clearance");
+                            documentTypeRef.child("status").setValue("Pending");
+
 
                             binding.fullNameBusinessClearance.setText("");
                             binding.businessNameOrEstablishment.setText("");

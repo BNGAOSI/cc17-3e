@@ -5,7 +5,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.fulldashboardededdneddy.R
@@ -13,7 +12,6 @@ import com.example.fulldashboardededdneddy.model.ResidentModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ServerValue
 
 class InsertionActivity : AppCompatActivity() {
 
@@ -21,6 +19,7 @@ class InsertionActivity : AppCompatActivity() {
     private lateinit var etResName: EditText
     private lateinit var etResCurLoc: EditText
     private lateinit var etResRep: EditText
+    private lateinit var etResPhoneNumber: EditText
     private lateinit var btnSubmitReport: Button
     private lateinit var auth: FirebaseAuth
     private lateinit var reportTypeSpinner: Spinner
@@ -45,6 +44,7 @@ class InsertionActivity : AppCompatActivity() {
         etResCurLoc = findViewById(R.id.etResCurLoc)
         reportTypeSpinner = findViewById(R.id.report_type_spinner)
         etResRep = findViewById(R.id.etResRep)
+        etResPhoneNumber = findViewById(R.id.etResPhoneNumber)
         btnSubmitReport = findViewById(R.id.btnSave)
 
         auth = FirebaseAuth.getInstance()
@@ -70,11 +70,16 @@ class InsertionActivity : AppCompatActivity() {
         // Getting values
         val resName = etResName.text.toString()
         val resCurLoc = etResCurLoc.text.toString()
-        val  reportType = reportTypeSpinner.selectedItem.toString()
+        val reportType = reportTypeSpinner.selectedItem.toString()
+        val resPhoneNumber = etResPhoneNumber.text.toString()
         val resReport = etResRep.text.toString()
 
         if (resName.isEmpty()) {
             etResName.error = "Please enter your Name"
+            return
+        }
+        if (resPhoneNumber.isEmpty()) {
+            etResPhoneNumber.error = "Please enter your Phone Number"
             return
         }
 
@@ -88,25 +93,27 @@ class InsertionActivity : AppCompatActivity() {
             return
         }
 
+
         val userId = currentUser.uid
         val resId = dbDatabaseReference.child(userId).push().key!!
         val timeStamp = System.currentTimeMillis()
 
-        val resident = ResidentModel(resId, resName, resCurLoc, resReport, timeStamp, reportType)
+        val resident = ResidentModel(
+            resId, resName, resCurLoc, resReport, resPhoneNumber, timeStamp, reportType
+        )
 
-        dbDatabaseReference.child(userId).child(resId).setValue(resident)
-            .addOnCompleteListener {
-                Toast.makeText(this, "Report successfully submitted", Toast.LENGTH_LONG).show()
+        dbDatabaseReference.child(userId).child(resId).setValue(resident).addOnCompleteListener {
+            Toast.makeText(this, "Report successfully submitted", Toast.LENGTH_LONG).show()
 
-                etResName.text.clear()
-                etResCurLoc.text.clear()
-                etResRep.text.clear()
+            etResName.text.clear()
+            etResCurLoc.text.clear()
+            etResRep.text.clear()
+            etResPhoneNumber.text.clear()
 
-            }.addOnFailureListener { err ->
-                Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
-            }
+        }.addOnFailureListener { err ->
+            Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
+        }
     }
-
 
 
 }

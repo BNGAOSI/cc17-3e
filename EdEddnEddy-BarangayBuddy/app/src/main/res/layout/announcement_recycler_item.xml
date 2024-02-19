@@ -2,10 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/announcement_recCard"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/divider_grey_2">
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -16,11 +15,18 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/newIndicator"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="360dp"
+                    android:background="@color/red_500"/>
 
                 <ImageView
                     android:id="@+id/announcement_recImage"
@@ -29,41 +35,41 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/uploadimg" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:orientation="horizontal"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/announcement_recTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="13"
+                        android:fontFamily="@font/montserratbold"
+                        android:padding="10dp"
+                        android:text="Title"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/announcement_recDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="10dp"
+                        android:text="Date"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:id="@+id/announcement_recTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="13"
-                    android:fontFamily="@font/montserratbold"
-                    android:padding="10dp"
-                    android:text="Title"
-                    android:textColor="@color/black"
-                    android:textSize="16dp" />
-
-
-                <TextView
-                    android:id="@+id/announcement_recDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:padding="10dp"
-                    android:text="Date"
-                    android:textColor="@color/black"
-                    android:textSize="12dp" />
-
-            </LinearLayout>
         </FrameLayout>
 
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

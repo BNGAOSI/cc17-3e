@@ -9,6 +9,8 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -63,6 +65,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
             actionBar.setTitle("Barangay Clearance");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
 
 
 
@@ -175,6 +178,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
 
                             documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
                                 documentTypeRef.child("documentType").setValue("Barangay Clearance");
+                                documentTypeRef.child("status").setValue("Pending");
 
                                 binding.fullNameBarangayClearance.setText("");
                                 binding.age.setText("");
@@ -194,5 +198,19 @@ public class BarangayClearanceForm extends AppCompatActivity {
 
 
     }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.barangayclear_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_status) {
+            new DocumentStatusFragment();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

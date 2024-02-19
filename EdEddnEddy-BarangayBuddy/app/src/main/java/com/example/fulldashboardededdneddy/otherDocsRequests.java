@@ -94,19 +94,19 @@ public String userTokenOtherDocs;
         this.gender = gender;
     }
 
-    public String getAddress() {
+    public String getPresentAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setPresentAddress(String address) {
         this.address = address;
     }
 
-    public String getDuration() {
+    public String getPurpose() {
         return purpose;
     }
 
-    public void setDuration(String purpose) {
+    public void setPurpose(String purpose) {
         this.purpose = purpose;
     }
 
