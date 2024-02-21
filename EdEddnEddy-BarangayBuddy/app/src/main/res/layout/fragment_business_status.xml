@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C6D3E4"
     tools:context=".BusinessStatusFragment">
 
     <LinearLayout
@@ -14,9 +15,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+
             android:elevation="20dp"
+            android:layout_margin="20dp"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserratbold"
             android:text="Business Clearance Documents"
             android:textSize="25dp"
@@ -25,6 +27,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="#E3EBF4"
+            android:layout_margin="10dp"
             app:cardCornerRadius="30dp">
 
             <androidx.recyclerview.widget.RecyclerView

@@ -221,3 +221,7 @@
 - Add all document types to nav drawer and fully functional that fetches users requests
 
 - logout button at nav drawer fully working
+
+### 2024/02/22
+
+- Style: Change colors at document type fragments

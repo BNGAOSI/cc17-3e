@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C6D3E4"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".OtherDocsStatusFragment">
 
@@ -11,11 +12,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserratbold"
             android:textSize="25dp"
             android:text="Other Documents"
@@ -24,6 +25,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="#E3EBF4"
+            android:layout_margin="10dp"
             app:cardCornerRadius="30dp">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/documentStatusRecyclerView"

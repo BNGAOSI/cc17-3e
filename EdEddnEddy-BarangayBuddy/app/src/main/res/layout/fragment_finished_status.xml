@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CDE4C6"
     tools:context=".FinishedStatusFragment">
 
     <LinearLayout
@@ -14,9 +15,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:elevation="20dp"
+            android:layout_margin="20dp"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserratbold"
             android:text="Finished Documents"
             android:textSize="25dp"
@@ -25,13 +26,15 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="#EBF4E3"
+            android:layout_margin="10dp"
             app:cardCornerRadius="30dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/documentStatusRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/status_item" />
+                tools:listitem="@layout/finished_status_item" />
         </androidx.cardview.widget.CardView>
 
 
