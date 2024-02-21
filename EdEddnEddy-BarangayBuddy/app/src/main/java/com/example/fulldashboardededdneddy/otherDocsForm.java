@@ -167,7 +167,7 @@ public class otherDocsForm extends AppCompatActivity {
 
                     if (TextUtils.isEmpty(purpose)) {
                         Log.d("Validation", "This field should not be empty");
-                        binding.purposeOtherDocs.setError("Please enter the duration");
+                        binding.purposeOtherDocs.setError("Please enter the purpose of this document");
                         binding.purposeOtherDocs.requestFocus();
                         return;
                     }

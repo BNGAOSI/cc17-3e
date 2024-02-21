@@ -16,28 +16,55 @@
             android:icon="@drawable/secure_documents_icon"
             android:title="Secure a Document" />
 
-
         <item
             android:id="@+id/nav_suggest"
             android:icon="@drawable/suggestion_icon"
             android:title="Send a suggestion" />
 
         <item
-            android:id="@+id/nav_status"
-            android:icon="@drawable/baseline_text_snippet_24"
-            android:title="Document Status" />
+            android:id="@+id/nav_report"
+            android:icon="@drawable/report_icon"
+            android:title="Send a Report" />
+
 
     </group>
 
-    <item android:title="">
+    <item android:title="Document Status">
 
+        <menu tools:showIn="navigation_view">
+
+            <item
+                
+                android:id="@+id/nav_status"
+                android:icon="@drawable/baseline_text_snippet_24"
+                android:title="Barangay Clearance" />
+
+            <item
+                android:id="@+id/nav_ResidencyStatus"
+
+                android:title="Residency" />
+            <item
+                android:id="@+id/nav_BusinessClearStatus"
+
+                android:title="Business Clearance" />
+
+            <item
+                android:id="@+id/nav_OtherDocsStatus"
+
+                android:title="Other Documents" />
+            <item
+                android:id="@+id/nav_FinishedStatus"
+                android:title="Finished Documents" />
+        </menu>
+
+    </item>
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/logout_icon"
                 android:title="Logout" />
         </menu>
-
     </item>
 
 

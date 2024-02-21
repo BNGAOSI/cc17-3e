@@ -168,8 +168,8 @@ public class residencyform extends AppCompatActivity {
                     }
                     if (TextUtils.isEmpty(residencyPhoneNumber)) {
                         Log.d("Validation", "Phone Number is empty");
-                        binding.duration.setError("Please enter your phone number");
-                        binding.duration.requestFocus();
+                        binding.residencyPhoneNumber.setError("Please enter your phone number");
+                        binding.residencyPhoneNumber.requestFocus();
                         return;
                     }
 

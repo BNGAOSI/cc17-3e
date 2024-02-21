@@ -133,6 +133,12 @@ public class BarangayClearanceForm extends AppCompatActivity {
                         binding.birthDate.requestFocus();
                         return;
                     }
+                    if (TextUtils.isEmpty(phoneNumber)) {
+                        Log.d("Validation", "Phone Number is empty");
+                        binding.barangayClearancePhoneNumber.setError("Please enter your phone number");
+                        binding.barangayClearancePhoneNumber.requestFocus();
+                        return;
+                    }
 
                     if (TextUtils.isEmpty(presentAddress)) {
                         Log.d("Validation", "Present address is empty");
@@ -148,13 +154,7 @@ public class BarangayClearanceForm extends AppCompatActivity {
                         return;
                     }
 
-                    // Check if gender is selected
-                    if (TextUtils.isEmpty(phoneNumber)) {
-                        Log.d("Validation", "Phone Number is empty");
-                        binding.fullNameBarangayClearance.setError("Please enter your phone number");
-                        binding.fullNameBarangayClearance.requestFocus();
-                        return;
-                    }
+
 
                     Log.d("Validation", "All fields are filled. Proceed with submission.");
 

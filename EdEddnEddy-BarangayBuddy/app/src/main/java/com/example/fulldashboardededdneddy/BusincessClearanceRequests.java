@@ -51,11 +51,11 @@ public class BusincessClearanceRequests {
         this.typeOfBusiness = typeOfBusiness;
     }
 
-    public String getFullname() {
+    public String getFullName() {
         return fullname;
     }
 
-    public void setFullname(String fullname) {
+    public void setFullName(String fullname) {
         this.fullname = fullname;
     }
 

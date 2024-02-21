@@ -91,8 +91,8 @@ public class BusinessClearanceMain extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(businessClearancePhone)) {
                     Log.d("Validation", "Phone Number is empty");
-                    binding.businessLocation.setError("Please enter your Phone Number");
-                    binding.businessLocation.requestFocus();
+                    binding.businessClearancePhoneNumber.setError("Please enter your Phone Number");
+                    binding.businessClearancePhoneNumber.requestFocus();
                     return;
                 }
 

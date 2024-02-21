@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/divider_grey_2"
-    tools:context=".SuggestionFragment">
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,23 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/goback1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/back_button"
-                android:backgroundTint="@color/divider_grey_2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <EditText
                 android:id="@+id/etSugName"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="35dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edt_background"
                 android:hint="Name (Optional)"
                 android:paddingLeft="20dp"
@@ -39,7 +27,7 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/goback1" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <CheckBox
                 android:id="@+id/checkboxHealth"
@@ -55,22 +43,23 @@
                 android:id="@+id/checkboxEducation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
 
                 android:text="Education"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/checkboxHealth"
                 app:layout_constraintTop_toBottomOf="@+id/checkboxHealth" />
+
 
             <CheckBox
                 android:id="@+id/checkboxSports"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="156dp"
                 android:text="Sports"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/checkboxHealth"
+                app:layout_constraintTop_toBottomOf="@+id/etSugName" />
 
             <CheckBox
                 android:id="@+id/checkboxBarangayImprovements"
@@ -79,6 +68,7 @@
                 android:layout_marginEnd="44dp"
                 android:text="Barangay Improvements"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/checkboxSports"
                 app:layout_constraintTop_toBottomOf="@+id/checkboxSports" />
 
 
@@ -86,13 +76,13 @@
                 android:id="@+id/checkboxEtc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:text="Etc."
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/checkboxEducation"
                 app:layout_constraintTop_toBottomOf="@+id/checkboxEducation" />
 
             <EditText
+                android:id="@+id/etEtcDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
@@ -118,9 +108,10 @@
 
             <EditText
                 android:id="@+id/etSuggest"
-                android:layout_width="340dp"
-                android:layout_height="339dp"
+                android:layout_width="300dp"
+                android:layout_height="250dp"
                 android:layout_marginTop="36dp"
+                android:background="@drawable/edt_background"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="What's your idea?..."
@@ -137,7 +128,7 @@
                 android:id="@+id/btnSaveData"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:layout_marginBottom="64dp"
+                android:layout_marginTop="30dp"
                 android:backgroundTint="@color/redButton"
                 android:text="Submit"
                 android:textColor="@color/white"
@@ -146,8 +137,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etSuggest"
                 app:layout_constraintVertical_bias="0.463" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-</FrameLayout>
+</LinearLayout>

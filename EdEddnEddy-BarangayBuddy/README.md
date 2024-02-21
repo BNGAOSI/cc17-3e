@@ -213,3 +213,11 @@
 ### 2024/02/20
 
 - Add Status Fragment but only Barangay Clearance can be fetched
+
+### 2024/02/21
+
+- Add AppCompat to navdrawer - Suggestion and Report
+
+- Add all document types to nav drawer and fully functional that fetches users requests
+
+- logout button at nav drawer fully working
