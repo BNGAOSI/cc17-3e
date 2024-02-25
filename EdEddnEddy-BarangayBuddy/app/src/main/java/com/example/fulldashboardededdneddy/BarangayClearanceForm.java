@@ -67,8 +67,6 @@ public class BarangayClearanceForm extends AppCompatActivity {
         }
 
 
-
-
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDate = findViewById(R.id.birthDate);
 
@@ -104,112 +102,104 @@ public class BarangayClearanceForm extends AppCompatActivity {
 
                 if (selectedRadioButton != null) {
                     gender = selectedRadioButton.getText().toString();
-
-                    fullName = binding.fullNameBarangayClearance.getText().toString().trim();
-                    age = binding.age.getText().toString().trim();
-                    dateOfBirth = binding.birthDate.getText().toString().trim();
-                    presentAddress = binding.presentAddress.getText().toString().trim();
-                    purpose = binding.purpose.getText().toString().trim();
-                    phoneNumber = binding.barangayClearancePhoneNumber.getText().toString().trim();
-
-                    // Validate input fields
-                    if (TextUtils.isEmpty(fullName)) {
-                        Log.d("Validation", "Full name is empty");
-                        binding.fullNameBarangayClearance.setError("Please enter your full name");
-                        binding.fullNameBarangayClearance.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(age)) {
-                        Log.d("Validation", "Age is empty");
-                        binding.age.setError("Please enter your age");
-                        binding.age.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(dateOfBirth)) {
-                        Log.d("Validation", "Date of birth is empty");
-                        binding.birthDate.setError("Please enter your date of birth");
-                        binding.birthDate.requestFocus();
-                        return;
-                    }
-                    if (TextUtils.isEmpty(phoneNumber)) {
-                        Log.d("Validation", "Phone Number is empty");
-                        binding.barangayClearancePhoneNumber.setError("Please enter your phone number");
-                        binding.barangayClearancePhoneNumber.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(presentAddress)) {
-                        Log.d("Validation", "Present address is empty");
-                        binding.presentAddress.setError("Please enter your present address");
-                        binding.presentAddress.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(purpose)) {
-                        Log.d("Validation", "Purpose is empty");
-                        binding.purpose.setError("Please enter the purpose of your request");
-                        binding.purpose.requestFocus();
-                        return;
-                    }
-
-
-
-                    Log.d("Validation", "All fields are filled. Proceed with submission.");
-
-                    FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
-                        if (task.isSuccessful() && task.getResult() != null) {
-                            String userTokenBarangayClearance = task.getResult();
-
-                            // Proceed with form submission
-                            auth = FirebaseAuth.getInstance();
-                            db = FirebaseDatabase.getInstance();
-                            reference = db.getReference("RequestedDocuments");
-                            documentTypeName = db.getReference("RequestedDocuments");
-
-                            String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
-                            String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
-
-                            DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
-
-
-                            BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
-
-                            documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
-                                documentTypeRef.child("documentType").setValue("Barangay Clearance");
-                                documentTypeRef.child("status").setValue("Pending");
-
-                                binding.fullNameBarangayClearance.setText("");
-                                binding.age.setText("");
-                                binding.birthDate.setText("");
-                                binding.barangayClearancePhoneNumber.setText("");
-                                binding.presentAddress.setText("");
-                                binding.purpose.setText("");
-                                Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
-                            });
-                        } else {
-                            String defaultToken = "default_token";
-                        }
-                    });
                 }
+
+                fullName = binding.fullNameBarangayClearance.getText().toString().trim();
+                age = binding.age.getText().toString().trim();
+                dateOfBirth = binding.birthDate.getText().toString().trim();
+                presentAddress = binding.presentAddress.getText().toString().trim();
+                purpose = binding.purpose.getText().toString().trim();
+                phoneNumber = binding.barangayClearancePhoneNumber.getText().toString().trim();
+
+                // Validate input fields
+                if (TextUtils.isEmpty(fullName)) {
+                    Log.d("Validation", "Full name is empty");
+                    binding.fullNameBarangayClearance.setError("Please enter your full name");
+                    binding.fullNameBarangayClearance.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(age)) {
+                    Log.d("Validation", "Age is empty");
+                    binding.age.setError("Please enter your age");
+                    binding.age.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(dateOfBirth)) {
+                    Log.d("Validation", "Date of birth is empty");
+                    binding.birthDate.setError("Please enter your date of birth");
+                    binding.birthDate.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(gender)) {
+                    Log.d("Validation", "Gender is not selected");
+                    Toast.makeText(BarangayClearanceForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(phoneNumber)) {
+                    Log.d("Validation", "Phone Number is empty");
+                    binding.barangayClearancePhoneNumber.setError("Please enter your phone number");
+                    binding.barangayClearancePhoneNumber.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(presentAddress)) {
+                    Log.d("Validation", "Present address is empty");
+                    binding.presentAddress.setError("Please enter your present address");
+                    binding.presentAddress.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(purpose)) {
+                    Log.d("Validation", "Purpose is empty");
+                    binding.purpose.setError("Please enter the purpose of your request");
+                    binding.purpose.requestFocus();
+                    return;
+                }
+
+
+                Log.d("Validation", "All fields are filled. Proceed with submission.");
+
+                FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        String userTokenBarangayClearance = task.getResult();
+
+                        // Proceed with form submission
+                        auth = FirebaseAuth.getInstance();
+                        db = FirebaseDatabase.getInstance();
+                        reference = db.getReference("RequestedDocuments");
+                        documentTypeName = db.getReference("RequestedDocuments");
+
+                        String barangayClearanceUID = reference.child("Barangay Clearance").push().getKey();
+                        String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+
+                        DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
+
+
+                        BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
+
+                        documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
+                            documentTypeRef.child("documentType").setValue("Barangay Clearance");
+                            documentTypeRef.child("status").setValue("Pending");
+
+                            binding.fullNameBarangayClearance.setText("");
+                            binding.age.setText("");
+                            binding.birthDate.setText("");
+                            binding.barangayClearancePhoneNumber.setText("");
+                            binding.presentAddress.setText("");
+                            binding.purpose.setText("");
+                            Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
+                        });
+                    } else {
+                        String defaultToken = "default_token";
+                    }
+                });
+
             }
         });
 
 
-    }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.barangayclear_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_status) {
-            new DocumentStatusFragment();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 

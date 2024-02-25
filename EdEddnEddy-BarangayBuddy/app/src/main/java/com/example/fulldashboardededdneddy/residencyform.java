@@ -131,6 +131,7 @@ public class residencyform extends AppCompatActivity {
 
                 if (selectedRadioButton != null) {
                     gender = selectedRadioButton.getText().toString();
+                }
 
                     fullName = binding.fullNameResidency.getText().toString().trim();
                     age = binding.ageResidency.getText().toString().trim();
@@ -230,7 +231,7 @@ public class residencyform extends AppCompatActivity {
                         }
 
                     });
-                }
+
             }
         });
 

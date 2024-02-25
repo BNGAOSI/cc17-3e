@@ -109,106 +109,107 @@ public class otherDocsForm extends AppCompatActivity {
 
                 if (selectedRadioButton != null) {
                     gender = selectedRadioButton.getText().toString();
-
-                    fullName = binding.fullNameOtherDocs.getText().toString().trim();
-                    age = binding.ageOtherDocs.getText().toString().trim();
-                    String selectedCivilStatus = civilStatus.getSelectedItem().toString();
-                    address = binding.OtherDocsAddress.getText().toString().trim();
-                    dateOfBirth = binding.birthDateotherDocs.getText().toString().trim();
-                    purpose = binding.purposeOtherDocs.getText().toString().trim();
-                    otherDocsPhoneNumber = binding.otherDocsPhoneNumber.getText().toString().trim();
-
-                    // Validate input fields
-                    if (TextUtils.isEmpty(fullName)) {
-                        Log.d("Validation", "Full name is empty");
-                        binding.fullNameOtherDocs.setError("Please enter your full name");
-                        binding.fullNameOtherDocs.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(age)) {
-                        Log.d("Validation", "Age is empty");
-                        binding.ageOtherDocs.setError("Please enter your age");
-                        binding.ageOtherDocs.requestFocus();
-                        return;
-                    }
-
-                    if (selectedCivilStatus.equals("Choose Civil Status")) {
-                        Log.d("Validation", "Civil status is not selected");
-                        Toast.makeText(otherDocsForm.this, "Please select your civil status", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(gender)) {
-                        Log.d("Validation", "Gender is not selected");
-                        Toast.makeText(otherDocsForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    if (TextUtils.isEmpty(otherDocsPhoneNumber)) {
-                        Log.d("Validation", "This field should not be empty");
-                        binding.otherDocsPhoneNumber.setError("Please enter your phone number");
-                        binding.otherDocsPhoneNumber.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(address)) {
-                        Log.d("Validation", "Residential address is empty");
-                        binding.OtherDocsAddress.setError("Please enter your residential address");
-                        binding.OtherDocsAddress.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(dateOfBirth)) {
-                        Log.d("Validation", "Date of birth is empty");
-                        binding.birthDateotherDocs.setError("Please enter your date of birth");
-                        binding.birthDateotherDocs.requestFocus();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(purpose)) {
-                        Log.d("Validation", "This field should not be empty");
-                        binding.purposeOtherDocs.setError("Please enter the purpose of this document");
-                        binding.purposeOtherDocs.requestFocus();
-                        return;
-                    }
-
-
-                    Log.d("Validation", "All fields are filled. Proceed with submission.");
-
-                    FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
-                        if (task.isSuccessful() && task.getResult() != null) {
-                            String userTokenOtherDocs = task.getResult();
-
-                            // Proceed with form submission
-                            auth = FirebaseAuth.getInstance();
-                            db = FirebaseDatabase.getInstance();
-                            reference = db.getReference("RequestedDocuments");
-                            String resiUID = reference.child("Others").push().getKey();
-                            String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
-
-                            DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
-
-                            otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
-
-                            documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
-
-                                documentTypeRef.child("documentType").setValue("Other Document");
-                                documentTypeRef.child("status").setValue("Pending");
-
-
-                                binding.fullNameOtherDocs.setText("");
-                                binding.ageOtherDocs.setText("");
-                                binding.birthDateotherDocs.setText("");
-                                binding.OtherDocsAddress.setText("");
-                                binding.purposeOtherDocs.setText("");
-                                binding.otherDocsPhoneNumber.setText("");
-                                Toast.makeText(otherDocsForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
-                            });
-                        } else {
-                            String defaultToken = "default_token";
-                        }
-                    });
                 }
+
+                fullName = binding.fullNameOtherDocs.getText().toString().trim();
+                age = binding.ageOtherDocs.getText().toString().trim();
+                String selectedCivilStatus = civilStatus.getSelectedItem().toString();
+                address = binding.OtherDocsAddress.getText().toString().trim();
+                dateOfBirth = binding.birthDateotherDocs.getText().toString().trim();
+                purpose = binding.purposeOtherDocs.getText().toString().trim();
+                otherDocsPhoneNumber = binding.otherDocsPhoneNumber.getText().toString().trim();
+
+                // Validate input fields
+                if (TextUtils.isEmpty(fullName)) {
+                    Log.d("Validation", "Full name is empty");
+                    binding.fullNameOtherDocs.setError("Please enter your full name");
+                    binding.fullNameOtherDocs.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(age)) {
+                    Log.d("Validation", "Age is empty");
+                    binding.ageOtherDocs.setError("Please enter your age");
+                    binding.ageOtherDocs.requestFocus();
+                    return;
+                }
+
+                if (selectedCivilStatus.equals("Choose Civil Status")) {
+                    Log.d("Validation", "Civil status is not selected");
+                    Toast.makeText(otherDocsForm.this, "Please select your civil status", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(gender)) {
+                    Log.d("Validation", "Gender is not selected");
+                    Toast.makeText(otherDocsForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(otherDocsPhoneNumber)) {
+                    Log.d("Validation", "This field should not be empty");
+                    binding.otherDocsPhoneNumber.setError("Please enter your phone number");
+                    binding.otherDocsPhoneNumber.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(address)) {
+                    Log.d("Validation", "Residential address is empty");
+                    binding.OtherDocsAddress.setError("Please enter your residential address");
+                    binding.OtherDocsAddress.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(dateOfBirth)) {
+                    Log.d("Validation", "Date of birth is empty");
+                    binding.birthDateotherDocs.setError("Please enter your date of birth");
+                    binding.birthDateotherDocs.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(purpose)) {
+                    Log.d("Validation", "This field should not be empty");
+                    binding.purposeOtherDocs.setError("Please enter the purpose of this document");
+                    binding.purposeOtherDocs.requestFocus();
+                    return;
+                }
+
+
+                Log.d("Validation", "All fields are filled. Proceed with submission.");
+
+                FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        String userTokenOtherDocs = task.getResult();
+
+                        // Proceed with form submission
+                        auth = FirebaseAuth.getInstance();
+                        db = FirebaseDatabase.getInstance();
+                        reference = db.getReference("RequestedDocuments");
+                        String resiUID = reference.child("Others").push().getKey();
+                        String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
+
+                        DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
+
+                        otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
+
+                        documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
+
+                            documentTypeRef.child("documentType").setValue("Other Document");
+                            documentTypeRef.child("status").setValue("Pending");
+
+
+                            binding.fullNameOtherDocs.setText("");
+                            binding.ageOtherDocs.setText("");
+                            binding.birthDateotherDocs.setText("");
+                            binding.OtherDocsAddress.setText("");
+                            binding.purposeOtherDocs.setText("");
+                            binding.otherDocsPhoneNumber.setText("");
+                            Toast.makeText(otherDocsForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                        });
+                    } else {
+                        String defaultToken = "default_token";
+                    }
+                });
+
 
             }
         });

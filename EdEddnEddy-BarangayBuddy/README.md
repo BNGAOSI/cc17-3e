@@ -225,3 +225,7 @@
 ### 2024/02/22
 
 - Style: Change colors at document type fragments
+
+### 2024/02/25
+
+-  Fix text validation to all document types
