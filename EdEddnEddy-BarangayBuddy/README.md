@@ -229,3 +229,9 @@
 ### 2024/02/25
 
 -  Fix text validation to all document types
+
+### 2024/02/26
+
+- Style: complete change UI of Login and Register screen
+
+- Feat: Add 6 digit OTP verification screen but not fully functional

@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
 
     <application
         android:allowBackup="true"
@@ -17,7 +15,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".OTPVerification"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Register"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".otherDocsForm"
             android:exported="false"
@@ -28,7 +43,6 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".indigencyform"
             android:exported="false" />
@@ -73,12 +87,10 @@
             android:name=".ChatActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".MapActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ReportDetailsActivity"
             android:exported="false"
@@ -104,7 +116,6 @@
             android:name=".MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".SuggestNext"
             android:exported="false"
@@ -134,7 +145,6 @@
             android:name=".settingsAct"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".locateAct"
             android:exported="false"
@@ -143,17 +153,10 @@
             android:name=".reportAct"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".Loginpage"
             android:exported="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

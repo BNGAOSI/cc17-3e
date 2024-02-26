@@ -17,4 +17,6 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#1A1F3C</color>
     <color name="icon_color">#9698AB</color>
+    <color name="light_blue_background">#C6D3E4</color>
+    <color name="primaryTextColor">#01AED8</color>
 </resources>
