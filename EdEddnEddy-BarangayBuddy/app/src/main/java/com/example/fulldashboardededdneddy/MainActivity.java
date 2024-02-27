@@ -22,6 +22,7 @@ import com.example.fulldashboardededdneddy.R.id;
 import com.example.fulldashboardededdneddy.R.layout;
 import com.example.fulldashboardededdneddy.reportactvities.InsertionActivity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -78,9 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replaceFragment(new Home());
         } else if (itemId == id.nav_secure_document) {
             replaceFragment(new SecureDocumentsFragment());
-        }
-
-        else if (itemId == id.nav_suggest) {
+        } else if (itemId == id.nav_suggest) {
             Intent intent = new Intent(this, Suggest.class);
             startActivity(intent);
             return true;
@@ -94,13 +93,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replaceFragment(new ResidencyStatusFragment());
         } else if (itemId == id.nav_BusinessClearStatus) {
             replaceFragment(new BusinessStatusFragment());
-        }else if (itemId == id.nav_OtherDocsStatus) {
+        } else if (itemId == id.nav_OtherDocsStatus) {
             replaceFragment(new OtherDocsStatusFragment());
         } else if (itemId == id.nav_FinishedStatus) {
             replaceFragment(new FinishedStatusFragment());
         } else if (itemId == id.nav_logout) {
-            Intent intent = new Intent(this, Loginpage.class);
+            FirebaseAuth.getInstance().signOut();
+
+            Intent intent = new Intent(this, Login.class);
             startActivity(intent);
+            finish();
             return true;
         }
 

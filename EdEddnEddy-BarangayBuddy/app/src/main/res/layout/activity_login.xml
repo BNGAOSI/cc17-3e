@@ -25,7 +25,7 @@
         android:text="Please login to your account" />
 
     <EditText
-        android:id="@+id/usernameET"
+        android:id="@+id/emailSignInET"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
@@ -49,9 +49,9 @@
 
         <EditText
             android:id="@+id/passwordET"
-            android:layout_toStartOf="@+id/passwordIcon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/passwordIcon"
             android:background="@android:color/transparent"
             android:hint="Password"
             android:inputType="textPassword"
@@ -71,7 +71,7 @@
             android:padding="10dp"
             android:src="@drawable/eye_password_hide" />
     </RelativeLayout>
-
+<!-- FORGOT PASSWORD FEATURE FOR FUTURE USE
     <TextView
         android:id="@+id/forgotPasswordBtn"
         android:layout_width="wrap_content"
@@ -81,6 +81,7 @@
         android:layout_marginEnd="20dp"
         android:text="Forgot Password?"
         android:textColor="@color/primaryTextColor" />
+        -->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signInBtn"
@@ -94,66 +95,67 @@
         android:textAllCaps="false"
         android:textColor="@color/white" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp">
-
-        <View
+    <!-- FOR FUTURE USE: FEATURE GOOGLE AUTHENTICATION
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_toStartOf="@+id/orTxt"
-            android:background="#1A000000" />
-
-        <TextView
-            android:id="@+id/orTxt"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="OR"
-            android:textColor="#80000000"
-            android:textSize="12sp" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
 
-        <View
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toStartOf="@+id/orTxt"
+                android:background="#1A000000" />
+
+            <TextView
+                android:id="@+id/orTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="OR"
+                android:textColor="#80000000"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/orTxt"
+                android:background="#1A000000" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/signInWithGoogle"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"
+            android:layout_height="55dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_toEndOf="@+id/orTxt"
-            android:background="#1A000000" />
-    </RelativeLayout>
+            android:background="@drawable/round_back_dark_blue5_15">
 
-    <RelativeLayout
-        android:id="@+id/signInWithGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/round_back_dark_blue5_15">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/google_icon" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/google_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Sign In with Google"
-            android:textColor="#E6000000"
-            android:textStyle="bold" />
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Sign In with Google"
+                android:textColor="#E6000000"
+                android:textStyle="bold" />
+        </RelativeLayout> -->
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -235,3 +235,15 @@
 - Style: complete change UI of Login and Register screen
 
 - Feat: Add 6 digit OTP verification screen but not fully functional
+
+### 2024/02/27
+
+- Feat: Login and Register fully working with new UI
+
+- Feat: 6 digit OTP verification fully functional
+
+- Feat: Logout button fully working
+
+- Feat: Add Forgot Password but not fully working
+
+- Style: Submit Button for every document type change to a much vibrant color 
