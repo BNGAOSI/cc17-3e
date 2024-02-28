@@ -247,3 +247,11 @@
 - Feat: Add Forgot Password but not fully working
 
 - Style: Submit Button for every document type change to a much vibrant color 
+
+### 2024/02/28
+
+- Style: Change Finished Document to Claimed Document
+
+- Add apk
+
+- Style: Change File a report to File a concern

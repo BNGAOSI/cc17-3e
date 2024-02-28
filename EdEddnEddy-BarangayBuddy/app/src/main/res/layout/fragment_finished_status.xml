@@ -19,7 +19,7 @@
             android:layout_margin="20dp"
             android:textColor="@color/black"
             android:fontFamily="@font/montserratbold"
-            android:text="Finished Documents"
+            android:text="Claimed Documents"
             android:textSize="25dp"
             android:textStyle="bold" />
 
