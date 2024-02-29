@@ -255,3 +255,9 @@
 - Add apk
 
 - Style: Change File a report to File a concern
+
+### 2024/02/29
+
+- Style: Improve UI for every document types detail form
+
+- Add Max length for every Age and Number text field

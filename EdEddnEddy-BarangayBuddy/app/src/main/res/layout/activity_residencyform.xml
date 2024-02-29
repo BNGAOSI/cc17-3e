@@ -48,7 +48,7 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="36dp"
-                android:background="@drawable/edt_background"
+                android:background="@drawable/round_back_dark_blue5_15"
                 android:elevation="8dp"
                 android:hint="Last Name, First Name"
                 android:paddingLeft="20dp"
@@ -72,7 +72,8 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/edt_background"
+                android:maxLength="2"
+                android:background="@drawable/round_back_dark_blue5_15"
                 android:hint=""
                 android:inputType="number"
                 android:paddingLeft="20dp"
@@ -95,7 +96,7 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/edt_background"
+                android:background="@drawable/round_back_dark_blue5_15"
                 android:focusable="false"
                 android:hint="(dd/mm/yyyy)"
                 android:paddingLeft="20dp"
@@ -106,6 +107,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/age_residency" />
 
             <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
@@ -144,7 +146,7 @@
                     android:layout_gravity="center"
                     android:layout_marginEnd="55dp"
                     android:layout_weight="1"
-                    android:background="@drawable/edt_background"
+                    android:background="@drawable/round_back_dark_blue5_15"
                     android:paddingLeft="20dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/hintColor" />
@@ -197,6 +199,7 @@
                 app:layout_constraintStart_toStartOf="@+id/residentialAddress" />
 
             <TextView
+                android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/phone_number"
@@ -220,7 +223,8 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/edt_background"
+                android:maxLength="10"
+                android:background="@drawable/round_back_dark_blue5_15"
                 android:inputType="number"
                 android:paddingLeft="60dp"
                 android:textColor="@color/black"
@@ -234,7 +238,7 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/edt_background"
+                android:background="@drawable/round_back_dark_blue5_15"
                 android:hint="Residential Address"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
@@ -244,6 +248,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/residencyPhoneNumber" />
 
             <TextView
+                android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sincewhen"
@@ -252,14 +257,24 @@
                 app:layout_constraintBottom_toTopOf="@+id/duration"
                 app:layout_constraintStart_toStartOf="@+id/duration" />
 
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/baseline_calendar_month_24"
+                app:layout_constraintBottom_toBottomOf="@+id/duration"
+                app:layout_constraintEnd_toEndOf="@+id/duration"
+                app:layout_constraintTop_toTopOf="@+id/duration" />
+
             <EditText
                 android:id="@+id/duration"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="52dp"
-                android:background="@drawable/edt_background"
+                android:background="@drawable/round_back_dark_blue5_15"
                 android:focusable="false"
-                android:hint="Since..."
+                android:hint="(dd/mm/yyyy)"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"

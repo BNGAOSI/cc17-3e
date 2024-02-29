@@ -52,11 +52,7 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
         String formattedDate = getTimeAgo(timestamp);
         holder.recDate.setText(formattedDate);
 
-        if (isAnnouncementNew(timestamp)) {
-            holder.newIndicator.setVisibility(View.VISIBLE);
-        } else {
-            holder.newIndicator.setVisibility(View.GONE);
-        }
+
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +101,7 @@ class MyViewHolder extends RecyclerView.ViewHolder {
         recCard = itemView.findViewById(R.id.announcement_recCard);
         recTitle = itemView.findViewById(R.id.announcement_recTitle);
         recDate = itemView.findViewById(R.id.announcement_recDate);
-        newIndicator = itemView.findViewById(R.id.newIndicator);
+
 
 
     }

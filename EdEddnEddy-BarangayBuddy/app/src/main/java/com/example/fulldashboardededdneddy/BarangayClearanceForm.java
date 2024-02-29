@@ -35,7 +35,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BarangayClearanceForm extends AppCompatActivity {
+public class BarangayClearanceForm extends BaseActivity {
 
     ActivityBarangayclearanceformBinding binding;
 

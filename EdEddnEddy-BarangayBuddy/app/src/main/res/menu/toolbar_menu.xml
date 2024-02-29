@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!-- FOR FUTURE USE: NOTIFICATION FEATURE
     <item
         android:title="Notification"
         android:icon="@drawable/notification_bell"
         android:id="@+id/notification_bell"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"/>-->
 
 </menu>

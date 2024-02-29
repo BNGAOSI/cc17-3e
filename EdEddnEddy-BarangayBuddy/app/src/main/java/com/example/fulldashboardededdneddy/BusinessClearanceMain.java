@@ -25,7 +25,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 
-public class BusinessClearanceMain extends AppCompatActivity {
+public class BusinessClearanceMain extends BaseActivity {
 
     ActivityBusinessClearanceMainBinding binding;
     String fullName, nameOfBusiness, typeOfBusiness, businessAddress, documentType, businessClearancePhone;

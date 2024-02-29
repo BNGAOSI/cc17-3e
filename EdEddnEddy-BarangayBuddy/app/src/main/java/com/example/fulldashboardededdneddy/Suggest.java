@@ -31,7 +31,7 @@ import java.util.Map;
 
 import kotlin.jvm.internal.Intrinsics;
 
-public final class Suggest extends AppCompatActivity {
+public final class Suggest extends BaseActivity {
     private EditText etSugName;
     private EditText etSuggest;
     private Button btnSaveData;

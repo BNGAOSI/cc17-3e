@@ -5,15 +5,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.fulldashboardededdneddy.BaseActivity
 import com.example.fulldashboardededdneddy.R
 import com.example.fulldashboardededdneddy.model.ResidentModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class InsertionActivity : AppCompatActivity() {
+class InsertionActivity : BaseActivity() {
 
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var etResName: EditText
@@ -34,7 +34,7 @@ class InsertionActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar?.apply {
-            title = "Report"
+            title = "Concern"
             setDisplayHomeAsUpEnabled(true)
         }
         toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.white))

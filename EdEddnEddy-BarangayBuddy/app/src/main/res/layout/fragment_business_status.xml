@@ -36,6 +36,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/status_item" />
+
+            <TextView
+                android:id="@+id/noDocumentsMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:text="No documents available"
+                android:textSize="18sp"
+                android:textColor="@android:color/black" />
         </androidx.cardview.widget.CardView>
 
 

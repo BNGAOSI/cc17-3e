@@ -21,12 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
 
-                <ImageView
-                    android:id="@+id/newIndicator"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="360dp"
-                    android:background="@color/red_500"/>
 
                 <ImageView
                     android:id="@+id/announcement_recImage"

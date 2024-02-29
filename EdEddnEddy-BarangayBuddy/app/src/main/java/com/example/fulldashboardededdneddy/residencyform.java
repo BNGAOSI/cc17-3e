@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class residencyform extends AppCompatActivity {
+public class residencyform extends BaseActivity {
 
     ActivityResidencyformBinding binding;
     private Spinner civilStatus_spinner;

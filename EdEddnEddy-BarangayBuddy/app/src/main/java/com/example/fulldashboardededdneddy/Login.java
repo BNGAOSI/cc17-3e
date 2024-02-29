@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login extends AppCompatActivity {
+public class Login extends BaseActivity {
 
     private boolean passwordShowing = false;
     private FirebaseAuth firebaseAuth;
@@ -103,12 +103,11 @@ public class Login extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 // Login successful
-                Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Login.this, MainActivity.class));
                 finish(); // Finish the current activity to prevent the user from coming back to the login screen
             } else {
                 // If login fails, display a message to the user.
-                Toast.makeText(Login.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Login failed: Please check you internet connection", Toast.LENGTH_SHORT).show();
             }
         });
     }

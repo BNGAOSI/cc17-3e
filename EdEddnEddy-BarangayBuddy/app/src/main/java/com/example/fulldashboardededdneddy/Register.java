@@ -26,7 +26,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class Register extends AppCompatActivity {
+public class Register extends BaseActivity {
 
     private boolean passwordShowing = false;
     private boolean conPasswordShowing = false;

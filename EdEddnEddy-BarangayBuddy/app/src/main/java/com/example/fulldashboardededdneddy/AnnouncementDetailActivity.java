@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class AnnouncementDetailActivity extends AppCompatActivity {
+public class AnnouncementDetailActivity extends BaseActivity {
 
     TextView detailDesc, detailTitle;
     Toolbar toolbar;

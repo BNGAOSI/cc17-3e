@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -36,10 +37,19 @@ class OtherDocsStatusFragment : Fragment() {
         adapter = OtherDocsStatusAdapter()
         documentStatusRecyclerView.adapter = adapter
 
+        val noDocumentsMessage = view.findViewById<TextView>(R.id.noDocumentsMessage)
+
         viewModel = ViewModelProvider(this).get(OtherDocsStatusViewModel::class.java)
 
         viewModel.allDocuments.observe(viewLifecycleOwner, Observer {
-            adapter.updateDocumentList(it)
+            if (it.isEmpty()) {
+                noDocumentsMessage.visibility = View.VISIBLE
+                documentStatusRecyclerView.visibility = View.GONE
+            } else {
+                noDocumentsMessage.visibility = View.GONE
+                documentStatusRecyclerView.visibility = View.VISIBLE
+                adapter.updateDocumentList(it)
+            }
         })
     }
 }

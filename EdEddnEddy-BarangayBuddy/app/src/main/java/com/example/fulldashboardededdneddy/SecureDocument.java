@@ -15,7 +15,7 @@ import com.example.fulldashboardededdneddy.R.layout;
 import kotlin.Metadata;
 import org.jetbrains.annotations.Nullable;
 
-public final class SecureDocument extends AppCompatActivity {
+public final class SecureDocument extends BaseActivity {
 
     private Toolbar toolbar;
 

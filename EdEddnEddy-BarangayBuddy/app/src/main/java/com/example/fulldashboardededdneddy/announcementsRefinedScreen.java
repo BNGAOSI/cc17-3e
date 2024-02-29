@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class announcementsRefinedScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class announcementsRefinedScreen extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
     RecyclerView recyclerView;
     Toolbar toolbar;
     List<AnnouncementDataClass> datalist;

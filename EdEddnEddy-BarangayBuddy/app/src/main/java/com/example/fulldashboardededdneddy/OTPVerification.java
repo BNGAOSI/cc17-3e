@@ -30,7 +30,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class OTPVerification extends AppCompatActivity {
+public class OTPVerification extends BaseActivity {
 
     private EditText otpEt1, otpEt2, otpEt3, otpEt4, otpEt5, otpEt6;
     private PhoneAuthProvider.ForceResendingToken forceResendingToken;
