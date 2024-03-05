@@ -261,3 +261,7 @@
 - Style: Improve UI for every document types detail form
 
 - Add Max length for every Age and Number text field
+
+### 2024/03/05
+
+- Add indication that there is no documents available at screen claimed documents
