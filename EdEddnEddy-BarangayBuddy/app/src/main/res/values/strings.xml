@@ -51,4 +51,7 @@
     <string name="i_m_in">I\'m in</string>
     <string name="skip">Skip</string>
     <string name="phone_number">Phone Number*</string>
+    <string name="sendOneTimePassword">We will send you a One Time Password on this mobile number</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enterOTP">Enter the OTP sent to</string>
 </resources>

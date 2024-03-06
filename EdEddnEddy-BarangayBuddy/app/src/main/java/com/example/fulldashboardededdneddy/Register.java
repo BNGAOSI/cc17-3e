@@ -40,7 +40,6 @@ public class Register extends BaseActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         final EditText email = findViewById(R.id.emailET);
-        final EditText mobile = findViewById(R.id.mobileET);
 
         final EditText password = findViewById(R.id.passwordET);
         final EditText conPassword = findViewById(R.id.conPasswordET);
@@ -49,7 +48,6 @@ public class Register extends BaseActivity {
 
         final AppCompatButton signUpBtn = findViewById(R.id.signUpBtn);
         final ProgressBar progressBar = findViewById(R.id.progressBar);
-        final TextView signInBtn = findViewById(R.id.signInBtn);
 
         passwordIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,25 +91,17 @@ public class Register extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                final String getMobileTxt = mobile.getText().toString();
+
                 final String getEmailTxt = email.getText().toString();
                 final String getPassword = password.getText().toString();
                 final String getConPassword = conPassword.getText().toString();
 
-                if (getMobileTxt.isEmpty() || getEmailTxt.isEmpty() || getPassword.isEmpty() || getConPassword.isEmpty()) {
-                    Toast.makeText(Register.this, "Fill in all fields", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
                 if (!getPassword.equals(getConPassword)) {
                     Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (getMobileTxt.isEmpty()) {
-                    Toast.makeText(Register.this, "Enter Mobile Number", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
                 progressBar.setVisibility(View.VISIBLE);
                 signUpBtn.setVisibility(View.INVISIBLE);
@@ -124,58 +114,17 @@ public class Register extends BaseActivity {
                             if (task.isSuccessful()) {
                                 // Registration successful
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                                Toast.makeText(Register.this, "Registration successful please wait", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Register.this, MainActivity.class);
+                                startActivity(intent);
 
                             } else {
                                 // Registration failed
                                 Toast.makeText(Register.this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
-
-                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        "+63" + mobile.getText().toString(),
-                        60,
-                        TimeUnit.SECONDS,
-                        Register.this,
-                        new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                            @Override
-                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-
-                                progressBar.setVisibility(View.GONE);
-                                signInBtn.setVisibility(View.VISIBLE);
-                            }
-
-                            @Override
-                            public void onVerificationFailed(@NonNull FirebaseException e) {
-                                progressBar.setVisibility(View.GONE);
-                                signInBtn.setVisibility(View.VISIBLE);
-                                Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                            }
-
-                            @Override
-                            public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-
-                                progressBar.setVisibility(View.GONE);
-                                signInBtn.setVisibility(View.VISIBLE);
-                                //opening OTP Verification Activity along with mobile and email
-                                Intent intent = new Intent(Register.this, OTPVerification.class);
-                                intent.putExtra("mobile", getMobileTxt);
-                                intent.putExtra("verificationId", verificationId);
-                                startActivity(intent);
-                            }
-                        }
-                );
-
-
             }
         });
 
-        signInBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

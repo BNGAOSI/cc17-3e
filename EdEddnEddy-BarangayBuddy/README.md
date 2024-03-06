@@ -269,3 +269,9 @@
 ### 2024/03/06
 
 - Add latest version app apk
+
+### 2024/03/07
+
+- Style: Add new UI to OTP send and verification
+
+- Add latest version app apk

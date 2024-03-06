@@ -61,7 +61,7 @@ public class Login extends BaseActivity {
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
+                startActivity(new Intent(Login.this, SendOTPActivity.class));
             }
         });
 
