@@ -265,3 +265,7 @@
 ### 2024/03/05
 
 - Add indication that there is no documents available at screen claimed documents
+
+### 2024/03/06
+
+- Add latest version app apk

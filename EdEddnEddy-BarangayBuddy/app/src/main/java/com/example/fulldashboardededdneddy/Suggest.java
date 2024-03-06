@@ -57,11 +57,7 @@ public final class Suggest extends BaseActivity {
         CheckBox ckboxEtc = findViewById(id.checkboxEtc);
 
 
-        Button proceedSuggest1 = this.findViewById(id.btnSaveData);
-        proceedSuggest1.setOnClickListener(it -> {
-            Intent intent = new Intent(Suggest.this, SuggestNext.class);
-            Suggest.this.startActivity(intent);
-        });
+
         View var10001 = this.findViewById(id.etSugName);
         Intrinsics.checkNotNullExpressionValue(var10001, "findViewById(R.id.etSugName)");
         this.etSugName = (EditText) var10001;
