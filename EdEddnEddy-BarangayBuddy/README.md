@@ -275,3 +275,5 @@
 - Style: Add new UI to OTP send and verification
 
 - Add latest version app apk
+
+- Fix OTP send and verification screen to portrait
