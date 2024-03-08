@@ -277,3 +277,7 @@
 - Add latest version app apk
 
 - Fix OTP send and verification screen to portrait
+
+### 2024/03/08
+
+- Add Indigency Certificate form screen

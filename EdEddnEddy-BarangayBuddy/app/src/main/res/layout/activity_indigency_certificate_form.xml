@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".residencyform">
+    tools:context=".IndigencyCertificateForm">
 
     <include
         android:id="@+id/appToolbar"
@@ -25,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:text="Certificate of Residency"
+                android:text="Certificate of Indigency"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -40,17 +41,18 @@
                 android:layout_height="wrap_content"
                 android:text="Full Name*"
                 android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/fullName_residency"
-                app:layout_constraintStart_toStartOf="@+id/fullName_residency" />
+                app:layout_constraintBottom_toTopOf="@+id/fullName_indigency"
+                app:layout_constraintStart_toStartOf="@+id/fullName_indigency" />
 
             <EditText
-                android:id="@+id/fullName_residency"
+                android:id="@+id/fullName_indigency"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:elevation="8dp"
-                android:hint="Last Name, First Name"
+                android:textSize="15dp"
+                android:hint="Last Name, First Name, Middle Name"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
@@ -63,12 +65,12 @@
                 android:layout_height="wrap_content"
                 android:text="Age*"
                 android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/age_residency"
-                app:layout_constraintStart_toStartOf="@+id/age_residency" />
+                app:layout_constraintBottom_toTopOf="@+id/age_indigency"
+                app:layout_constraintStart_toStartOf="@+id/age_indigency" />
 
 
             <EditText
-                android:id="@+id/age_residency"
+                android:id="@+id/age_indigency"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
@@ -81,18 +83,18 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullName_residency" />
+                app:layout_constraintTop_toBottomOf="@+id/fullName_indigency" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date of Birth*"
                 android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/birthDateResidency"
-                app:layout_constraintStart_toStartOf="@+id/birthDateResidency" />
+                app:layout_constraintBottom_toTopOf="@+id/birthDateIndigency"
+                app:layout_constraintStart_toStartOf="@+id/birthDateIndigency" />
 
             <EditText
-                android:id="@+id/birthDateResidency"
+                android:id="@+id/birthDateIndigency"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
@@ -104,7 +106,7 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/age_residency" />
+                app:layout_constraintTop_toBottomOf="@+id/age_indigency" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -112,9 +114,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:src="@drawable/baseline_calendar_month_24"
-                app:layout_constraintBottom_toBottomOf="@+id/birthDateResidency"
-                app:layout_constraintEnd_toEndOf="@+id/birthDateResidency"
-                app:layout_constraintTop_toTopOf="@+id/birthDateResidency" />
+                app:layout_constraintBottom_toBottomOf="@+id/birthDateIndigency"
+                app:layout_constraintEnd_toEndOf="@+id/birthDateIndigency"
+                app:layout_constraintTop_toTopOf="@+id/birthDateIndigency" />
 
 
             <ImageView
@@ -136,7 +138,7 @@
                 android:paddingLeft="55dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/birthDateResidency">
+                app:layout_constraintTop_toBottomOf="@+id/birthDateIndigency">
 
 
                 <Spinner
@@ -156,18 +158,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="-230dp"
                 android:text="Gender*"
                 android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@id/genderRadioGroup"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintBottom_toTopOf="@+id/genderRadioGroup"
+                app:layout_constraintStart_toStartOf="@+id/genderRadioGroup" />
 
             <RadioGroup
                 android:id="@+id/genderRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="140dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -206,8 +206,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/phone_number"
                 android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/residencyPhoneNumber"
-                app:layout_constraintStart_toStartOf="@+id/residencyPhoneNumber" />
+                app:layout_constraintBottom_toTopOf="@+id/indigencyPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/indigencyPhoneNumber" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -216,16 +216,17 @@
                 android:text="+63"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/residencyPhoneNumber"
-                app:layout_constraintStart_toStartOf="@+id/residencyPhoneNumber"
-                app:layout_constraintTop_toTopOf="@+id/residencyPhoneNumber" />
+                app:layout_constraintBottom_toBottomOf="@+id/indigencyPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/indigencyPhoneNumber"
+                app:layout_constraintTop_toTopOf="@+id/indigencyPhoneNumber" />
 
             <EditText
-                android:id="@+id/residencyPhoneNumber"
+                android:id="@+id/indigencyPhoneNumber"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/round_back_dark_blue5_15"
+                android:hint="Ex. 0000000000"
                 android:inputType="number"
                 android:maxLength="10"
                 android:paddingLeft="60dp"
@@ -247,7 +248,7 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/residencyPhoneNumber" />
+                app:layout_constraintTop_toBottomOf="@+id/indigencyPhoneNumber" />
 
             <TextView
                 android:id="@+id/textView24"
@@ -256,8 +257,8 @@
                 android:text="@string/sincewhen"
                 android:textAlignment="textStart"
                 android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/duration"
-                app:layout_constraintStart_toStartOf="@+id/duration" />
+                app:layout_constraintBottom_toTopOf="@+id/durationSpinner"
+                app:layout_constraintStart_toStartOf="@+id/durationSpinner" />
 
 
             <ImageView
@@ -265,12 +266,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/baseline_calendar_month_24"
-                app:layout_constraintBottom_toBottomOf="@+id/duration"
-                app:layout_constraintEnd_toEndOf="@+id/duration"
-                app:layout_constraintTop_toTopOf="@+id/duration" />
+                app:layout_constraintBottom_toBottomOf="@+id/durationSpinner"
+                app:layout_constraintEnd_toEndOf="@+id/durationSpinner"
+                app:layout_constraintTop_toTopOf="@+id/durationSpinner" />
 
-            <EditText
-                android:id="@+id/duration"
+            <Spinner
+                android:id="@+id/durationSpinner"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="52dp"
@@ -286,7 +287,7 @@
 
 
             <Button
-                android:id="@+id/submit_btn_residency"
+                android:id="@+id/submit_btn_indigency"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
@@ -298,7 +299,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/duration" />
+                app:layout_constraintTop_toBottomOf="@+id/durationSpinner" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

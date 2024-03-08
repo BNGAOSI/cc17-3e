@@ -65,14 +65,14 @@ public final class SecureDocument extends BaseActivity {
             }
         }));
 
-        /*
+
         Button indigencybtn = (Button)this.findViewById(id.indigencybtn);
         indigencybtn.setOnClickListener((View.OnClickListener)(new View.OnClickListener() {
             @Override
             public final void onClick(View v) {
-                Intent intent = new Intent((Context)SecureDocument.this, indigencyform.class);
+                Intent intent = new Intent((Context)SecureDocument.this, IndigencyCertificateForm.class);
                 startActivity(intent);
             }
-        })); */
+        }));
     }
 }

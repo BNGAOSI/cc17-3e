@@ -1,6 +1,5 @@
 package com.example.fulldashboardededdneddy;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,10 +17,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.fulldashboardededdneddy.databinding.ActivityBarangayclearanceformBinding;
-import com.example.fulldashboardededdneddy.databinding.ActivityResidencyformBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.fulldashboardededdneddy.databinding.ActivityIndigencyCertificateFormBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,59 +26,82 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
+public class IndigencyCertificateForm extends BaseActivity {
 
-public class residencyform extends BaseActivity {
+    ActivityIndigencyCertificateFormBinding binding;
 
-    ActivityResidencyformBinding binding;
     Toolbar toolbar;
-    private EditText birthDateResidency;
+
+    private EditText birthDateIndigency;
     private EditText durationbtn;
     FirebaseAuth auth;
 
-
-    String dateOfBirth, fullName, age, gender, address, duration, documentType, residencyPhoneNumber;
+    String dateOfBirth, fullName, age, gender, address, duration, documentType, indigencyPhoneNumber;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
     RadioGroup genderRadioGroup;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityResidencyformBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_indigency_certificate_form);
+        binding = ActivityIndigencyCertificateFormBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         toolbar = findViewById(R.id.appToolbar);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle("Residency Certificate");
+            actionBar.setTitle("Indigency Certificate");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
-        birthDateResidency = findViewById(R.id.birthDateResidency);
+        birthDateIndigency = findViewById(R.id.birthDateIndigency);
 
         List<String> civilStatusList = new ArrayList<>();
         civilStatusList.add(0, "Choose Civil Status");
         civilStatusList.add("Single");
         civilStatusList.add("Married");
         civilStatusList.add("Divorced");
+        civilStatusList.add("Separated");
         civilStatusList.add("Widowed");
+
 
         ArrayAdapter<String> civilStatusAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, civilStatusList);
         civilStatusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
         Spinner civilStatus = findViewById(R.id.civilstatus_spinner);
         civilStatus.setAdapter(civilStatusAdapter);
 
 
+        //Spinner for Duration
+        List<String> DurationList = new ArrayList<>();
+        DurationList.add(0, "---");
+        DurationList.add("1 month");
+        DurationList.add("2 months");
+        DurationList.add("3 months");
+        DurationList.add("4 months");
+        DurationList.add("5 months");
+        DurationList.add("6 months");
+        DurationList.add("more than 6 months");
+
+
+        ArrayAdapter<String> DurationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DurationList);
+        DurationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner Duration = findViewById(R.id.durationSpinner);
+        Duration.setAdapter(DurationAdapter);
+
+
+
         //Setting up DatePicker on EditText
-        birthDateResidency.setOnClickListener(new View.OnClickListener() {
+        birthDateIndigency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar calendar = Calendar.getInstance();
@@ -91,37 +110,20 @@ public class residencyform extends BaseActivity {
                 int year = calendar.get(Calendar.YEAR);
 
                 //DatePicker Dialog
-                picker = new DatePickerDialog(residencyform.this, new DatePickerDialog.OnDateSetListener() {
+                picker = new DatePickerDialog(IndigencyCertificateForm.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        birthDateResidency.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                        birthDateIndigency.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
                     }
                 }, year, month, day);
                 picker.show();
             }
         });
 
-        durationbtn = findViewById(R.id.duration);
-        durationbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
-                int year = calendar.get(Calendar.YEAR);
 
-                //DatePicker Dialog
-                picker = new DatePickerDialog(residencyform.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        durationbtn.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                    }
-                }, year, month, day);
-                picker.show();
-            }
-        });
 
-        binding.submitBtnResidency.setOnClickListener(new View.OnClickListener() {
+
+        binding.submitBtnIndigency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -132,44 +134,45 @@ public class residencyform extends BaseActivity {
                     gender = selectedRadioButton.getText().toString();
                 }
 
-                fullName = binding.fullNameResidency.getText().toString().trim();
-                age = binding.ageResidency.getText().toString().trim();
+                fullName = binding.fullNameIndigency.getText().toString().trim();
+                age = binding.ageIndigency.getText().toString().trim();
                 String selectedCivilStatus = civilStatus.getSelectedItem().toString();
                 address = binding.residentialAddress.getText().toString().trim();
-                dateOfBirth = binding.birthDateResidency.getText().toString().trim();
-                duration = binding.duration.getText().toString().trim();
-                residencyPhoneNumber = binding.residencyPhoneNumber.getText().toString().trim();
+                dateOfBirth = binding.birthDateIndigency.getText().toString().trim();
+                String selectedDuration = Duration.getSelectedItem().toString();
+
+                indigencyPhoneNumber = binding.indigencyPhoneNumber.getText().toString().trim();
 
                 // Validate input fields
                 if (TextUtils.isEmpty(fullName)) {
                     Log.d("Validation", "Full name is empty");
-                    binding.fullNameResidency.setError("Please enter your full name");
-                    binding.fullNameResidency.requestFocus();
+                    binding.fullNameIndigency.setError("Please enter your full name");
+                    binding.fullNameIndigency.requestFocus();
                     return;
                 }
 
                 if (TextUtils.isEmpty(age)) {
                     Log.d("Validation", "Age is empty");
-                    binding.ageResidency.setError("Please enter your age");
-                    binding.ageResidency.requestFocus();
+                    binding.ageIndigency.setError("Please enter your age");
+                    binding.ageIndigency.requestFocus();
                     return;
                 }
 
                 if (selectedCivilStatus.equals("Choose Civil Status")) {
                     Log.d("Validation", "Civil status is not selected");
-                    Toast.makeText(residencyform.this, "Please select your civil status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IndigencyCertificateForm.this, "Please select your civil status", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(gender)) {
                     Log.d("Validation", "Gender is not selected");
-                    Toast.makeText(residencyform.this, "Please select your gender", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IndigencyCertificateForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (TextUtils.isEmpty(residencyPhoneNumber)) {
+                if (TextUtils.isEmpty(indigencyPhoneNumber)) {
                     Log.d("Validation", "Phone Number is empty");
-                    binding.residencyPhoneNumber.setError("Please enter your phone number");
-                    binding.residencyPhoneNumber.requestFocus();
+                    binding.indigencyPhoneNumber.setError("Please enter your phone number");
+                    binding.indigencyPhoneNumber.requestFocus();
                     return;
                 }
 
@@ -182,15 +185,14 @@ public class residencyform extends BaseActivity {
 
                 if (TextUtils.isEmpty(dateOfBirth)) {
                     Log.d("Validation", "Date of birth is empty");
-                    binding.birthDateResidency.setError("Please enter your date of birth");
-                    binding.birthDateResidency.requestFocus();
+                    binding.birthDateIndigency.setError("Please enter your date of birth");
+                    binding.birthDateIndigency.requestFocus();
                     return;
                 }
 
-                if (TextUtils.isEmpty(duration)) {
-                    Log.d("Validation", "Duration is empty");
-                    binding.duration.setError("Please enter the duration");
-                    binding.duration.requestFocus();
+                if (selectedDuration.equals("---")) {
+                    Log.d("Validation", "This field is empty");
+                    Toast.makeText(IndigencyCertificateForm.this, "Please select the month/year", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -199,31 +201,30 @@ public class residencyform extends BaseActivity {
 
                 FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
                     if (task.isSuccessful() && task.getResult() != null) {
-                        String userTokenResidency = task.getResult();
+                        String userTokenIndigency = task.getResult();
 
                         // Proceed with form submission
                         auth = FirebaseAuth.getInstance();
                         db = FirebaseDatabase.getInstance();
                         reference = db.getReference("RequestedDocuments");
-                        String resiUID = reference.child("Residency").push().getKey();
+                        String resiUID = reference.child("Indigency").push().getKey();
                         String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : "null";
 
-                        DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
+                        DatabaseReference documentTypeRef = reference.child("Indigency").child(uid).child(resiUID);
 
-                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP, userTokenResidency, residencyPhoneNumber);
+                        IndigencyRequests IndigencyRequests = new IndigencyRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration, documentType, ServerValue.TIMESTAMP, userTokenIndigency, indigencyPhoneNumber);
 
-                        documentTypeRef.setValue(residencyrequests).addOnCompleteListener(task1 -> {
-                            documentTypeRef.child("documentType").setValue("Certificate of Residency");
+                        documentTypeRef.setValue(IndigencyRequests).addOnCompleteListener(task1 -> {
+                            documentTypeRef.child("documentType").setValue("Certificate of Indigency");
                             documentTypeRef.child("status").setValue("Pending");
 
 
-                            binding.fullNameResidency.setText("");
-                            binding.ageResidency.setText("");
-                            binding.birthDateResidency.setText("");
+                            binding.fullNameIndigency.setText("");
+                            binding.ageIndigency.setText("");
+                            binding.birthDateIndigency.setText("");
                             binding.residentialAddress.setText("");
-                            binding.duration.setText("");
-                            binding.residencyPhoneNumber.setText("");
-                            Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                            binding.indigencyPhoneNumber.setText("");
+                            Toast.makeText(IndigencyCertificateForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
                         });
                     } else {
                         String defaultToken = "default_token";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,18 +7,21 @@
     android:background="@color/light_blue_background"
     tools:context=".SecureDocument">
 
-        <include
-            layout="@layout/appbar"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/appbar" />
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:background="@drawable/custom_rounded_button"
             android:layout_marginTop="228dp"
+            android:background="@drawable/custom_rounded_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"  />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/barangayClearancebtn"
@@ -32,6 +35,7 @@
             android:paddingLeft="30dp"
             android:text="Barangay Clearance"
             android:textAlignment="textStart"
+            android:textAllCaps="false"
             android:textColor="@color/divider_grey"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +46,8 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:background="@drawable/custom_rounded_button"
             android:layout_marginTop="14dp"
+            android:background="@drawable/custom_rounded_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
@@ -52,16 +56,17 @@
             android:id="@+id/residencybtnact"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:textAlignment="textStart"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/custom_rounded_button"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/montserratregular"
             android:paddingLeft="30dp"
             android:text="Residency"
-            android:textSize="20sp"
-            android:layout_marginTop="14dp"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
             android:textColor="@color/divider_grey"
-            android:layout_marginLeft="15dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/barangayClearancebtn" />
@@ -69,8 +74,8 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:background="@drawable/custom_rounded_button"
             android:layout_marginTop="14dp"
+            android:background="@drawable/custom_rounded_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/residencybtnact" />
@@ -79,53 +84,58 @@
             android:id="@+id/businessclearancebtn"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:textAlignment="textStart"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/custom_rounded_button"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/montserratregular"
             android:paddingLeft="30dp"
-            android:textSize="20sp"
-            android:textColor="@color/divider_grey"
             android:text="Business Clearance"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="15dp"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/divider_grey"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/residencybtnact" />
 
         <TextView
+            android:id="@+id/textView14"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:background="@drawable/custom_rounded_button"
             android:layout_marginTop="14dp"
+            android:background="@drawable/custom_rounded_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
+            app:layout_constraintTop_toBottomOf="@+id/indigencybtn" />
 
         <Button
             android:id="@+id/otherDocbtn"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:textAlignment="textStart"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/custom_rounded_button"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/montserratregular"
             android:paddingLeft="30dp"
-            android:textSize="20sp"
-            android:textColor="@color/divider_grey"
             android:text="Other document"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="15dp"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/divider_grey"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
+            app:layout_constraintTop_toBottomOf="@+id/indigencybtn" />
 
-        <!--
+
         <TextView
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:background="@drawable/custom_rounded_button"
             android:layout_marginTop="14dp"
+            android:background="@drawable/custom_rounded_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
@@ -135,30 +145,35 @@
             android:id="@+id/indigencybtn"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:textAlignment="textStart"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/custom_rounded_button"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/montserratregular"
             android:paddingLeft="30dp"
             android:text="Indigency"
-            android:textSize="20sp"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
             android:textColor="@color/divider_grey"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="15dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" /> -->
+            app:layout_constraintTop_toBottomOf="@+id/businessclearancebtn" />
 
         <TextView
             android:id="@+id/chooseDocs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserratbold"
-            android:textColor="@color/black"
             android:text="Choose your preferred document"
+            android:textColor="@color/black"
             android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/barangayClearancebtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
