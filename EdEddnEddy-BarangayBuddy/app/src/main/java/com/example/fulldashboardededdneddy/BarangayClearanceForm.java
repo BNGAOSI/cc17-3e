@@ -12,12 +12,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.fulldashboardededdneddy.databinding.ActivityBarangayclearanceformBinding;
@@ -31,8 +33,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BarangayClearanceForm extends BaseActivity {
@@ -40,7 +45,7 @@ public class BarangayClearanceForm extends BaseActivity {
     ActivityBarangayclearanceformBinding binding;
 
     Toolbar toolbar;
-    String fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, phoneNumber;
+    String fullName, age, dateOfBirth, presentAddress, duration, purpose, gender, documentType, phoneNumber;
     private EditText birthDate;
     private DatePickerDialog picker;
     FirebaseDatabase db;
@@ -69,6 +74,24 @@ public class BarangayClearanceForm extends BaseActivity {
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDate = findViewById(R.id.birthDate);
+
+        //Spinner for civilStatus
+
+        List<String> civilStatusList = new ArrayList<>();
+        civilStatusList.add(0, "Choose Civil Status");
+        civilStatusList.add("Single");
+        civilStatusList.add("Married");
+        civilStatusList.add("Divorced");
+        civilStatusList.add("Separated");
+        civilStatusList.add("Widowed");
+
+
+        ArrayAdapter<String> civilStatusAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, civilStatusList);
+        civilStatusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        Spinner civilStatus = findViewById(R.id.civilstatus_spinner);
+        civilStatus.setAdapter(civilStatusAdapter);
 
 
         //Setting up DatePicker on EditText
@@ -106,6 +129,7 @@ public class BarangayClearanceForm extends BaseActivity {
 
                 fullName = binding.fullNameBarangayClearance.getText().toString().trim();
                 age = binding.age.getText().toString().trim();
+                String selectedCivilStatus = civilStatus.getSelectedItem().toString();
                 dateOfBirth = binding.birthDate.getText().toString().trim();
                 presentAddress = binding.presentAddress.getText().toString().trim();
                 purpose = binding.purpose.getText().toString().trim();
@@ -123,6 +147,12 @@ public class BarangayClearanceForm extends BaseActivity {
                     Log.d("Validation", "Age is empty");
                     binding.age.setError("Please enter your age");
                     binding.age.requestFocus();
+                    return;
+                }
+
+                if (selectedCivilStatus.equals("Choose Civil Status")) {
+                    Log.d("Validation", "Civil status is not selected");
+                    Toast.makeText(BarangayClearanceForm.this, "Please select your civil status", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -177,7 +207,7 @@ public class BarangayClearanceForm extends BaseActivity {
                         DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
 
 
-                        BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
+                        BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, selectedCivilStatus, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
 
                         documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Barangay Clearance");

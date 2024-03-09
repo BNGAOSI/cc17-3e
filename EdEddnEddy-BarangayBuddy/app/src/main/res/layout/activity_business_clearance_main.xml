@@ -51,13 +51,50 @@
                 android:layout_marginTop="36dp"
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:elevation="8dp"
-                android:hint="Last Name, First Name"
+                android:textSize="15dp"
+                android:hint="Last Name, First Name, Middle Name"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/baseline_arrow_drop_down_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/civilStatus_linearlayout" />
+
+
+            <LinearLayout
+                android:id="@+id/civilStatus_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingLeft="55dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance">
+
+
+                <Spinner
+                    android:id="@+id/civilstatus_spinner"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="55dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_back_dark_blue5_15"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +117,7 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance" />
+                app:layout_constraintTop_toBottomOf="@+id/civilStatus_linearlayout" />
 
             <TextView
                 android:id="@+id/textView22"

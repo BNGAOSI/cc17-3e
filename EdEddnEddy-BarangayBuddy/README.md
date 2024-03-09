@@ -281,3 +281,11 @@
 ### 2024/03/08
 
 - Add Indigency Certificate form screen
+
+### 2024/03/09
+
+- Add functional Civil Status to all document types except for Business Clearance
+
+- Add New option to the Civil Status
+
+- Style: Modify string of duration field

@@ -72,6 +72,7 @@ public class residencyform extends BaseActivity {
         civilStatusList.add("Single");
         civilStatusList.add("Married");
         civilStatusList.add("Divorced");
+        civilStatusList.add("Separated");
         civilStatusList.add("Widowed");
 
         ArrayAdapter<String> civilStatusAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, civilStatusList);

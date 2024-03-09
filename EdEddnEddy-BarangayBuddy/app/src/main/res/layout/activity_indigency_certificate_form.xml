@@ -51,16 +51,17 @@
                 android:layout_marginTop="36dp"
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:elevation="8dp"
-                android:textSize="15dp"
                 android:hint="Last Name, First Name, Middle Name"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
+                android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle" />
 
             <TextView
+                android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Age*"
@@ -71,9 +72,10 @@
 
             <EditText
                 android:id="@+id/age_indigency"
-                android:layout_width="300dp"
+                android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginRight="40dp"
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:hint=""
                 android:inputType="number"
@@ -82,10 +84,11 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/birthDateIndigency"
                 app:layout_constraintTop_toBottomOf="@+id/fullName_indigency" />
 
             <TextView
+                android:id="@+id/textView27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date of Birth*"
@@ -95,8 +98,9 @@
 
             <EditText
                 android:id="@+id/birthDateIndigency"
-                android:layout_width="300dp"
+                android:layout_width="200dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="55dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:focusable="false"
@@ -104,9 +108,8 @@
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/age_indigency" />
+                app:layout_constraintTop_toBottomOf="@+id/fullName_indigency" />
 
             <ImageView
                 android:id="@+id/imageView3"

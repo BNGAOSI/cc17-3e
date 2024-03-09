@@ -36,7 +36,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
@@ -44,7 +43,10 @@
     <string name="sincewhen">Months/Years stayed in this barangay*</string>
     <string-array name="report_types">
         <item>Incident Report</item>
+        <item>Noise Complaint</item>
         <item>Lost and Found Report</item>
+        <item>Community Report</item>
+        <item>Natural Disaster Incident Report</item>
     </string-array>
     <string name="get_notified">Get Notified</string>
     <string name="details_text">Our app keeps you updated with all of the latest events.</string>
