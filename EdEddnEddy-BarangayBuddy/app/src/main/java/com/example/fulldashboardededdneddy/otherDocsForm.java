@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -42,7 +43,7 @@ public class otherDocsForm extends BaseActivity {
     Toolbar toolbar;
 
 
-    String dateOfBirth, fullName, age, gender, address, purpose, status, documentType, otherDocsPhoneNumber;
+    String dateOfBirth, fullName, age, gender, address, purpose, duration, documentType, otherDocsPhoneNumber;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
@@ -66,6 +67,7 @@ public class otherDocsForm extends BaseActivity {
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDateOtherDocs = findViewById(R.id.birthDateotherDocs);
 
+        //CivilStatus Spinner
         List<String> civilStatusList = new ArrayList<>();
         civilStatusList.add(0, "Choose Civil Status");
         civilStatusList.add("Single");
@@ -78,6 +80,25 @@ public class otherDocsForm extends BaseActivity {
 
         Spinner civilStatus = findViewById(R.id.civilstatus_spinner);
         civilStatus.setAdapter(civilStatusAdapter);
+
+
+        //Spinner for Duration
+        List<String> DurationList = new ArrayList<>();
+        DurationList.add(0, "---");
+        DurationList.add("1 month");
+        DurationList.add("2 months");
+        DurationList.add("3 months");
+        DurationList.add("4 months");
+        DurationList.add("5 months");
+        DurationList.add("6 months");
+        DurationList.add("more than 6 months");
+
+
+        ArrayAdapter<String> DurationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DurationList);
+        DurationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner Duration = findViewById(R.id.durationSpinner);
+        Duration.setAdapter(DurationAdapter);
 
 
         //Setting up DatePicker on EditText
@@ -116,6 +137,7 @@ public class otherDocsForm extends BaseActivity {
                 String selectedCivilStatus = civilStatus.getSelectedItem().toString();
                 address = binding.OtherDocsAddress.getText().toString().trim();
                 dateOfBirth = binding.birthDateotherDocs.getText().toString().trim();
+                String selectedDuration = Duration.getSelectedItem().toString();
                 purpose = binding.purposeOtherDocs.getText().toString().trim();
                 otherDocsPhoneNumber = binding.otherDocsPhoneNumber.getText().toString().trim();
 
@@ -124,6 +146,13 @@ public class otherDocsForm extends BaseActivity {
                     Log.d("Validation", "Full name is empty");
                     binding.fullNameOtherDocs.setError("Please enter your full name");
                     binding.fullNameOtherDocs.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(dateOfBirth)) {
+                    Log.d("Validation", "Date of birth is empty");
+                    binding.birthDateotherDocs.setError("Please enter your date of birth");
+                    binding.birthDateotherDocs.requestFocus();
                     return;
                 }
 
@@ -159,10 +188,11 @@ public class otherDocsForm extends BaseActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(dateOfBirth)) {
-                    Log.d("Validation", "Date of birth is empty");
-                    binding.birthDateotherDocs.setError("Please enter your date of birth");
-                    binding.birthDateotherDocs.requestFocus();
+
+
+                if (selectedDuration.equals("---")) {
+                    Log.d("Validation", "This field is empty");
+                    Toast.makeText(otherDocsForm.this, "Please select the month/year", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -189,7 +219,7 @@ public class otherDocsForm extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
 
-                        otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
+                        otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
 
                         documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
 

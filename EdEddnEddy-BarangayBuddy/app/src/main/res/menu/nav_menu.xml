@@ -8,8 +8,8 @@
 
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/dashboard_icon"
-            android:title="Dashboard" />
+            android:icon="@drawable/outline_home_24"
+            android:title="Home" />
 
         <item
             android:id="@+id/nav_secure_document"
@@ -42,11 +42,15 @@
             <item
                 android:id="@+id/nav_ResidencyStatus"
 
-                android:title="Residency" />
+                android:title="Residency Certificate" />
             <item
                 android:id="@+id/nav_BusinessClearStatus"
 
                 android:title="Business Clearance" />
+
+            <item
+                android:id="@+id/nav_IndigencyStatus"
+                android:title="Indigency Certificate"/>
 
             <item
                 android:id="@+id/nav_OtherDocsStatus"

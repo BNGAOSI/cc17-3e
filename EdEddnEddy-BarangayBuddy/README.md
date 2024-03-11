@@ -289,3 +289,13 @@
 - Add New option to the Civil Status
 
 - Style: Modify string of duration field
+
+### 2024/03/10
+
+- Add Civil Status to all document types and fully functional
+
+- Add Historical background of Ambiong at home screen
+
+- Add Political map of Ambiong at home screen
+
+- Style: Add UI changes to Home Screen 

@@ -39,7 +39,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
-    <string name="VisionMission">Vision - We envision Barangay Ambiong to become a model of a just, clean, progressive, and fully developed barangay, where people live harmoniously, and enjoy the fullness of God’s love. \n \n Mission - To bring about the delivery of adequate and responsive services thru peoples involvement, empowerment and networking with GO’s, NGO’s, and PO’s by utilizing available resources. \n \n Goal - To uplift and improve the quality of life by sustaining community mobilization in the barangay development activities.</string>
+    <string name="Vision">We envision Barangay Ambiong to become a model of a just, clean, progressive, and fully developed barangay, where people live harmoniously, and enjoy the fullness of God’s love.</string>
+    <string name="Mission">To bring about the delivery of adequate and responsive services thru peoples involvement, empowerment and networking with GO’s, NGO’s, and PO’s by utilizing available resources.</string>
+    <string name="Goal">To uplift and improve the quality of life by sustaining community mobilization in the barangay development activities.</string>
     <string name="sincewhen">Months/Years stayed in this barangay*</string>
     <string-array name="report_types">
         <item>Incident Report</item>
@@ -56,4 +58,5 @@
     <string name="sendOneTimePassword">We will send you a One Time Password on this mobile number</string>
     <string name="enter_mobile_number">Enter Mobile Number</string>
     <string name="enterOTP">Enter the OTP sent to</string>
+    <string name="history_ambiong_desc">Long time ago, Barangay Ambiong was a part of a vast land in La Trinidad. However, it got no name during those times until settlers from Kabayan, Bokod, Amburayan, Ampusongan and Kibungan of Benguet came. Majority of the natives who settled in the area were the Ibalois and Kankanaeys. The term Ambiong originally came from the ibaloi word “AMBIONGAN” which generally means “BLACK CARPET BEES”. These bees were often found in the rolling hills and forests where wild flowers and the thick foliage used to abound. They also make their shelters by drilling through the trunk of dead trees. Ambiong was predominantly a thick lush, rich flora and fauna up until the 1960’s. For a long time, before the modern era, the area was purposely for hunting and food gathering activities.</string>
 </resources>

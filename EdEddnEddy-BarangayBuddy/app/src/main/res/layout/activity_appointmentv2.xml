@@ -11,24 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/appbar" />
+        <include
+            layout="@layout/appbar" />
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:layout_marginTop="228dp"
             android:background="@drawable/custom_rounded_button"
+            app:layout_constraintBottom_toBottomOf="@+id/barangayClearancebtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/barangayClearancebtn" />
 
         <Button
             android:id="@+id/barangayClearancebtn"
             android:layout_width="300dp"
             android:layout_height="80dp"
+            android:layout_marginTop="50dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="228dp"
             android:background="@drawable/custom_rounded_button"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/montserratregular"
@@ -39,9 +40,8 @@
             android:textColor="@color/divider_grey"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/chooseDocs" />
 
         <TextView
             android:layout_width="300dp"
@@ -168,7 +168,7 @@
             android:text="Choose your preferred document"
             android:textColor="@color/black"
             android:textSize="17sp"
-            app:layout_constraintBottom_toTopOf="@+id/barangayClearancebtn"
+            android:layout_marginTop="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

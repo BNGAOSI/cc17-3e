@@ -5,7 +5,7 @@ import java.util.Map;
 public class BarangayClearanceRequests {
 
     Map time;
-    String fullName, age, dateOfBirth, presentAddress,  civilStatus, purpose, gender, documentType, phoneNumber;
+    String fullName, age, dateOfBirth, presentAddress, civilStatus, Duration, purpose, gender, documentType, phoneNumber;
 
     public String userTokenBarangayClearance;
 
@@ -21,18 +21,27 @@ public class BarangayClearanceRequests {
     }
 
 
-    public BarangayClearanceRequests(String fullName, String age, String dateOfBirth, String presentAddress, String civilStatus, String purpose, String gender, String documentType, Map time, String userTokenBarangayClearance, String phoneNumber) {
+    public BarangayClearanceRequests(String fullName, String age, String dateOfBirth, String presentAddress, String civilStatus, String Duration, String purpose, String gender, String documentType, Map time, String userTokenBarangayClearance, String phoneNumber) {
         this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.civilStatus = civilStatus;
         this.presentAddress = presentAddress;
+        this.Duration = Duration;
         this.purpose = purpose;
         this.gender = gender;
         this.time = time;
         this.documentType = documentType;
         this.userTokenBarangayClearance = userTokenBarangayClearance;
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getDuration() {
+        return Duration;
+    }
+
+    public void setDuration(String duration) {
+        Duration = duration;
     }
 
     public String getCivilStatus() {

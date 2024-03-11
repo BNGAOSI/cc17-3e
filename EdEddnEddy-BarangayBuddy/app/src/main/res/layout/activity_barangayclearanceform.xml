@@ -284,6 +284,42 @@
                 app:layout_constraintTop_toBottomOf="@+id/barangayClearancePhoneNumber" />
 
             <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sincewhen"
+                android:textAlignment="textStart"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/durationSpinner"
+                app:layout_constraintStart_toStartOf="@+id/durationSpinner" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/baseline_calendar_month_24"
+                app:layout_constraintBottom_toBottomOf="@+id/durationSpinner"
+                app:layout_constraintEnd_toEndOf="@+id/durationSpinner"
+                app:layout_constraintTop_toTopOf="@+id/durationSpinner" />
+
+            <Spinner
+                android:id="@+id/durationSpinner"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/round_back_dark_blue5_15"
+                android:focusable="false"
+                android:hint="---"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/presentAddress" />
+
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Purpose of this request*"
@@ -304,7 +340,7 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/presentAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/durationSpinner" />
 
             <Button
                 android:id="@+id/submit_btn"

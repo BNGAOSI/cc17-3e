@@ -60,6 +60,101 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle" />
 
+
+            <LinearLayout
+                android:id="@+id/bdateAgeLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date of Birth*"
+                        android:textColor="#555555"
+                        app:layout_constraintBottom_toTopOf="@+id/bdateAgeLinearLayout"
+                        app:layout_constraintStart_toStartOf="@+id/bdateAgeLinearLayout" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp">
+
+                        <EditText
+                            android:id="@+id/birthDateBusiness"
+                            android:layout_width="200dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_back_dark_blue5_15"
+                            android:focusable="false"
+                            android:hint="---"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/hintColor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="30dp"
+                            android:src="@drawable/baseline_calendar_month_24"
+                            app:layout_constraintBottom_toBottomOf="@+id/birthDateBusiness"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/birthDateBusiness" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age*"
+                        android:textColor="#555555"
+                        app:layout_constraintBottom_toTopOf="@+id/age_business"
+                        app:layout_constraintStart_toStartOf="@+id/age_business" />
+
+
+                    <EditText
+                        android:id="@+id/age_business"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/round_back_dark_blue5_15"
+                        android:hint="--"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:paddingLeft="20dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/age_business"
+                        app:layout_constraintTop_toBottomOf="@+id/age_business" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,15 +166,24 @@
                 app:layout_constraintTop_toTopOf="@id/civilStatus_linearlayout" />
 
 
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender*"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/BusinessgenderRadioGroup"
+                app:layout_constraintStart_toStartOf="@+id/BusinessgenderRadioGroup" />
+
             <LinearLayout
                 android:id="@+id/civilStatus_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="30dp"
                 android:paddingLeft="55dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullNameBusinessClearance">
+                app:layout_constraintTop_toBottomOf="@+id/bdateAgeLinearLayout">
 
 
                 <Spinner
@@ -96,6 +200,35 @@
 
             </LinearLayout>
 
+            <RadioGroup
+                android:id="@+id/BusinessgenderRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="140dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/civilStatus_linearlayout">
+
+                <RadioButton
+                    android:id="@+id/maleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Male"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/femaleRadioButton"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="48dp"
+                    android:text="Female"
+                    android:textColor="@color/black" />
+
+            </RadioGroup>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,11 +238,46 @@
                 app:layout_constraintStart_toStartOf="@+id/businessNameOrEstablishment" />
 
 
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sincewhen"
+                android:textAlignment="textStart"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/businessDurationSpinner"
+                app:layout_constraintStart_toStartOf="@+id/businessDurationSpinner" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/baseline_calendar_month_24"
+                app:layout_constraintBottom_toBottomOf="@+id/businessDurationSpinner"
+                app:layout_constraintEnd_toEndOf="@+id/businessDurationSpinner"
+                app:layout_constraintTop_toTopOf="@+id/businessDurationSpinner" />
+
+            <Spinner
+                android:id="@+id/businessDurationSpinner"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/round_back_dark_blue5_15"
+                android:focusable="false"
+                android:hint="---"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/BusinessgenderRadioGroup" />
+
             <EditText
                 android:id="@+id/businessNameOrEstablishment"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:hint=""
                 android:paddingLeft="20dp"
@@ -117,7 +285,7 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/civilStatus_linearlayout" />
+                app:layout_constraintTop_toBottomOf="@id/businessDurationSpinner" />
 
             <TextView
                 android:id="@+id/textView22"

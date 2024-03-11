@@ -52,6 +52,7 @@
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:elevation="8dp"
                 android:hint="Last Name, First Name, Middle Name"
+                android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
@@ -62,11 +63,11 @@
 
 
             <LinearLayout
-                android:layout_margin="32dp"
-                android:gravity="center"
                 android:id="@+id/bdateAgeLinearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,8 +89,8 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
-                        android:layout_marginRight="25dp"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp">
 
 
                         <EditText
@@ -102,7 +103,10 @@
                             android:paddingLeft="20dp"
                             android:textColor="@color/black"
                             android:textColorHint="@color/hintColor"
-                            />
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -116,9 +120,6 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
-
-
-
 
 
                 <LinearLayout
@@ -142,7 +143,7 @@
                         android:layout_width="80dp"
                         android:layout_height="50dp"
                         android:background="@drawable/round_back_dark_blue5_15"
-                        android:hint=""
+                        android:hint="--"
                         android:inputType="number"
                         android:maxLength="2"
                         android:paddingLeft="20dp"
@@ -152,14 +153,7 @@
                 </LinearLayout>
 
 
-
-
             </LinearLayout>
-
-
-
-
-
 
 
             <ImageView
@@ -221,7 +215,7 @@
                 <RadioButton
                     android:id="@+id/maleRadioButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginRight="20dp"
                     android:text="Male"
                     android:textColor="@color/black" />
@@ -229,7 +223,7 @@
                 <RadioButton
                     android:id="@+id/femaleRadioButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:text="Female"
                     android:textColor="@color/black" />
 
@@ -260,7 +254,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/round_back_dark_blue5_15"
-                android:hint="Ex. 9000000000"
+                android:hint="---"
                 android:inputType="number"
                 android:maxLength="10"
                 android:paddingLeft="60dp"
@@ -307,7 +301,42 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="52dp"
                 android:background="@drawable/round_back_dark_blue5_15"
-                android:hint=""
+                android:hint="---"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/durationSpinner" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/baseline_calendar_month_24"
+                app:layout_constraintBottom_toBottomOf="@+id/durationSpinner"
+                app:layout_constraintEnd_toEndOf="@+id/durationSpinner"
+                app:layout_constraintTop_toTopOf="@+id/durationSpinner" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sincewhen"
+                android:textAlignment="textStart"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/durationSpinner"
+                app:layout_constraintStart_toStartOf="@+id/durationSpinner" />
+
+
+            <Spinner
+                android:id="@+id/durationSpinner"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/round_back_dark_blue5_15"
+                android:focusable="false"
+                android:hint="---"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"

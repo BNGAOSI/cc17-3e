@@ -93,6 +93,24 @@ public class BarangayClearanceForm extends BaseActivity {
         Spinner civilStatus = findViewById(R.id.civilstatus_spinner);
         civilStatus.setAdapter(civilStatusAdapter);
 
+        //Spinner for Duration
+        List<String> DurationList = new ArrayList<>();
+        DurationList.add(0, "---");
+        DurationList.add("1 month");
+        DurationList.add("2 months");
+        DurationList.add("3 months");
+        DurationList.add("4 months");
+        DurationList.add("5 months");
+        DurationList.add("6 months");
+        DurationList.add("more than 6 months");
+
+
+        ArrayAdapter<String> DurationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DurationList);
+        DurationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner Duration = findViewById(R.id.durationSpinner);
+        Duration.setAdapter(DurationAdapter);
+
 
         //Setting up DatePicker on EditText
         birthDate.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +150,7 @@ public class BarangayClearanceForm extends BaseActivity {
                 String selectedCivilStatus = civilStatus.getSelectedItem().toString();
                 dateOfBirth = binding.birthDate.getText().toString().trim();
                 presentAddress = binding.presentAddress.getText().toString().trim();
+                String selectedDuration = Duration.getSelectedItem().toString();
                 purpose = binding.purpose.getText().toString().trim();
                 phoneNumber = binding.barangayClearancePhoneNumber.getText().toString().trim();
 
@@ -140,6 +159,13 @@ public class BarangayClearanceForm extends BaseActivity {
                     Log.d("Validation", "Full name is empty");
                     binding.fullNameBarangayClearance.setError("Please enter your full name");
                     binding.fullNameBarangayClearance.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(dateOfBirth)) {
+                    Log.d("Validation", "Date of birth is empty");
+                    binding.birthDate.setError("Please enter your date of birth");
+                    binding.birthDate.requestFocus();
                     return;
                 }
 
@@ -156,12 +182,7 @@ public class BarangayClearanceForm extends BaseActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(dateOfBirth)) {
-                    Log.d("Validation", "Date of birth is empty");
-                    binding.birthDate.setError("Please enter your date of birth");
-                    binding.birthDate.requestFocus();
-                    return;
-                }
+
                 if (TextUtils.isEmpty(gender)) {
                     Log.d("Validation", "Gender is not selected");
                     Toast.makeText(BarangayClearanceForm.this, "Please select your gender", Toast.LENGTH_SHORT).show();
@@ -178,6 +199,12 @@ public class BarangayClearanceForm extends BaseActivity {
                     Log.d("Validation", "Present address is empty");
                     binding.presentAddress.setError("Please enter your present address");
                     binding.presentAddress.requestFocus();
+                    return;
+                }
+
+                if (selectedDuration.equals("---")) {
+                    Log.d("Validation", "This field is empty");
+                    Toast.makeText(BarangayClearanceForm.this, "Please select the month/year", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -207,7 +234,7 @@ public class BarangayClearanceForm extends BaseActivity {
                         DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
 
 
-                        BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, selectedCivilStatus, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
+                        BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, selectedCivilStatus, selectedDuration, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
 
                         documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Barangay Clearance");

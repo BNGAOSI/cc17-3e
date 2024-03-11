@@ -63,6 +63,7 @@ public class IndigencyCertificateForm extends BaseActivity {
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDateIndigency = findViewById(R.id.birthDateIndigency);
 
+        //Spinner for CivilStatus
         List<String> civilStatusList = new ArrayList<>();
         civilStatusList.add(0, "Choose Civil Status");
         civilStatusList.add("Single");
@@ -140,7 +141,6 @@ public class IndigencyCertificateForm extends BaseActivity {
                 address = binding.residentialAddress.getText().toString().trim();
                 dateOfBirth = binding.birthDateIndigency.getText().toString().trim();
                 String selectedDuration = Duration.getSelectedItem().toString();
-
                 indigencyPhoneNumber = binding.indigencyPhoneNumber.getText().toString().trim();
 
                 // Validate input fields
@@ -148,6 +148,13 @@ public class IndigencyCertificateForm extends BaseActivity {
                     Log.d("Validation", "Full name is empty");
                     binding.fullNameIndigency.setError("Please enter your full name");
                     binding.fullNameIndigency.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(dateOfBirth)) {
+                    Log.d("Validation", "Date of birth is empty");
+                    binding.birthDateIndigency.setError("Please enter your date of birth");
+                    binding.birthDateIndigency.requestFocus();
                     return;
                 }
 
@@ -183,12 +190,6 @@ public class IndigencyCertificateForm extends BaseActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(dateOfBirth)) {
-                    Log.d("Validation", "Date of birth is empty");
-                    binding.birthDateIndigency.setError("Please enter your date of birth");
-                    binding.birthDateIndigency.requestFocus();
-                    return;
-                }
 
                 if (selectedDuration.equals("---")) {
                     Log.d("Validation", "This field is empty");

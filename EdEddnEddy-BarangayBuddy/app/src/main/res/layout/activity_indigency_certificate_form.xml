@@ -60,66 +60,100 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle" />
 
-            <TextView
-                android:id="@+id/textView26"
+
+            <LinearLayout
+                android:id="@+id/bdateAgeLinearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Age*"
-                android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/age_indigency"
-                app:layout_constraintStart_toStartOf="@+id/age_indigency" />
-
-
-            <EditText
-                android:id="@+id/age_indigency"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/round_back_dark_blue5_15"
-                android:hint=""
-                android:inputType="number"
-                android:maxLength="2"
-                android:paddingLeft="20dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintColor"
+                android:layout_margin="32dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/birthDateIndigency"
-                app:layout_constraintTop_toBottomOf="@+id/fullName_indigency" />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date of Birth*"
-                android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/birthDateIndigency"
-                app:layout_constraintStart_toStartOf="@+id/birthDateIndigency" />
-
-            <EditText
-                android:id="@+id/birthDateIndigency"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/round_back_dark_blue5_15"
-                android:focusable="false"
-                android:hint="---"
-                android:paddingLeft="20dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintColor"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullName_indigency" />
+                app:layout_constraintTop_toBottomOf="@+id/fullName_indigency">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:src="@drawable/baseline_calendar_month_24"
-                app:layout_constraintBottom_toBottomOf="@+id/birthDateIndigency"
-                app:layout_constraintEnd_toEndOf="@+id/birthDateIndigency"
-                app:layout_constraintTop_toTopOf="@+id/birthDateIndigency" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date of Birth*"
+                        android:textColor="#555555"
+                        app:layout_constraintBottom_toTopOf="@+id/bdateAgeLinearLayout"
+                        app:layout_constraintStart_toStartOf="@+id/bdateAgeLinearLayout" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp">
+
+                        <EditText
+                            android:id="@+id/birthDateIndigency"
+                            android:layout_width="200dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_back_dark_blue5_15"
+                            android:focusable="false"
+                            android:hint="---"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/hintColor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="30dp"
+                            android:src="@drawable/baseline_calendar_month_24"
+                            app:layout_constraintBottom_toBottomOf="@+id/birthDateIndigency"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/birthDateIndigency" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age*"
+                        android:textColor="#555555"
+                        app:layout_constraintBottom_toTopOf="@+id/age_indigency"
+                        app:layout_constraintStart_toStartOf="@+id/age_indigency" />
+
+
+                    <EditText
+                        android:id="@+id/age_indigency"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/round_back_dark_blue5_15"
+                        android:hint="--"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:paddingLeft="20dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/birthDateIndigency"
+                        app:layout_constraintTop_toBottomOf="@+id/fullName_indigency" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
 
             <ImageView
@@ -141,7 +175,7 @@
                 android:paddingLeft="55dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/birthDateIndigency">
+                app:layout_constraintTop_toBottomOf="@+id/bdateAgeLinearLayout">
 
 
                 <Spinner
@@ -180,7 +214,7 @@
                 <RadioButton
                     android:id="@+id/maleRadioButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginRight="20dp"
                     android:text="Male"
                     android:textColor="@color/black" />
@@ -188,7 +222,8 @@
                 <RadioButton
                     android:id="@+id/femaleRadioButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
+                    android:layout_height="48dp"
                     android:text="Female"
                     android:textColor="@color/black" />
 

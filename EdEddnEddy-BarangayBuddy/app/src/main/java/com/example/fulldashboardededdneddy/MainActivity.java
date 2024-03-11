@@ -98,6 +98,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             replaceFragment(new ResidencyStatusFragment());
         } else if (itemId == id.nav_BusinessClearStatus) {
             replaceFragment(new BusinessStatusFragment());
+        } else if (itemId == id.nav_IndigencyStatus){
+            replaceFragment(new IndigencyStatusFragment());
         } else if (itemId == id.nav_OtherDocsStatus) {
             replaceFragment(new OtherDocsStatusFragment());
         } else if (itemId == id.nav_FinishedStatus) {
