@@ -309,3 +309,7 @@
 ### 2024/03/13
 
 - Add filter to Announcement
+
+- Add latest Barangay Buddy App
+
+- Add notification to AnnouncementRefinedScreen

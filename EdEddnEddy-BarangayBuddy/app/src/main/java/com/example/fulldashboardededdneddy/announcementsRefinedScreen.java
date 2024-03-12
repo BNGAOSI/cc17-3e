@@ -1,6 +1,7 @@
 package com.example.fulldashboardededdneddy;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -24,16 +25,22 @@ import android.widget.LinearLayout;
 import com.example.fulldashboardededdneddy.adapter.AnnouncementAdapterSecond;
 import com.example.fulldashboardededdneddy.data.AnnouncementDataClass;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
-public class announcementsRefinedScreen extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class announcementsRefinedScreen extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     RecyclerView recyclerView;
@@ -65,7 +72,35 @@ public class announcementsRefinedScreen extends BaseActivity implements Navigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements_refined_screen);
 
+        DatabaseReference announcementsRef = FirebaseDatabase.getInstance().getReference().child("announcements");
 
+        announcementsRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                // Trigger notification for each new announcement added to the database
+                sendNotification("New Announcement", "A new announcement has been published.");
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                // Handle changes to existing announcements (if needed)
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                // Handle removal of announcements (if needed)
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                // Handle moving of announcements (if needed)
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors (if needed)
+            }
+        });
 
 
 
@@ -150,6 +185,19 @@ public class announcementsRefinedScreen extends BaseActivity implements Navigati
             }
         });
 
+    }
+    private void sendNotification(String title, String message) {
+        // Use Firebase Cloud Messaging to send a push notification
+        // Construct notification payload
+        Map<String, String> notification = new HashMap<>();
+        notification.put("title", title);
+        notification.put("body", message);
+
+        // Send notification using FCM
+        FirebaseMessaging.getInstance().send(new RemoteMessage.Builder("your-sender-id@gcm.googleapis.com")
+                .setMessageId(Integer.toString(new Random().nextInt(9999)))
+                .setData(notification)
+                .build());
     }
 
     @Override
