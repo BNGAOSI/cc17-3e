@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/divider_grey_2"
     android:fitsSystemWindows="true"
     tools:context=".announcementsRefinedScreen"
     tools:openDrawer="start">
@@ -16,7 +17,60 @@
         android:orientation="vertical">
 
         <include layout="@layout/appbar" />
+        
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <Button
+                    android:id="@+id/AllCatBtn"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_with_ripple"
+                    android:text="All"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/ProjectsCatBtn"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_with_ripple"
+                    android:text="Projects"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/ProgramsCatBtn"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_with_ripple"
+                    android:text="Programs"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/ActivitiesCatBtn"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_with_ripple"
+                    android:text="Activities"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+
+        <!--Vertical RecyclerView-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/announcement_recyclerView"
             android:layout_width="match_parent"

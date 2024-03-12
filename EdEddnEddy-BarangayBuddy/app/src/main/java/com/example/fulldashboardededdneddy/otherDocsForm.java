@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -39,11 +40,12 @@ public class otherDocsForm extends BaseActivity {
     ActivityOtherDocsFormBinding binding;
     private Spinner civilStatus_spinner;
     private EditText birthDateOtherDocs;
+    CheckBox checkboxCedula;
     FirebaseAuth auth;
     Toolbar toolbar;
 
 
-    String dateOfBirth, fullName, age, gender, address, purpose, duration, documentType, otherDocsPhoneNumber;
+    String dateOfBirth, fullName, age, gender, address, purpose, duration, documentType, otherDocsPhoneNumber, inputDocumenttype;
     private DatePickerDialog picker;
     FirebaseDatabase db;
     DatabaseReference reference;
@@ -62,6 +64,20 @@ public class otherDocsForm extends BaseActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Other Documents");
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        //Checkbox Cedula
+        checkboxCedula = findViewById(R.id.checkboxCedula);
+
+        // Set up the click listener for the checkbox
+        checkboxCedula.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Checkbox is checked, perform actions accordingly
+                updateFirebaseDatabase(true);
+            } else {
+                // Checkbox is unchecked, perform actions accordingly
+                updateFirebaseDatabase(false);
+            }
+        });
 
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
@@ -91,7 +107,22 @@ public class otherDocsForm extends BaseActivity {
         DurationList.add("4 months");
         DurationList.add("5 months");
         DurationList.add("6 months");
-        DurationList.add("more than 6 months");
+        DurationList.add("7 months");
+        DurationList.add("8 months");
+        DurationList.add("9 months");
+        DurationList.add("10 months");
+        DurationList.add("11 months");
+        DurationList.add("1 year");
+        DurationList.add("2 years");
+        DurationList.add("3 years");
+        DurationList.add("4 years");
+        DurationList.add("5 years");
+        DurationList.add("6 years");
+        DurationList.add("7 years");
+        DurationList.add("8 years");
+        DurationList.add("9 years");
+        DurationList.add("10 years");
+        DurationList.add("more than 10 years");
 
 
         ArrayAdapter<String> DurationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DurationList);
@@ -140,6 +171,7 @@ public class otherDocsForm extends BaseActivity {
                 String selectedDuration = Duration.getSelectedItem().toString();
                 purpose = binding.purposeOtherDocs.getText().toString().trim();
                 otherDocsPhoneNumber = binding.otherDocsPhoneNumber.getText().toString().trim();
+                inputDocumenttype = binding.inputDocumentType.getText().toString().trim();
 
                 // Validate input fields
                 if (TextUtils.isEmpty(fullName)) {
@@ -196,6 +228,13 @@ public class otherDocsForm extends BaseActivity {
                     return;
                 }
 
+                if (TextUtils.isEmpty(inputDocumenttype)) {
+                    Log.d("Validation", "document type is empty");
+                    binding.inputDocumentType.setError("Please enter document type");
+                    binding.inputDocumentType.requestFocus();
+                    return;
+                }
+
                 if (TextUtils.isEmpty(purpose)) {
                     Log.d("Validation", "This field should not be empty");
                     binding.purposeOtherDocs.setError("Please enter the purpose of this document");
@@ -219,18 +258,21 @@ public class otherDocsForm extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
 
-                        otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration, purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
+                        otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration, inputDocumenttype,purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
 
                         documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
 
                             documentTypeRef.child("documentType").setValue("Other Document");
                             documentTypeRef.child("status").setValue("Pending");
 
+                            // Update the checkbox state in the database
+                            documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
                             binding.fullNameOtherDocs.setText("");
                             binding.ageOtherDocs.setText("");
                             binding.birthDateotherDocs.setText("");
                             binding.OtherDocsAddress.setText("");
+                            binding.inputDocumentType.setText("");
                             binding.purposeOtherDocs.setText("");
                             binding.otherDocsPhoneNumber.setText("");
                             Toast.makeText(otherDocsForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
@@ -243,5 +285,8 @@ public class otherDocsForm extends BaseActivity {
 
             }
         });
+    }
+
+    private void updateFirebaseDatabase(boolean b) {
     }
 }

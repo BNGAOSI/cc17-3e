@@ -50,6 +50,7 @@ public final class Suggest extends BaseActivity {
         actionBar.setTitle("Suggest");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        //Checkbox
         CheckBox ckboxHealth = findViewById(id.checkboxHealth);
         CheckBox ckboxEducation = findViewById(id.checkboxEducation);
         CheckBox ckboxSports = findViewById(id.checkboxSports);

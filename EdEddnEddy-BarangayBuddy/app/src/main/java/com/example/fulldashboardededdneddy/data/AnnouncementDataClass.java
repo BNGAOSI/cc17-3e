@@ -7,8 +7,21 @@ public class AnnouncementDataClass {
     private String title;
     private String description;
     private String imageUrl;
+    private String category;
 
     private Long timestamp;
+
+    public AnnouncementDataClass(String category) {
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public AnnouncementDataClass(Long timestamp) {
         this.timestamp = timestamp;
@@ -47,10 +60,11 @@ public class AnnouncementDataClass {
         this.imageUrl = imageUrl;
     }
 
-    public AnnouncementDataClass(String dataTitle, String dataDesc, String dataImage, Long dataTime) {
+    public AnnouncementDataClass(String dataTitle, String dataDesc, String dataImage, String category, Long dataTime) {
         this.title = dataTitle;
         this.description = dataDesc;
         this.imageUrl = dataImage;
+        this.category = category;
         this.timestamp = dataTime;
     }
     public AnnouncementDataClass(){

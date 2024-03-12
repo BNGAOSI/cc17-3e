@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -37,6 +38,7 @@ public class BusinessClearanceMain extends BaseActivity {
     String fullName, dateOfBirth, age, gender, nameOfBusiness, typeOfBusiness, businessAddress, documentType, businessClearancePhone;
     private EditText dateIssuedbtn;
     private DatePickerDialog picker;
+    CheckBox checkboxCedula;
     private EditText birthDateBusiness;
     FirebaseDatabase db;
     FirebaseAuth auth;
@@ -58,6 +60,20 @@ public class BusinessClearanceMain extends BaseActivity {
             actionBar.setTitle("Business Clearance");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        //Checkbox Cedula
+        checkboxCedula = findViewById(R.id.checkboxCedula);
+
+        // Set up the click listener for the checkbox
+        checkboxCedula.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Checkbox is checked, perform actions accordingly
+                updateFirebaseDatabase(true);
+            } else {
+                // Checkbox is unchecked, perform actions accordingly
+                updateFirebaseDatabase(false);
+            }
+        });
 
         genderRadioGroup = findViewById(R.id.BusinessgenderRadioGroup);
         birthDateBusiness = findViewById(R.id.birthDateBusiness);
@@ -89,7 +105,22 @@ public class BusinessClearanceMain extends BaseActivity {
         DurationList.add("4 months");
         DurationList.add("5 months");
         DurationList.add("6 months");
-        DurationList.add("more than 6 months");
+        DurationList.add("7 months");
+        DurationList.add("8 months");
+        DurationList.add("9 months");
+        DurationList.add("10 months");
+        DurationList.add("11 months");
+        DurationList.add("1 year");
+        DurationList.add("2 years");
+        DurationList.add("3 years");
+        DurationList.add("4 years");
+        DurationList.add("5 years");
+        DurationList.add("6 years");
+        DurationList.add("7 years");
+        DurationList.add("8 years");
+        DurationList.add("9 years");
+        DurationList.add("10 years");
+        DurationList.add("more than 10 years");
 
 
         ArrayAdapter<String> DurationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DurationList);
@@ -221,6 +252,9 @@ public class BusinessClearanceMain extends BaseActivity {
                             documentTypeRef.child("documentType").setValue("Business Clearance");
                             documentTypeRef.child("status").setValue("Pending");
 
+                            // Update the checkbox state in the database
+                            documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
+
 
                             binding.fullNameBusinessClearance.setText("");
                             binding.ageBusiness.setText("");
@@ -238,5 +272,8 @@ public class BusinessClearanceMain extends BaseActivity {
 
             }
         });
+    }
+
+    private void updateFirebaseDatabase(boolean b) {
     }
 }

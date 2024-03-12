@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.fulldashboardededdneddy.adapter.AnnouncementAdapterSecond;
@@ -32,16 +34,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class announcementsRefinedScreen extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+
     RecyclerView recyclerView;
     Toolbar toolbar;
     List<AnnouncementDataClass> datalist;
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
+    AnnouncementAdapterSecond adapter;
+
+    // Method to filter announcements based on category
+    private void filterByCategory(String category) {
+        List<AnnouncementDataClass> filteredList = new ArrayList<>();
+        if (category.equals("All")) {
+            // If "All" category is selected, add all announcements to the filtered list
+            filteredList.addAll(datalist);
+        } else {
+            // Otherwise, filter announcements based on the selected category
+            for (AnnouncementDataClass announcement : datalist) {
+                if (announcement.getCategory().equals(category)) {
+                    filteredList.add(announcement);
+                }
+            }
+        }
+        adapter.setData(filteredList); // Update RecyclerView with filtered list
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements_refined_screen);
+
+
+
+
 
 //============================Toolbar Settings================================
 
@@ -65,7 +91,7 @@ public class announcementsRefinedScreen extends BaseActivity implements Navigati
 
         datalist = new ArrayList<>();
 
-        AnnouncementAdapterSecond adapter = new AnnouncementAdapterSecond(announcementsRefinedScreen.this, datalist);
+        adapter = new AnnouncementAdapterSecond(announcementsRefinedScreen.this, datalist);
         recyclerView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("announcements");
@@ -87,6 +113,40 @@ public class announcementsRefinedScreen extends BaseActivity implements Navigati
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 dialog.dismiss();
+            }
+        });
+
+        // Filter by category when a button is clicked
+
+        Button allCatBtn = findViewById(R.id.AllCatBtn);
+        allCatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterByCategory("All");
+            }
+        });
+
+        Button ProgramCatBtn = findViewById(R.id.ProgramsCatBtn);
+        ProgramCatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterByCategory("Programs");
+            }
+        });
+
+        Button ProjectsCatBtn = findViewById(R.id.ProjectsCatBtn);
+        ProjectsCatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterByCategory("Projects");
+            }
+        });
+
+        Button ActivitiesCatBtn = findViewById(R.id.ActivitiesCatBtn);
+        ActivitiesCatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterByCategory("Activities");
             }
         });
 

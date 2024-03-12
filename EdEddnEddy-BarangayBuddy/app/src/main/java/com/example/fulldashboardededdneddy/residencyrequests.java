@@ -3,7 +3,7 @@ package com.example.fulldashboardededdneddy;
 import java.util.Map;
 
 public class residencyrequests {
-    String fullName, age, dateOfBirth, civilStatus, gender, address, duration, documentType, residencyPhoneNumber;
+    String fullName, age, dateOfBirth, civilStatus, gender, address, Duration, documentType, residencyPhoneNumber;
     String status;
     public String userTokenResidency;
     public String getStatus() {
@@ -31,14 +31,14 @@ public class residencyrequests {
         this.civilStatus = civilStatus;
     }
 
-    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String duration, String documentType, Map time, String userTokenResidency, String residencyPhoneNumber) {
+    public residencyrequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String Duration, String documentType, Map time, String userTokenResidency, String residencyPhoneNumber) {
         this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.civilStatus = civilStatus;
         this.gender = gender;
         this.address = address;
-        this.duration = duration;
+        this.Duration = Duration;
         this.documentType = documentType;
         this.time = time;
         this.userTokenResidency = userTokenResidency;
@@ -103,11 +103,11 @@ public class residencyrequests {
     }
 
     public String getDuration() {
-        return duration;
+        return Duration;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setDuration(String Duration) {
+        this.Duration = Duration;
     }
 
     public Map getTime() {

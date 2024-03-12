@@ -251,11 +251,11 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/round_back_dark_blue5_15"
+                android:hint="Ex. 9000000000"
                 android:inputType="number"
                 android:maxLength="10"
                 android:paddingLeft="60dp"
                 android:textColor="@color/black"
-                android:hint="Ex. 9000000000"
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -342,6 +342,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/durationSpinner" />
 
+
+            <CheckBox
+                android:id="@+id/checkboxCedula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="120dp"
+                android:text="Do you have a Cedula?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/purpose" />
+
             <Button
                 android:id="@+id/submit_btn"
                 android:layout_width="300dp"
@@ -355,7 +367,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/purpose" />
+                app:layout_constraintTop_toBottomOf="@+id/checkboxCedula" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

@@ -307,7 +307,7 @@
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/durationSpinner" />
+                app:layout_constraintTop_toBottomOf="@id/inputDocumentType" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -344,6 +344,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/OtherDocsAddress" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please enter document type*"
+                android:textAlignment="textStart"
+                android:textColor="#555555"
+                app:layout_constraintBottom_toTopOf="@+id/inputDocumentType"
+                app:layout_constraintStart_toStartOf="@+id/inputDocumentType" />
+
+            <EditText
+                android:id="@+id/inputDocumentType"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/round_back_dark_blue5_15"
+                android:hint="---"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/durationSpinner"/>
+
+            <CheckBox
+                android:id="@+id/checkboxCedula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="120dp"
+                android:text="Do you have a Cedula?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/purposeOtherDocs" />
 
             <Button
                 android:id="@+id/submit_btn_otherDocs"
@@ -358,7 +391,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/purposeOtherDocs" />
+                app:layout_constraintTop_toBottomOf="@+id/checkboxCedula" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -48,6 +49,7 @@ public class BarangayClearanceForm extends BaseActivity {
     String fullName, age, dateOfBirth, presentAddress, duration, purpose, gender, documentType, phoneNumber;
     private EditText birthDate;
     private DatePickerDialog picker;
+    CheckBox checkboxCedula;
     FirebaseDatabase db;
     DatabaseReference reference;
 
@@ -70,6 +72,22 @@ public class BarangayClearanceForm extends BaseActivity {
             actionBar.setTitle("Barangay Clearance");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        //Checkbox Cedula
+        checkboxCedula = findViewById(R.id.checkboxCedula);
+
+        // Set up the click listener for the checkbox
+        checkboxCedula.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Checkbox is checked, perform actions accordingly
+                updateFirebaseDatabase(true);
+            } else {
+                // Checkbox is unchecked, perform actions accordingly
+                updateFirebaseDatabase(false);
+            }
+        });
+
+
 
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
@@ -102,7 +120,22 @@ public class BarangayClearanceForm extends BaseActivity {
         DurationList.add("4 months");
         DurationList.add("5 months");
         DurationList.add("6 months");
-        DurationList.add("more than 6 months");
+        DurationList.add("7 months");
+        DurationList.add("8 months");
+        DurationList.add("9 months");
+        DurationList.add("10 months");
+        DurationList.add("11 months");
+        DurationList.add("1 year");
+        DurationList.add("2 years");
+        DurationList.add("3 years");
+        DurationList.add("4 years");
+        DurationList.add("5 years");
+        DurationList.add("6 years");
+        DurationList.add("7 years");
+        DurationList.add("8 years");
+        DurationList.add("9 years");
+        DurationList.add("10 years");
+        DurationList.add("more than 10 years");
 
 
         ArrayAdapter<String> DurationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DurationList);
@@ -218,6 +251,8 @@ public class BarangayClearanceForm extends BaseActivity {
 
                 Log.d("Validation", "All fields are filled. Proceed with submission.");
 
+
+
                 FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
                     if (task.isSuccessful() && task.getResult() != null) {
                         String userTokenBarangayClearance = task.getResult();
@@ -236,9 +271,13 @@ public class BarangayClearanceForm extends BaseActivity {
 
                         BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, selectedCivilStatus, selectedDuration, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
 
+
+
                         documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Barangay Clearance");
                             documentTypeRef.child("status").setValue("Pending");
+                            // Update the checkbox state in the database
+                            documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
                             binding.fullNameBarangayClearance.setText("");
                             binding.age.setText("");
@@ -259,5 +298,7 @@ public class BarangayClearanceForm extends BaseActivity {
 
     }
 
+    private void updateFirebaseDatabase(boolean isChecked) {
 
+    }
 }

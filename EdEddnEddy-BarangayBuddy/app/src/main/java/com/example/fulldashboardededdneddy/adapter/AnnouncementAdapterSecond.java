@@ -30,6 +30,11 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
     private Context context;
     private List<AnnouncementDataClass> dataList;
 
+    public void setData(List<AnnouncementDataClass> dataList) {
+        this.dataList = dataList;
+        notifyDataSetChanged();
+    }
+
     public AnnouncementAdapterSecond(Context context, List<AnnouncementDataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
@@ -46,12 +51,12 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Glide.with(context).load(dataList.get(position).getImageUrl()).into(holder.recImage);
         holder.recTitle.setText(dataList.get(position).getTitle());
+        holder.recCategory.setText(dataList.get(position).getCategory());
 
         // Retrieve timestamp and set the formatted date in recDate TextView
         long timestamp = dataList.get(position).getTimestamp();
         String formattedDate = getTimeAgo(timestamp);
         holder.recDate.setText(formattedDate);
-
 
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +66,7 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getImageUrl());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDescription());
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("Category", dataList.get(holder.getAdapterPosition()).getCategory());
                 intent.putExtra("Date", formattedDate);
 
                 context.startActivity(intent);
@@ -90,7 +96,7 @@ public class AnnouncementAdapterSecond extends RecyclerView.Adapter<MyViewHolder
 class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView recImage;
-    TextView recTitle, recDate;
+    TextView recTitle, recDate, recCategory;
     LinearLayout recCard;
     ImageView newIndicator;
 
@@ -101,7 +107,7 @@ class MyViewHolder extends RecyclerView.ViewHolder {
         recCard = itemView.findViewById(R.id.announcement_recCard);
         recTitle = itemView.findViewById(R.id.announcement_recTitle);
         recDate = itemView.findViewById(R.id.announcement_recDate);
-
+        recCategory = itemView.findViewById(R.id.announcement_recCategory);
 
 
     }

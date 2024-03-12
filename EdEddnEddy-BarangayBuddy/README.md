@@ -299,3 +299,13 @@
 - Add Political map of Ambiong at home screen
 
 - Style: Add UI changes to Home Screen 
+
+### 2024/03/12
+
+- Add Organizational Chart to home screen
+
+- Add Cedula to each document type
+
+### 2024/03/13
+
+- Add filter to Announcement

@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -38,6 +39,7 @@ public class residencyform extends BaseActivity {
 
     ActivityResidencyformBinding binding;
     Toolbar toolbar;
+    CheckBox checkboxCedula;
     private EditText birthDateResidency;
     private EditText durationbtn;
     FirebaseAuth auth;
@@ -63,10 +65,25 @@ public class residencyform extends BaseActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        //Checkbox Cedula
+        checkboxCedula = findViewById(R.id.checkboxCedula);
+
+        // Set up the click listener for the checkbox
+        checkboxCedula.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Checkbox is checked, perform actions accordingly
+                updateFirebaseDatabase(true);
+            } else {
+                // Checkbox is unchecked, perform actions accordingly
+                updateFirebaseDatabase(false);
+            }
+        });
+
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
         birthDateResidency = findViewById(R.id.birthDateResidency);
 
+        //Spinner for Civil Status
         List<String> civilStatusList = new ArrayList<>();
         civilStatusList.add(0, "Choose Civil Status");
         civilStatusList.add("Single");
@@ -80,6 +97,38 @@ public class residencyform extends BaseActivity {
 
         Spinner civilStatus = findViewById(R.id.civilstatus_spinner);
         civilStatus.setAdapter(civilStatusAdapter);
+
+        //Spinner for Duration
+        List<String> DurationList = new ArrayList<>();
+        DurationList.add(0, "---");
+        DurationList.add("1 month");
+        DurationList.add("2 months");
+        DurationList.add("3 months");
+        DurationList.add("4 months");
+        DurationList.add("5 months");
+        DurationList.add("6 months");
+        DurationList.add("7 months");
+        DurationList.add("8 months");
+        DurationList.add("9 months");
+        DurationList.add("10 months");
+        DurationList.add("11 months");
+        DurationList.add("1 year");
+        DurationList.add("2 years");
+        DurationList.add("3 years");
+        DurationList.add("4 years");
+        DurationList.add("5 years");
+        DurationList.add("6 years");
+        DurationList.add("7 years");
+        DurationList.add("8 years");
+        DurationList.add("9 years");
+        DurationList.add("10 years");
+        DurationList.add("more than 10 years");
+
+        ArrayAdapter<String> DurationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DurationList);
+        DurationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner Duration = findViewById(R.id.durationSpinner);
+        Duration.setAdapter(DurationAdapter);
 
 
         //Setting up DatePicker on EditText
@@ -102,25 +151,6 @@ public class residencyform extends BaseActivity {
             }
         });
 
-        durationbtn = findViewById(R.id.duration);
-        durationbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
-                int year = calendar.get(Calendar.YEAR);
-
-                //DatePicker Dialog
-                picker = new DatePickerDialog(residencyform.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        durationbtn.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                    }
-                }, year, month, day);
-                picker.show();
-            }
-        });
 
         binding.submitBtnResidency.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,9 +166,9 @@ public class residencyform extends BaseActivity {
                 fullName = binding.fullNameResidency.getText().toString().trim();
                 age = binding.ageResidency.getText().toString().trim();
                 String selectedCivilStatus = civilStatus.getSelectedItem().toString();
+                String selectedDuration = Duration.getSelectedItem().toString();
                 address = binding.residentialAddress.getText().toString().trim();
                 dateOfBirth = binding.birthDateResidency.getText().toString().trim();
-                duration = binding.duration.getText().toString().trim();
                 residencyPhoneNumber = binding.residencyPhoneNumber.getText().toString().trim();
 
                 // Validate input fields
@@ -188,10 +218,9 @@ public class residencyform extends BaseActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(duration)) {
-                    Log.d("Validation", "Duration is empty");
-                    binding.duration.setError("Please enter the duration");
-                    binding.duration.requestFocus();
+                if (selectedDuration.equals("---")) {
+                    Log.d("Validation", "This field is empty");
+                    Toast.makeText(residencyform.this, "Please select the month/year", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -211,18 +240,20 @@ public class residencyform extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
 
-                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, duration, documentType, ServerValue.TIMESTAMP, userTokenResidency, residencyPhoneNumber);
+                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration,documentType, ServerValue.TIMESTAMP, userTokenResidency, residencyPhoneNumber);
 
                         documentTypeRef.setValue(residencyrequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Certificate of Residency");
                             documentTypeRef.child("status").setValue("Pending");
+
+                            // Update the checkbox state in the database
+                            documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
 
                             binding.fullNameResidency.setText("");
                             binding.ageResidency.setText("");
                             binding.birthDateResidency.setText("");
                             binding.residentialAddress.setText("");
-                            binding.duration.setText("");
                             binding.residencyPhoneNumber.setText("");
                             Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
                         });
@@ -235,5 +266,8 @@ public class residencyform extends BaseActivity {
             }
         });
 
+    }
+
+    private void updateFirebaseDatabase(boolean b) {
     }
 }

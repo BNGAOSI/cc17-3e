@@ -368,6 +368,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/businessLocation" />
 
+            <CheckBox
+                android:id="@+id/checkboxCedula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="120dp"
+                android:text="Do you have a Cedula?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/businessClearancePhoneNumber" />
+
 
             <Button
                 android:id="@+id/submit_btn_businessClearance"
@@ -382,7 +393,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/businessClearancePhoneNumber" />
+                app:layout_constraintTop_toBottomOf="@+id/checkboxCedula" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

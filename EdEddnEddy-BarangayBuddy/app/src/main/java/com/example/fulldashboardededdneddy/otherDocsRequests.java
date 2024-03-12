@@ -3,7 +3,7 @@ package com.example.fulldashboardededdneddy;
 import java.util.Map;
 
 public class otherDocsRequests {
-    String fullName, age, dateOfBirth, civilStatus, gender, address, Duration, purpose, documentType, otherDocsPhoneNumber;
+    String fullName, age, dateOfBirth, civilStatus, gender, address, Duration, purpose, inputDocumentType,documentType, otherDocsPhoneNumber;
     String status;
 public String userTokenOtherDocs;
     public String getStatus() {
@@ -31,7 +31,7 @@ public String userTokenOtherDocs;
         this.civilStatus = civilStatus;
     }
 
-    public otherDocsRequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String Duration,String purpose, String documentType, Map time, String userTokenOtherDocs, String otherDocsPhoneNumber) {
+    public otherDocsRequests(String fullName, String age, String dateOfBirth, String civilStatus, String gender, String address, String Duration, String inputDocumentType,String purpose, String documentType, Map time, String userTokenOtherDocs, String otherDocsPhoneNumber) {
         this.fullName = fullName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
@@ -39,12 +39,21 @@ public String userTokenOtherDocs;
         this.gender = gender;
         this.address = address;
         this.Duration = Duration;
+        this.inputDocumentType = inputDocumentType;
         this.purpose = purpose;
         this.documentType = documentType;
         this.time = time;
         this.userTokenOtherDocs = userTokenOtherDocs;
         this.otherDocsPhoneNumber = otherDocsPhoneNumber;
 
+    }
+
+    public String getInputDocumentType() {
+        return inputDocumentType;
+    }
+
+    public void setInputDocumentType(String inputDocumentType) {
+        this.inputDocumentType = inputDocumentType;
     }
 
     public String getDuration() {
