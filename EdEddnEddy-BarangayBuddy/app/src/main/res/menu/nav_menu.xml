@@ -26,6 +26,12 @@
             android:icon="@drawable/report_icon"
             android:title="File a concern" />
 
+<!--   <item
+            android:id="@+id/nav_emergencyHotline"
+            android:icon="@drawable/outline_contact_emergency_24"
+            android:title="Emergency Hotline"/>     -->
+
+
 
     </group>
 

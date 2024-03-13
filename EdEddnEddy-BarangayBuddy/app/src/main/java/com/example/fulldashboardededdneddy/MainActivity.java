@@ -92,7 +92,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             Intent intent = new Intent(this, InsertionActivity.class);
             startActivity(intent);
             return true;
-        } else if (itemId == id.nav_status) {
+        }
+/*   else if (itemId == id.nav_emergencyHotline) {
+            replaceFragment(new EmergencyHotlineFragment());
+        }     */
+         else if (itemId == id.nav_status) {
             replaceFragment(new DocumentStatusFragment());
         } else if (itemId == id.nav_ResidencyStatus) {
             replaceFragment(new ResidencyStatusFragment());

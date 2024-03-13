@@ -188,13 +188,12 @@ public class announcementsRefinedScreen extends BaseActivity implements Navigati
     }
     private void sendNotification(String title, String message) {
         // Use Firebase Cloud Messaging to send a push notification
-        // Construct notification payload
         Map<String, String> notification = new HashMap<>();
         notification.put("title", title);
         notification.put("body", message);
 
         // Send notification using FCM
-        FirebaseMessaging.getInstance().send(new RemoteMessage.Builder("your-sender-id@gcm.googleapis.com")
+        FirebaseMessaging.getInstance().send(new RemoteMessage.Builder("107104492368")
                 .setMessageId(Integer.toString(new Random().nextInt(9999)))
                 .setData(notification)
                 .build());

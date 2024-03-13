@@ -313,3 +313,13 @@
 - Add latest Barangay Buddy App
 
 - Add notification to AnnouncementRefinedScreen
+
+- Add Emergency Hotline to home screen
+
+### 2024/03/14
+
+- Fix button not responding to click when Home screen fragment tapped twice
+
+- Rename app name to Barangay Ambiong LTD-LGU
+
+- Add latest signed bundle app
