@@ -5,7 +5,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -179,6 +181,13 @@ public class residencyform extends BaseActivity {
                     return;
                 }
 
+                if (TextUtils.isEmpty(dateOfBirth)) {
+                    Log.d("Validation", "Date of birth is empty");
+                    binding.birthDateResidency.setError("Please enter your date of birth");
+                    binding.birthDateResidency.requestFocus();
+                    return;
+                }
+
                 if (TextUtils.isEmpty(age)) {
                     Log.d("Validation", "Age is empty");
                     binding.ageResidency.setError("Please enter your age");
@@ -211,12 +220,7 @@ public class residencyform extends BaseActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(dateOfBirth)) {
-                    Log.d("Validation", "Date of birth is empty");
-                    binding.birthDateResidency.setError("Please enter your date of birth");
-                    binding.birthDateResidency.requestFocus();
-                    return;
-                }
+
 
                 if (selectedDuration.equals("---")) {
                     Log.d("Validation", "This field is empty");
@@ -255,7 +259,7 @@ public class residencyform extends BaseActivity {
                             binding.birthDateResidency.setText("");
                             binding.residentialAddress.setText("");
                             binding.residencyPhoneNumber.setText("");
-                            Toast.makeText(residencyform.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+                            showConfirmationDialog();
                         });
                     } else {
                         String defaultToken = "default_token";
@@ -269,5 +273,18 @@ public class residencyform extends BaseActivity {
     }
 
     private void updateFirebaseDatabase(boolean b) {
+    }
+
+    private void showConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(residencyform.this);
+        builder.setTitle("Requested Document Sent");
+        builder.setMessage("Your requested document has been sent to your Barangay Officials. You can monitor updates of your document at the Document Status screen.");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
     }
 }

@@ -5,7 +5,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -275,7 +277,9 @@ public class otherDocsForm extends BaseActivity {
                             binding.inputDocumentType.setText("");
                             binding.purposeOtherDocs.setText("");
                             binding.otherDocsPhoneNumber.setText("");
-                            Toast.makeText(otherDocsForm.this, "Form successfully submitted", Toast.LENGTH_LONG).show();
+
+                            showConfirmationDialog();
+
                         });
                     } else {
                         String defaultToken = "default_token";
@@ -288,5 +292,18 @@ public class otherDocsForm extends BaseActivity {
     }
 
     private void updateFirebaseDatabase(boolean b) {
+    }
+
+    private void showConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(otherDocsForm.this);
+        builder.setTitle("Requested Document Sent");
+        builder.setMessage("Your requested document has been sent to your Barangay Officials. You can monitor updates of your document at the Document Status screen.");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
     }
 }

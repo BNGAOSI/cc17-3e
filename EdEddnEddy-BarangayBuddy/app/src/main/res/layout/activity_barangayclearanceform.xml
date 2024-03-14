@@ -375,11 +375,10 @@
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:layout_constraintBottom_toBottomOf="@id/submit_btn"
+                app:layout_constraintEnd_toEndOf="@id/submit_btn"
+                app:layout_constraintStart_toStartOf="@id/submit_btn"
+                app:layout_constraintTop_toTopOf="@id/submit_btn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

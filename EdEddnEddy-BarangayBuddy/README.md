@@ -323,3 +323,9 @@
 - Rename app name to Barangay Ambiong LTD-LGU
 
 - Add latest signed bundle app
+
+### 2024/03/15
+
+- Add confirmation alert dialog to every document submission
+
+- Add latest signed APK Bundle

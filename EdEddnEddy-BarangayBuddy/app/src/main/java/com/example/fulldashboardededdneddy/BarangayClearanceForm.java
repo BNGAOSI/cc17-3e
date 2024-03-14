@@ -1,11 +1,15 @@
 package com.example.fulldashboardededdneddy;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -57,12 +61,15 @@ public class BarangayClearanceForm extends BaseActivity {
     FirebaseAuth auth;
 
     RadioGroup genderRadioGroup;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityBarangayclearanceformBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        progressBar = findViewById(R.id.progressBar);
 
         toolbar = findViewById(R.id.appToolbar);
 
@@ -86,8 +93,6 @@ public class BarangayClearanceForm extends BaseActivity {
                 updateFirebaseDatabase(false);
             }
         });
-
-
 
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
@@ -171,6 +176,7 @@ public class BarangayClearanceForm extends BaseActivity {
             @Override
             public void onClick(View v) {
 
+
                 int selectedRadioButtonId = genderRadioGroup.getCheckedRadioButtonId();
                 RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
 
@@ -251,6 +257,8 @@ public class BarangayClearanceForm extends BaseActivity {
 
                 Log.d("Validation", "All fields are filled. Proceed with submission.");
 
+                // Show ProgressBar when button is clicked
+                progressBar.setVisibility(View.VISIBLE);
 
 
                 FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
@@ -272,7 +280,6 @@ public class BarangayClearanceForm extends BaseActivity {
                         BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, selectedCivilStatus, selectedDuration, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
 
 
-
                         documentTypeRef.setValue(barangayClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Barangay Clearance");
                             documentTypeRef.child("status").setValue("Pending");
@@ -285,12 +292,16 @@ public class BarangayClearanceForm extends BaseActivity {
                             binding.barangayClearancePhoneNumber.setText("");
                             binding.presentAddress.setText("");
                             binding.purpose.setText("");
-                            Toast.makeText(BarangayClearanceForm.this, "Request successfully submitted", Toast.LENGTH_SHORT).show();
+
+                            showConfirmationDialog();
                         });
                     } else {
                         String defaultToken = "default_token";
                     }
+
                 });
+                // Hide ProgressBar when operation is complete
+                progressBar.setVisibility(View.GONE);
 
             }
         });
@@ -300,5 +311,18 @@ public class BarangayClearanceForm extends BaseActivity {
 
     private void updateFirebaseDatabase(boolean isChecked) {
 
+    }
+
+    private void showConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(BarangayClearanceForm.this);
+        builder.setTitle("Requested Document Sent");
+        builder.setMessage("Your requested document has been sent to your Barangay Officials. You can monitor updates of your document at the Document Status screen.");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
     }
 }

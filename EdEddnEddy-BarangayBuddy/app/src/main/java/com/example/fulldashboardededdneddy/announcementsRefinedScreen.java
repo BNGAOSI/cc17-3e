@@ -119,7 +119,7 @@ public class announcementsRefinedScreen extends BaseActivity implements Navigati
         recyclerView.setLayoutManager(gridLayoutManager);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(announcementsRefinedScreen.this);
-        builder.setCancelable(false);
+        builder.setCancelable(true);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
         dialog.show();

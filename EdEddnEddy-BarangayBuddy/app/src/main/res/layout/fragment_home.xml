@@ -210,12 +210,12 @@
 
             <LinearLayout
                 android:id="@+id/dashboardLinearLayout"
-                android:gravity="center"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="80dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -237,12 +237,27 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/montserratbold"
+                            android:textSize="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Barangay Ambiong"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/montserratbold"
+                            android:textSize="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="VISION/MISSION/GOALS"/>
 
                         <TextView
                             android:id="@+id/visionTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
+                            android:layout_marginTop="40dp"
                             android:fontFamily="@font/montserratbold"
                             android:paddingLeft="20dp"
                             android:text="Vision" />
@@ -308,15 +323,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/VisionMissionGoalCard">
 
                     <LinearLayout
-                        android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
+                            android:textSize="20dp"
                             android:fontFamily="@font/montserratbold"
                             android:text="Barangay Ambiong"
                             android:textAlignment="center" />
@@ -324,6 +340,8 @@
                         <TextView
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="20dp"
                             android:fontFamily="@font/montserratbold"
                             android:text="Historical Background"
                             android:textAlignment="center" />
@@ -338,6 +356,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="20dp"
+                            android:textSize="18dp"
                             android:text="@string/history_ambiong_desc" />
 
                     </LinearLayout>
@@ -356,18 +375,38 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="270dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/political_map_of_ambiong" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/montserratbold"
+                            android:text="Political Map of Barangay Ambiong"
+                            android:textAlignment="center" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="270dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/political_map_of_ambiong" />
+
+                    </LinearLayout>
+
+
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/roadMapAmbiongCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/roadMapAmbiongCard"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="30dp"
                     android:elevation="20dp"
@@ -376,11 +415,31 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="265dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ambiong_roadmap"/>
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/montserratbold"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="Road Map of Barangay Ambiong"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="265dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ambiong_roadmap" />
+
+                    </LinearLayout>
+
+
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

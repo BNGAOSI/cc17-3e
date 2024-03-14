@@ -50,19 +50,19 @@
                 android:layout_marginTop="36dp"
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:elevation="8dp"
-                android:textSize="15dp"
                 android:hint="Last Name, First Name, Middle Name"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
+                android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewBusinessClearancetitle" />
 
             <LinearLayout
+                android:id="@+id/bdateAgeLinearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bdateAgeLinearLayout"
                 android:layout_marginTop="32dp"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -76,7 +76,6 @@
                     android:orientation="vertical">
 
 
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -88,63 +87,104 @@
 
             </LinearLayout>
 
-            <TextView
+
+
+            <LinearLayout
+                android:id="@+id/residencyBdateAgeLinearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Age*"
-                android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/age_residency"
-                app:layout_constraintStart_toStartOf="@+id/age_residency" />
-
-
-            <EditText
-                android:id="@+id/age_residency"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/round_back_dark_blue5_15"
-                android:hint=""
-                android:inputType="number"
-                android:maxLength="2"
-                android:paddingLeft="20dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintColor"
+                android:layout_margin="32dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullName_residency" />
+                app:layout_constraintTop_toBottomOf="@id/fullName_residency">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date of Birth*"
-                android:textColor="#555555"
-                app:layout_constraintBottom_toTopOf="@+id/birthDateResidency"
-                app:layout_constraintStart_toStartOf="@+id/birthDateResidency" />
 
-            <EditText
-                android:id="@+id/birthDateResidency"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/round_back_dark_blue5_15"
-                android:focusable="false"
-                android:hint="---"
-                android:paddingLeft="20dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintColor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/age_residency" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:src="@drawable/baseline_calendar_month_24"
-                app:layout_constraintBottom_toBottomOf="@+id/birthDateResidency"
-                app:layout_constraintEnd_toEndOf="@+id/birthDateResidency"
-                app:layout_constraintTop_toTopOf="@+id/birthDateResidency" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date of Birth*"
+                        android:textColor="#555555"
+                        app:layout_constraintBottom_toTopOf="@+id/birthDateResidency"
+                        app:layout_constraintStart_toStartOf="@+id/birthDateResidency" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp">
+
+                        <EditText
+                            android:id="@+id/birthDateResidency"
+                            android:layout_width="200dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_back_dark_blue5_15"
+                            android:focusable="false"
+                            android:hint="---"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/hintColor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="30dp"
+                            android:src="@drawable/baseline_calendar_month_24"
+                            app:layout_constraintBottom_toBottomOf="@+id/birthDateResidency"
+                            app:layout_constraintEnd_toEndOf="@+id/birthDateResidency"
+                            app:layout_constraintTop_toTopOf="@+id/birthDateResidency" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age*"
+                        android:textColor="#555555"
+                        app:layout_constraintBottom_toTopOf="@+id/age_residency"
+                        app:layout_constraintStart_toStartOf="@+id/age_residency" />
+
+                    <EditText
+                        android:id="@+id/age_residency"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/round_back_dark_blue5_15"
+                        android:hint=""
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:paddingLeft="20dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fullName_residency" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
 
 
             <ImageView
@@ -166,7 +206,7 @@
                 android:paddingLeft="55dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/birthDateResidency">
+                app:layout_constraintTop_toBottomOf="@+id/residencyBdateAgeLinearLayout">
 
 
                 <Spinner
