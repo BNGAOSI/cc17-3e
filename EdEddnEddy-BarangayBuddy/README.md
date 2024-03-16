@@ -329,3 +329,9 @@
 - Add confirmation alert dialog to every document submission
 
 - Add latest signed APK Bundle
+
+### 2024/03/16
+
+- Add Barangay Personnel to home
+
+- Add latest signed APK Bundle

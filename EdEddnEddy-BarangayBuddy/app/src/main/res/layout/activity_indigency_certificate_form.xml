@@ -334,7 +334,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/durationSpinner" />
 
-
             <Button
                 android:id="@+id/submit_btn_indigency"
                 android:layout_width="300dp"
