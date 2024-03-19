@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_blue_background"
-    tools:context=".SecureDocumentsFragment">
+    tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.SecureDocumentsFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".SecureDocument">
+            tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.SecureDocument">
 
             <TextView
                 android:id="@+id/chooseDocs"

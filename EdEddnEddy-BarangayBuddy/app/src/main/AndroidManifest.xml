@@ -19,7 +19,7 @@
             android:name=".horizontalView"
             android:exported="false" />
         <activity
-            android:name=".IndigencyCertificateForm"
+            android:name="IndigencyCertificateForm"
             android:exported="false"
             android:parentActivityName=".SecureDocument"
             android:screenOrientation="portrait" />

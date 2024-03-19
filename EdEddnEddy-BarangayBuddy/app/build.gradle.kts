@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.fulldashboardededdneddy"
+    namespace = "com.ambiongltb.fulldashboardededdneddy"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.fulldashboardededdneddy"
+        applicationId = "com.ambiongltb.fulldashboardededdneddy"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -22,8 +22,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -41,6 +40,7 @@ android {
 
 dependencies {
 
+    implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
@@ -59,12 +59,11 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
-    implementation ("com.google.android.gms:play-services-maps:18.2.0")
-    implementation ("com.github.bumptech.glide:glide:4.14.2")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
     implementation("com.google.gms:google-services:4.4.1")
-    implementation ("com.airbnb.android:lottie:3.4.0")
-
+    implementation("com.airbnb.android:lottie:3.4.0")
 
 
 }

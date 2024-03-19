@@ -7,7 +7,7 @@
     android:gravity="center"
 
     android:orientation="vertical"
-    tools:context=".Login">
+    tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.Login">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"

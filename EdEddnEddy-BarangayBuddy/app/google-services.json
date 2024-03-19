@@ -8,6 +8,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:107104492368:android:f7062120de8b2675efaa55",
+        "android_client_info": {
+          "package_name": "com.ambiongltb.fulldashboardededdneddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmsU9WUP9of3E-VYYQzVPlEIW82r7tmNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:107104492368:android:6e403d682b4de36fefaa55",
         "android_client_info": {
           "package_name": "com.example.fulldashboardededdneddy"

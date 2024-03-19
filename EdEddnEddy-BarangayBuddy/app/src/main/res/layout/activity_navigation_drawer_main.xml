@@ -7,7 +7,7 @@
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    tools:context=".navigation_drawer_main">
+    tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.navigation_drawer_main">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".residencyform">
+    tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.residencyform">
 
     <include
         android:id="@+id/appToolbar"

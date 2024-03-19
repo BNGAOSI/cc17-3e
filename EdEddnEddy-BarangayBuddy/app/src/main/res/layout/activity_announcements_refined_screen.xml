@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/divider_grey_2"
     android:fitsSystemWindows="true"
-    tools:context=".announcementsRefinedScreen"
+    tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.announcementsRefinedScreen"
     tools:openDrawer="start">
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/divider_grey_2"
     android:scrollbarSize="8dp"
-    tools:context=".MapActivity">
+    tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.MapActivity">
 
 
     <TextView

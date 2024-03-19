@@ -335,3 +335,11 @@
 - Add Barangay Personnel to home
 
 - Add latest signed APK Bundle
+
+### 2024/03/19
+
+- Change app name from com.example.fulldashboardededdneddy to com.ambiongltb.fulldashboardededdneddy
+
+- Change firebase dependency to the latest
+
+- Add new signed bundle aab and apk
