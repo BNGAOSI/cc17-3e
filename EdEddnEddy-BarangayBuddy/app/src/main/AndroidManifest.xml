@@ -16,10 +16,13 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".NotificationBuild"
+            android:exported="false" />
+        <activity
             android:name=".horizontalView"
             android:exported="false" />
         <activity
-            android:name="IndigencyCertificateForm"
+            android:name=".IndigencyCertificateForm"
             android:exported="false"
             android:parentActivityName=".SecureDocument"
             android:screenOrientation="portrait" />
@@ -101,8 +104,7 @@
         <activity
             android:name=".AnnouncementDetailActivity"
             android:exported="false"
-            android:parentActivityName=".announcementsRefinedScreen"
-             />
+            android:parentActivityName=".announcementsRefinedScreen" />
         <activity
             android:name=".ChatActivity"
             android:exported="false"

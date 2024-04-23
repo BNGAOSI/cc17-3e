@@ -343,3 +343,7 @@
 - Change firebase dependency to the latest
 
 - Add new signed bundle aab and apk
+
+### 2024/04/24
+
+- Add functional notification everytime a new announcement is posted
