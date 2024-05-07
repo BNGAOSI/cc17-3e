@@ -14,23 +14,17 @@
         <item
             android:id="@+id/nav_secure_document"
             android:icon="@drawable/secure_documents_icon"
-            android:title="Secure a Document" />
+            android:title="About the Barangay Ambiong" />
 
         <item
             android:id="@+id/nav_suggest"
             android:icon="@drawable/suggestion_icon"
-            android:title="Send a suggestion" />
+            android:title="Barangay Officials" />
 
         <item
             android:id="@+id/nav_report"
             android:icon="@drawable/report_icon"
-            android:title="File a concern" />
-
-<!--   <item
-            android:id="@+id/nav_emergencyHotline"
-            android:icon="@drawable/outline_contact_emergency_24"
-            android:title="Emergency Hotline"/>     -->
-
+            android:title="Barangay Ambiong Map" />
 
 
     </group>
@@ -40,30 +34,32 @@
         <menu tools:showIn="navigation_view">
 
             <item
-                
+
                 android:id="@+id/nav_status"
-                android:icon="@drawable/baseline_text_snippet_24"
+                android:icon="@drawable/file_text_line"
                 android:title="Barangay Clearance" />
 
             <item
                 android:id="@+id/nav_ResidencyStatus"
-
+                android:icon="@drawable/file_text_line"
                 android:title="Residency Certificate" />
             <item
                 android:id="@+id/nav_BusinessClearStatus"
-
+                android:icon="@drawable/file_text_line"
                 android:title="Business Clearance" />
 
             <item
                 android:id="@+id/nav_IndigencyStatus"
-                android:title="Indigency Certificate"/>
+                android:icon="@drawable/file_text_line"
+                android:title="Indigency Certificate" />
 
             <item
                 android:id="@+id/nav_OtherDocsStatus"
-
+                android:icon="@drawable/folders_line"
                 android:title="Other Documents" />
             <item
                 android:id="@+id/nav_FinishedStatus"
+                android:icon="@drawable/folder_check_line"
                 android:title="Claimed Documents" />
         </menu>
 

@@ -347,3 +347,7 @@
 ### 2024/04/24
 
 - Add functional notification everytime a new announcement is posted
+
+### 2024/05/07
+
+- Changes the fragment at home page

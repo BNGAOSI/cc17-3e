@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue_background"
+    tools:context="com.example.fulldashboardededdneddy.com.ambiongltb.fulldashboardededdneddy.SecureDocumentsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/dashboardLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/VisionMissionGoalCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/announcement_button">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/montserratbold"
+                            android:text="Barangay Ambiong"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/montserratbold"
+                            android:text="VISION/MISSION/GOALS"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/visionTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:fontFamily="@font/montserratbold"
+                            android:paddingLeft="20dp"
+                            android:text="Vision" />
+
+                        <TextView
+                            android:id="@+id/vision"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="20dp"
+                            android:fontFamily="@font/montserratregular"
+                            android:padding="20dp"
+                            android:text="@string/Vision" />
+
+                        <TextView
+                            android:id="@+id/missionTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserratbold"
+                            android:paddingLeft="20dp"
+                            android:text="Mission" />
+
+                        <TextView
+                            android:id="@+id/missionDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="20dp"
+                            android:fontFamily="@font/montserratregular"
+                            android:padding="20dp"
+                            android:text="@string/Mission" />
+
+                        <TextView
+                            android:id="@+id/goalTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserratbold"
+                            android:paddingLeft="20dp"
+                            android:text="Goal" />
+
+                        <TextView
+                            android:id="@+id/goalDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="20dp"
+                            android:fontFamily="@font/montserratregular"
+                            android:padding="20dp"
+                            android:text="@string/Goal" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/historyCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:elevation="20dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/VisionMissionGoalCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/montserratbold"
+                            android:text="Barangay Ambiong"
+                            android:textAlignment="center"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/montserratbold"
+                            android:text="Historical Background"
+                            android:textAlignment="center"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/black_carpenter_bees" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="20dp"
+                            android:text="@string/history_ambiong_desc"
+                            android:textSize="18dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </ScrollView>
+
+
+</FrameLayout>
