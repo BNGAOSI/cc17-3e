@@ -351,3 +351,7 @@
 ### 2024/05/07
 
 - Changes the fragment at home page
+
+### 2024/05/08
+
+- Fix changes to the UI of announcement images

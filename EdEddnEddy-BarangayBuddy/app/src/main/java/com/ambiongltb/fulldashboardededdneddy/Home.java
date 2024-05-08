@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ambiongltb.fulldashboardededdneddy.reportactvities.InsertionActivity;
@@ -24,6 +25,7 @@ public class Home extends Fragment {
     Activity context;
 
     View view;
+
     private final double destinationLat = 16.433671;
     private final double destinationLng = 120.606401;
 
@@ -36,7 +38,9 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        context = getActivity();
+
+
+                context = getActivity();
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
