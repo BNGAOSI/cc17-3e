@@ -38,14 +38,23 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-
-
-                context = getActivity();
+        context = getActivity();
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
 
+        // Enables an image to be clickable
+        ImageView emergencyContactsImageView = view.findViewById(R.id.emergency_contacts);
+        emergencyContactsImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EmergencyContacts.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
+
 
     }
 

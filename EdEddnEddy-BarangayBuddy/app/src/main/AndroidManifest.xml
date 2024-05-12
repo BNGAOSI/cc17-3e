@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
-        <service android:name=".NotificationService"></service>
+        <activity
+            android:name=".EmergencyContacts"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+
+        <service android:name=".NotificationService" />
+
         <activity
             android:name=".NotificationBuild"
             android:exported="false" />

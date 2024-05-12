@@ -52,12 +52,20 @@
                         android:textSize="24sp" />
 
 
-                    <ImageView
+                    <com.jsibbold.zoomage.ZoomageView
                         android:id="@+id/announcement_detailImage"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="400dp"
                         android:layout_gravity="center"
                         android:scaleType="fitStart"
+                        app:zoomage_restrictBounds="false"
+                        app:zoomage_animateOnReset="true"
+                        app:zoomage_autoResetMode="UNDER"
+                        app:zoomage_autoCenter="true"
+                        app:zoomage_zoomable="true"
+                        app:zoomage_translatable="true"
+                        app:zoomage_minScale="0.6"
+                        app:zoomage_maxScale="8"
                         android:src="@drawable/uploadimg" />
 
 

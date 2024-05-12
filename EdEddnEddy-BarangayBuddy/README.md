@@ -355,3 +355,7 @@
 ### 2024/05/08
 
 - Fix changes to the UI of announcement images
+
+### 2024/05/13
+
+- Add Zoom in and out feature on Images

@@ -64,6 +64,6 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
     implementation("com.google.gms:google-services:4.4.1")
     implementation("com.airbnb.android:lottie:3.4.0")
-
-
+    implementation("com.jsibbold:zoomage:1.3.1")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 }

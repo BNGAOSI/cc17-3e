@@ -155,11 +155,20 @@
                             android:textAlignment="center"
                             android:textSize="20dp" />
 
-                        <ImageView
+                        <com.jsibbold.zoomage.ZoomageView
+                            android:id="@+id/blackCarpetBeeZoomageView"
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/black_carpenter_bees" />
+                            android:src="@drawable/black_carpenter_bees"
+                            app:zoomage_restrictBounds="false"
+                            app:zoomage_animateOnReset="true"
+                            app:zoomage_autoResetMode="UNDER"
+                            app:zoomage_autoCenter="true"
+                            app:zoomage_zoomable="true"
+                            app:zoomage_translatable="true"
+                            app:zoomage_minScale="0.6"
+                            app:zoomage_maxScale="8"/>
 
                         <TextView
                             android:layout_width="match_parent"

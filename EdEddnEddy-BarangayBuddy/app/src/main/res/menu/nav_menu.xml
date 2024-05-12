@@ -12,17 +12,17 @@
             android:title="Home" />
 
         <item
-            android:id="@+id/nav_secure_document"
+            android:id="@+id/nav_aboutBarangay"
             android:icon="@drawable/secure_documents_icon"
             android:title="About the Barangay Ambiong" />
 
         <item
-            android:id="@+id/nav_suggest"
-            android:icon="@drawable/suggestion_icon"
+            android:id="@+id/nav_barangayOfficials"
+            android:icon="@drawable/outline_gavel_24"
             android:title="Barangay Officials" />
 
         <item
-            android:id="@+id/nav_report"
+            android:id="@+id/nav_barangayMap"
             android:icon="@drawable/report_icon"
             android:title="Barangay Ambiong Map" />
 

@@ -57,11 +57,19 @@
                             android:textAlignment="center"
                             android:textSize="18dp" />
 
-                        <ImageView
+                        <com.jsibbold.zoomage.ZoomageView
                             android:layout_width="match_parent"
                             android:layout_height="270dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/political_map_of_ambiong" />
+                            android:src="@drawable/political_map_of_ambiong"
+                            app:zoomage_restrictBounds="false"
+                            app:zoomage_animateOnReset="true"
+                            app:zoomage_autoResetMode="UNDER"
+                            app:zoomage_autoCenter="true"
+                            app:zoomage_zoomable="true"
+                            app:zoomage_translatable="true"
+                            app:zoomage_minScale="0.6"
+                            app:zoomage_maxScale="8"/>
 
                     </LinearLayout>
 
@@ -96,11 +104,19 @@
                             android:textAlignment="center"
                             android:textSize="20dp" />
 
-                        <ImageView
+                        <com.jsibbold.zoomage.ZoomageView
                             android:layout_width="match_parent"
                             android:layout_height="265dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ambiong_roadmap" />
+                            android:src="@drawable/ambiong_roadmap"
+                            app:zoomage_restrictBounds="false"
+                            app:zoomage_animateOnReset="true"
+                            app:zoomage_autoResetMode="UNDER"
+                            app:zoomage_autoCenter="true"
+                            app:zoomage_zoomable="true"
+                            app:zoomage_translatable="true"
+                            app:zoomage_minScale="0.6"
+                            app:zoomage_maxScale="8"/>
 
                     </LinearLayout>
 

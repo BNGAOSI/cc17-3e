@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.ambiongltb.fulldashboardededdneddy.reportactvities.InsertionActivity;
 import com.ambiongltb.fulldashboardededdneddy.R.id;
 import com.ambiongltb.fulldashboardededdneddy.R.layout;
 import com.google.android.material.navigation.NavigationView;
@@ -81,12 +80,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         int itemId = item.getItemId();
         if (itemId == id.nav_home) {
             replaceFragment(new Home());
-        } else if (itemId == id.nav_secure_document) {
+        } else if (itemId == id.nav_aboutBarangay) {
             replaceFragment(new AboutBarangayAmbiongFragment());
-        } else if (itemId == id.nav_suggest) {
+        } else if (itemId == id.nav_barangayOfficials) {
             replaceFragment(new BarangayOfficialsFragment());
-        } else if (itemId == id.nav_report) {
-            replaceFragment(new SendReportFragment());
+        } else if (itemId == id.nav_barangayMap) {
+            replaceFragment(new BarangayMapFragment());
         }
 /*   else if (itemId == id.nav_emergencyHotline) {
             replaceFragment(new EmergencyHotlineFragment());
