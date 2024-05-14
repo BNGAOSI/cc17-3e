@@ -102,15 +102,16 @@ public final class Suggest extends BaseActivity {
                     EditText etEtcDetails = findViewById(R.id.etEtcDetails);
                     String etcDetails = etEtcDetails != null ? etEtcDetails.getText().toString() : "";
 
+                    if (etSugName != null) etSugName.getText().clear();
+                    if (etSuggest != null) etSuggest.getText().clear();
+                    if (etEtcDetails != null) etEtcDetails.getText().clear();
 
                     SuggestionModel suggestion = new SuggestionModel(sugId, sugName, suggest, ServerValue.TIMESTAMP, ckboxHealth.isChecked(), ckboxEducation.isChecked(), ckboxSports.isChecked(), ckboxBarangayImprv.isChecked(), ckboxEtc.isChecked(), etcDetails);
 
 
                     suggestionReference.setValue(suggestion).addOnCompleteListener(it -> {
                         Toast.makeText(Suggest.this, "Suggestion sent successfully", Toast.LENGTH_LONG).show();
-                        if (etSugName != null) etSugName.getText().clear();
-                        if (etSuggest != null) etSuggest.getText().clear();
-                        if (etEtcDetails != null) etEtcDetails.getText().clear();
+
                     }).addOnFailureListener(err -> {
                         Toast.makeText(Suggest.this, "Error " + err.getMessage(), Toast.LENGTH_LONG).show();
                     });

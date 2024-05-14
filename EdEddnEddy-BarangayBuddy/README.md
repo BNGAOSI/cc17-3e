@@ -359,3 +359,7 @@
 ### 2024/05/13
 
 - Add Zoom in and out feature on Images
+
+### 2024/05/14
+
+- Fix submit button function to every user input

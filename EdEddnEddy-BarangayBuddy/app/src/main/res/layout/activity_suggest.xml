@@ -28,6 +28,7 @@
                 android:background="@drawable/round_back_dark_blue5_15"
                 android:hint="Name (Optional)"
                 android:paddingLeft="20dp"
+                android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +95,7 @@
                 android:layout_marginTop="13dp"
                 android:hint="                                   "
                 android:textSize="13dp"
+                android:inputType="text"
                 app:layout_constraintStart_toEndOf="@+id/checkboxEtc"
                 app:layout_constraintTop_toBottomOf="@+id/checkboxEducation" />
 

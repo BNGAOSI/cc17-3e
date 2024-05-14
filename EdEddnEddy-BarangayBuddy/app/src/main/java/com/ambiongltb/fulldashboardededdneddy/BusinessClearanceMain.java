@@ -246,7 +246,15 @@ public class BusinessClearanceMain extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Business Clearance").child(uid).child(businessClearanceUID);
 
-                        BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, dateOfBirth, age,selectedCivilStatus, selectedDuration, gender, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenBusiness, businessClearancePhone);
+                        binding.fullNameBusinessClearance.setText("");
+                        binding.ageBusiness.setText("");
+                        binding.birthDateBusiness.setText("");
+                        binding.businessNameOrEstablishment.setText("");
+                        binding.typeOfBusiness.setText("");
+                        binding.businessLocation.setText("");
+                        binding.businessClearancePhoneNumber.setText("");
+
+                        BusincessClearanceRequests BusinessClearanceRequests = new BusincessClearanceRequests(fullName, dateOfBirth, age, selectedCivilStatus, selectedDuration, gender, nameOfBusiness, typeOfBusiness, businessAddress, documentType, ServerValue.TIMESTAMP, userTokenBusiness, businessClearancePhone);
                         documentTypeRef.setValue(BusinessClearanceRequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Business Clearance");
                             documentTypeRef.child("status").setValue("Pending");
@@ -254,14 +262,6 @@ public class BusinessClearanceMain extends BaseActivity {
                             // Update the checkbox state in the database
                             documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
-
-                            binding.fullNameBusinessClearance.setText("");
-                            binding.ageBusiness.setText("");
-                            binding.birthDateBusiness.setText("");
-                            binding.businessNameOrEstablishment.setText("");
-                            binding.typeOfBusiness.setText("");
-                            binding.businessLocation.setText("");
-                            binding.businessClearancePhoneNumber.setText("");
 
                             showConfirmationDialog();
 

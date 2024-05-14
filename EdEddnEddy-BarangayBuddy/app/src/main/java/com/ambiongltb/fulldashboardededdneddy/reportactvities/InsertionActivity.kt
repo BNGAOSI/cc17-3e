@@ -101,13 +101,14 @@ class InsertionActivity : com.ambiongltb.fulldashboardededdneddy.BaseActivity() 
             resId, resName, resCurLoc, resReport, resPhoneNumber, timeStamp, reportType
         )
 
+        etResName.text.clear()
+        etResCurLoc.text.clear()
+        etResRep.text.clear()
+        etResPhoneNumber.text.clear()
+
         dbDatabaseReference.child(userId).child(resId).setValue(resident).addOnCompleteListener {
             Toast.makeText(this, "Report successfully submitted", Toast.LENGTH_LONG).show()
 
-            etResName.text.clear()
-            etResCurLoc.text.clear()
-            etResRep.text.clear()
-            etResPhoneNumber.text.clear()
 
         }.addOnFailureListener { err ->
             Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()

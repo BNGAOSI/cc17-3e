@@ -216,7 +216,6 @@ public class residencyform extends BaseActivity {
                 }
 
 
-
                 if (selectedDuration.equals("---")) {
                     Log.d("Validation", "This field is empty");
                     Toast.makeText(residencyform.this, "Please select the month/year", Toast.LENGTH_SHORT).show();
@@ -239,7 +238,13 @@ public class residencyform extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Residency").child(uid).child(resiUID);
 
-                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration,documentType, ServerValue.TIMESTAMP, userTokenResidency, residencyPhoneNumber);
+                        binding.fullNameResidency.setText("");
+                        binding.ageResidency.setText("");
+                        binding.birthDateResidency.setText("");
+                        binding.residentialAddress.setText("");
+                        binding.residencyPhoneNumber.setText("");
+
+                        residencyrequests residencyrequests = new residencyrequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration, documentType, ServerValue.TIMESTAMP, userTokenResidency, residencyPhoneNumber);
 
                         documentTypeRef.setValue(residencyrequests).addOnCompleteListener(task1 -> {
                             documentTypeRef.child("documentType").setValue("Certificate of Residency");
@@ -249,11 +254,6 @@ public class residencyform extends BaseActivity {
                             documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
 
-                            binding.fullNameResidency.setText("");
-                            binding.ageResidency.setText("");
-                            binding.birthDateResidency.setText("");
-                            binding.residentialAddress.setText("");
-                            binding.residencyPhoneNumber.setText("");
                             showConfirmationDialog();
                         });
                     } else {

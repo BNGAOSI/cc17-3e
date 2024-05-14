@@ -263,6 +263,12 @@ public class BarangayClearanceForm extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Barangay Clearance").child(uid).child(barangayClearanceUID);
 
+                        binding.fullNameBarangayClearance.setText("");
+                        binding.age.setText("");
+                        binding.birthDate.setText("");
+                        binding.barangayClearancePhoneNumber.setText("");
+                        binding.presentAddress.setText("");
+                        binding.purpose.setText("");
 
                         BarangayClearanceRequests barangayClearanceRequests = new BarangayClearanceRequests(fullName, age, dateOfBirth, presentAddress, selectedCivilStatus, selectedDuration, purpose, gender, documentType, ServerValue.TIMESTAMP, userTokenBarangayClearance, phoneNumber);
 
@@ -273,12 +279,7 @@ public class BarangayClearanceForm extends BaseActivity {
                             // Update the checkbox state in the database
                             documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
-                            binding.fullNameBarangayClearance.setText("");
-                            binding.age.setText("");
-                            binding.birthDate.setText("");
-                            binding.barangayClearancePhoneNumber.setText("");
-                            binding.presentAddress.setText("");
-                            binding.purpose.setText("");
+
 
                             showConfirmationDialog();
                         });

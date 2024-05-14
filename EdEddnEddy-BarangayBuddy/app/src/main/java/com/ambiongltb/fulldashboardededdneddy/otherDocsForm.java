@@ -256,6 +256,14 @@ public class otherDocsForm extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Others").child(uid).child(resiUID);
 
+                        binding.fullNameOtherDocs.setText("");
+                        binding.ageOtherDocs.setText("");
+                        binding.birthDateotherDocs.setText("");
+                        binding.OtherDocsAddress.setText("");
+                        binding.inputDocumentType.setText("");
+                        binding.purposeOtherDocs.setText("");
+                        binding.otherDocsPhoneNumber.setText("");
+
                         otherDocsRequests otherDocsRequests = new otherDocsRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration, inputDocumenttype,purpose, documentType, ServerValue.TIMESTAMP, userTokenOtherDocs, otherDocsPhoneNumber);
 
                         documentTypeRef.setValue(otherDocsRequests).addOnCompleteListener(task1 -> {
@@ -266,13 +274,7 @@ public class otherDocsForm extends BaseActivity {
                             // Update the checkbox state in the database
                             documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
-                            binding.fullNameOtherDocs.setText("");
-                            binding.ageOtherDocs.setText("");
-                            binding.birthDateotherDocs.setText("");
-                            binding.OtherDocsAddress.setText("");
-                            binding.inputDocumentType.setText("");
-                            binding.purposeOtherDocs.setText("");
-                            binding.otherDocsPhoneNumber.setText("");
+
 
                             showConfirmationDialog();
 

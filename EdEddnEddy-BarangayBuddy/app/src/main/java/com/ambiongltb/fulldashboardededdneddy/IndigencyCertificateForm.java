@@ -246,6 +246,12 @@ public class IndigencyCertificateForm extends BaseActivity {
 
                         DatabaseReference documentTypeRef = reference.child("Indigency").child(uid).child(resiUID);
 
+                        binding.fullNameIndigency.setText("");
+                        binding.ageIndigency.setText("");
+                        binding.birthDateIndigency.setText("");
+                        binding.residentialAddress.setText("");
+                        binding.indigencyPhoneNumber.setText("");
+
                         IndigencyRequests IndigencyRequests = new IndigencyRequests(fullName, age, dateOfBirth, selectedCivilStatus, gender, address, selectedDuration, documentType, ServerValue.TIMESTAMP, userTokenIndigency, indigencyPhoneNumber);
 
                         documentTypeRef.setValue(IndigencyRequests).addOnCompleteListener(task1 -> {
@@ -256,11 +262,7 @@ public class IndigencyCertificateForm extends BaseActivity {
                             documentTypeRef.child("hasCedula").setValue(checkboxCedula.isChecked());
 
 
-                            binding.fullNameIndigency.setText("");
-                            binding.ageIndigency.setText("");
-                            binding.birthDateIndigency.setText("");
-                            binding.residentialAddress.setText("");
-                            binding.indigencyPhoneNumber.setText("");
+
 
                             showConfirmationDialog();
                         });
